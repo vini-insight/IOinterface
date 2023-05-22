@@ -18,9 +18,9 @@ https://app.diagrams.net/ (software utilizado para criar o fluxograma)
 
 <p> O objetivo é desenvolver um software capaz de ler de sensores analógicos e digitais em um microcontrolador utilizando comunicação serial.</p>
 
-<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma [NodeMCU]() para a confecção das unidades de sensoriamento.</p>
+<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma [NodeMCU](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf) para a confecção das unidades de sensoriamento.</p>
 
-<p> O gerenciamento do sistema será comandado por um [Single Board Computer SPB]() </p>
+<p> O gerenciamento do sistema será comandado por um [Single Board Computer SPB](https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf) e os valores das leituras serão mostrados no [display LCD 16x2](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf)</p>
 
 ## Requisitos Atendidos
 
