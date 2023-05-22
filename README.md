@@ -177,8 +177,11 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 ## Protocolo:
 
-<p>O protocolo possibilita que a comunicação entre o SBC e a NodeMCU seja realizada de forma eficiente.
-Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
+<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
+
+<p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
+
+<p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Desenvolvedores
 
