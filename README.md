@@ -24,18 +24,22 @@ https://app.diagrams.net/ (software utilizado para criar o fluxograma)
 
 ## Requisitos Atendidos
 
-<p>
-- Solução desenvolvida em linguagem C
-- Script de compilação do tipo Makefile para criação do executavel
-- Para o SBC
-  - Apenas o SBC é capaz de iniciar a comunicação
-  - Interligação com até 32 unidades de sensoriamento
-- Para a NodeMCU
-  - A leitura dos sensores deve ter a maior precisão possível
-  - Os comandos serão compostos por palavras de 1 byte (8 bits)
-  - As requisições podem ser direcionadas para uma unidade ou todas
-  - Comandos e respostas devem ser exibidas no display LCD 16x2
-</p>
+<ul> 
+<li> Solução desenvolvida em linguagem C </li>
+<li>Script de compilação do tipo Makefile para criação do executavel </li>
+<li>Para o SBC
+<ul> 
+  <li>Apenas o SBC é capaz de iniciar a comunicação </li>
+  <li>Interligação com até 32 unidades de sensoriamento </li>
+</ul>
+<li>Para a NodeMCU
+<ul> 
+  <li>A leitura dos sensores deve ter a maior precisão possível </li>
+  <li>Os comandos serão compostos por palavras de 1 byte (8 bits) </li>
+  <li>As requisições podem ser direcionadas para uma unidade ou todas </li>
+  <li>Comandos e respostas devem ser exibidas no display LCD 16x2 </li>
+</ul>
+</ul>
 
 # Makefile
 
@@ -43,9 +47,9 @@ https://app.diagrams.net/ (software utilizado para criar o fluxograma)
 
 <p>O texto contido em um Makefile é usado para a compilação, ligação(linking), montagem de arquivos de projeto entre outras tarefas como limpeza de arquivos temporários, execução de comandos, etc. Vantagens do uso do Makefile:</p>
 
-- Evita a compilação de arquivos desnecessários. Por exemplo, se seu programa utiliza 120 bibliotecas e você altera apenas uma, o make descobre (comparando as datas de alteração dos arquivos fontes com as dos arquivos anteriormente compilados) qual arquivo foi alterado e compila apenas a biblioteca necessária.
-- Automatiza tarefas rotineiras como limpeza de vários arquivos criados temporariamente na compilação.
-- Pode ser usado como linguagem geral de script embora seja mais usado para compilação.
+<li>Evita a compilação de arquivos desnecessários. Por exemplo, se seu programa utiliza 120 bibliotecas e você altera apenas uma, o make descobre (comparando as datas de alteração dos arquivos fontes com as dos arquivos anteriormente compilados) qual arquivo foi alterado e compila apenas a biblioteca necessária.</li>
+<li>Automatiza tarefas rotineiras como limpeza de vários arquivos criados temporariamente na compilação.</li>
+<li>Pode ser usado como linguagem geral de script embora seja mais usado para compilação.</li>
 
 <p>O objetivo de Makefile é definir regras de compilação para projetos de software. O programa make interpreta o conteúdo do Makefile e executa as regras lá definidas.</p>
 
