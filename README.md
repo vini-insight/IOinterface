@@ -18,12 +18,13 @@ https://app.diagrams.net/ (software utilizado para criar o fluxograma)
 
 <p> O objetivo é desenvolver um software capaz de ler de sensores analógicos e digitais em um microcontrolador utilizando comunicação serial.</p>
 
-<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma <li><a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">NodeMCU</a></li> para a confecção das unidades de sensoriamento.</p>
+<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma <a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">NodeMCU</a> para a confecção das unidades de sensoriamento.</p>
 
-<p> O gerenciamento do sistema será comandado por um <li><a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SPB</a></li> e os valores das leituras serão mostrados no  <li><a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a></li></p>
+<p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SPB</a> e os valores das leituras serão mostrados no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a></p>
 
 ## Requisitos Atendidos
 
+<p>
 - Solução desenvolvida em linguagem C
 - Script de compilação do tipo Makefile para criação do executavel
 - Para o SBC
@@ -34,6 +35,7 @@ https://app.diagrams.net/ (software utilizado para criar o fluxograma)
   - Os comandos serão compostos por palavras de 1 byte (8 bits)
   - As requisições podem ser direcionadas para uma unidade ou todas
   - Comandos e respostas devem ser exibidas no display LCD 16x2
+</p>
 
 # Makefile
 
