@@ -11,7 +11,7 @@ https://app.diagrams.net/ (software utilizado para criar o fluxograma)
 # Visão Geral do Protótipo
 
 <div>
-	<img src="" alt="img" >
+	<img src="/images/visãoGeralTimer.jpg" alt="img" >
 </div>
 
 # Descrição do Projeto e Requisitos
@@ -85,7 +85,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 # Processador ARM
 
 <div>
-	<img src="/images/allwinnerH3.jpg" alt="img" style="height: 20%; width: 20%;" align="left">
+	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
 
     Alguns detalhes e características do processador Allwinner H3:
     - Quad-core Cortex-A7
@@ -121,26 +121,9 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Um dispositivo popular que faz uso de pinos GPIO é o Orange Pi. Esses pinos atuam como interruptores que produzem 3,3 volts quando definidos como ALTO e sem tensão quando definidos como BAIXO. Você pode conectar um dispositivo a pinos GPIO específicos e controlá-lo com um programa de software. Por exemplo, você pode conectar um LED a um GPIO e um pino de aterramento em um Orange Pi. Se um programa de software disser ao pino GPIO para ligar, o LED acenderá.</p>
 </div>
 
-# Comando "gpio readall"
-
-<div>
-	<p>Para visualizar a flexibilidade de configuração dos pinos GPIO, abaixo segue um print da configuração padrão, quando a Orange Pi acabou de se ligada e o seu sistema operacional iniciado. Apenas digitamos o comando 'gpio readall' no terminal e vemos a saída abaixo:</p>
-	<br>
-	<img src="/images/Comando gpio readall DefaultSetting.png" alt="img">
-	<br>
-	<br>
-	<p>Observe que a maior parte dos pinos está em modo 'OFF'. No entanto, depois que os pinos GPIO são configurados em linguagem Assembly, executamos novamente no terminal o comando 'gpio readall' e os pinos GPIO são configurados como segue o print abaixo:</p>
-	<br>
-	<img src="/images/Comando gpio readall PersonalSetting.png" alt="img">
-	<br>
-	<br>
-	<p> É necessário destacar que os pinos GPIO que estão conectados a botões são definidos como 'IN' (entrada) e os pinos GPIO que estão conectados aos LEDs e também ao display LCD estão definidos como 'OUT' (saída).</p>
-</div>
-
 # Diagrama de Pinagem do Orange Pi PC Plus v1.2
 
 <div>
-<!-- 	<img src="/images/orangePI PC PLUS pinout diagram.png" alt="img" style="height: 20%; width: 20%;" align="left"> -->
 	<img src="/images/orangePI PC PLUS pinout diagram.png" alt="img" >
 </div>
 
@@ -155,7 +138,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <div>
 	<img src="/images/mapeamentoGPIO.jpg" alt="img" >
-	<p>Esta seção apresenta o mapeamento dos pinos GPIO com as conexões do display (LCD 16x2), botões (push buttons) e LEDs (Vermelho e Azul) utilizados no projeto. O mapeamento é essencial para garantir a correta comunicação entre o Orange PI e os demais componentes, possibilitando funcionamento das interfaces de usuário.</p>
+	<p>Esta seção apresenta o mapeamento dos pinos GPIO com as conexões do display (LCD 16x2) e botões (push buttons) utilizados no projeto. O mapeamento é essencial para garantir a correta comunicação entre o Orange PI e os demais componentes, possibilitando funcionamento das interfaces de usuário.</p>
 </div>
 
 # Esquemático do protótipo
@@ -171,37 +154,15 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 	<p>O mapeamento entre a GPIO e o display LCD 16x2 no modo 4 bits é feito por meio da conexão de 7 pinos da porta GPIO da Orange Pi com outros 7 pinos do microcontrolador display (LCD 16x2). Esses 7 pinos são divididos em 4 bits de dados e 3 bits de controle.</p>
 	<p>Os 4 bits de dados (DB4 a DB7) são responsáveis por enviar as informações que serão exibidas no display. Já os 3 bits de controle (RS, Enable e RW) são responsáveis por indicar ao display qual informação está sendo enviada (dados ou instruções), quando uma nova informação deve ser lida (sinal de enable) e se a operação será de escrita ou leitura (neste caso, o bit RW é configurado como leitura ou escrita).Neste contexto, o bit referente ao RW é sempre setado como escrita.</p>
 	<p>Para o mapeamento, são utilizados os pinos GPIO do microcontrolador, que são configurados como saídas e conectados aos pinos correspondentes no display.</p>
+    <p>Para simplificar a manipulação do display e das informações que serão exibidas, foi utiilizada a biblioteca lcd.h </p>
 </div>
 
 # Interface GPIO com o Botões e LEDs
 
 <div>
 	<img src="/images/GPIOtoLEDSandBUTTONS subtitles.jpg" alt="img" >
-	<p>Temos também o mapeamento entre a GPIO e os pinos que se conectam aos LEDs (vermelhor e azul) e botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos LEDs são configurados como pinos de Saída e os que estão conectados aos botões são configurados como Entrada. Os botões quando pressionados Iniciam, Pausam, e Reinicial a contagem no Display LCD 16x2. Quando a contagem é iniciada, o LED vermelho está desligado. Permanece desligado até o fim da contagem. Nesse momento é ligado durante apenas um segundo e depois é desligado. O LED azul é ligado quando a contagem começa e desliga quando a contagem termina. </p>	
+	<p>Temos também o mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões são configurados como Entrada. Os botões quando pressionados indicam Anterior, Confirma e Próximo nas opções do menu que aparecem no Display LCD 16x2. </p>	
 </div>
-
-# Datasheets
-
-<p> Datasheet significa ficha ou folha de dados. Normalmente são criadas pelo fabricante do produto ou componente eletrônico. Basicamente é um documento que fornece as especificações de desempenho e outras características. O Datasheet forncesse detalhes suficientes que permitem entender o que é o produto ou componente assim como entender a função do componente no sistema geral. Dependendo da finalidade específica, uma folha de dados pode oferecer um valor médio , um valor típico, uma faixa típica, tolerâncias de engenharia ou um valor nominal . O tipo e a fonte dos dados geralmente são declarados na folha de dados. Uma folha de dados é geralmente usada para comunicação comercial, comunicação técnica para descrever as características de um item ou produto, ou para ajudar a usar os produto.</p>
-
-<p>Datasheets podem ser encontrados no site do fabricante ou em qualquer buscador na internet. Para isso basta digitar "datasheet" + "nome do componente" ou "código do componente". Também existem vários sites que reúnem e compartilham milhares de Datasheets funcionando como verdadeiros repositórios para este tipo de informação. Alguns exemplos são: www.alldatasheet.com OU www.datasheetcatalog.com</p>
-
-</p> Neste projeto vamos utilizar dois Datasheets. Um do processador Allwinner H3 (usado pela Orange Pi) e outro que mostra como usar e configurar o Display LCD 16x2. Uma cópia deles pode ser encontrada aqui mesmo neste projeto acessando a pasta "Datasheets" ou clicando direto nesse link: https://github.com/vini-insight/Assembly1/tree/main/Datasheets </p>
-
-## Allwinner H3
-
-<p> O Datasheet do processador forncesse informações do Mapeamento de Memória, do Controle de Portas de Entrada e Saída, além de como se devem configurar os registradores que fazem a gerenciamento do pinos que esta sendo usados na Porta GPIO. Lembrando que a representação é de 32 bits. Lá são detalhados as posições de cada bit e seus respectivos valores para determinadas funções. Basicamente precisamos saber as informações abaixo para cada pino utilizado:<p>
-
-    Identificação do Pino
-    Valor do offset do registrador de função do pino;
-    Valor do menor bit da sequencia de 3 bits (o que gera 8 possibilidades de configurações do pino);
-    Valor do bit correspondente entre a sequencia de bits 21:0 (21 até 0) para os pinos PAs, OU, 13:0 (13 até 0) para os pinos PGs;
-    Valor do offset do registrador de dados;
-
-</p>
-</p>
-</p>
-</p>
 
 ## Display LCD 16x2
 
@@ -209,52 +170,17 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <!-- <div> -->
 
-<p>O LCD 16 × 2 é chamado assim porque; tem 16 colunas e 2 linhas. Existem muitas combinações disponíveis, como 8×1, 8×2, 10×2, 16×1, etc. Mas a mais usada é a LCD 16x2. Todos os visores LCD mencionados acima terão 16 pinos e a abordagem de programação também é a mesma.</p>
-	
-<p>O LCD é matricial de 16*2 pontos e assim terá (16*2=32) 32 caracteres no total e cada caractere será feito de 5*8 pontos de pixel. Agora, sabemos que cada caractere tem (5*8=40) 40 pixels e para 32 caracteres teremos (32*40) 1280 pixels. Além disso, o LCD também deve ser instruído sobre a posição dos pixels.</p>
+<p>O LCD 16 × 2 é chamado assim porque; tem 16 colunas e 2 linhas. Existem muitas combinações disponíveis, como 8×1, 8×2, 10×2, 16×1, etc. Mas a mais usada é a LCD 16x2.</p>
 	
 <p>IC de interface como o HD44780 , que é montado no próprio módulo LCD. A função deste IC é obter os comandos e dados do MCU e processá-los para exibir informações significativas em nossa tela LCD.</p>
 <!-- </div> -->
 
-### Comandos:
+## Protocolo:
 
-<p>Existem algumas instruções de comandos predefinidos no LCD, que precisamos enviar para o LCD através de algum microcontrolador. Algumas instruções de comando importantes são dadas abaixo:</p>
-
-<div>
-	<img src="/images/5x8.jpg" alt="img" align="right">
-	
-	Código hexadecimal | Comando para registro de instrução LCD
-
-    0F | LCD LIGADO, cursor LIGADO
-    01 | Limpar tela de exibição
-    02 | voltar para casa
-    04 | Diminuir o cursor (deslocar o cursor para a esquerda)
-    06 | Incrementar o cursor (deslocar o cursor para a direita)
-    05 | Deslocar exibição para a direita
-    07 | Deslocar exibição para a esquerda
-    0E | Visor LIGADO, cursor piscando
-    80 | Forçar o cursor para o início da primeira linha
-    C0 | Forçar o cursor para o início da segunda linha
-    38 | 2 linhas e matriz 5×7
-    83 | Cursor linha 1 posição 3
-    3C | ativar segunda linha
-    08 | Visor DESLIGADO, cursor DESLIGADO
-    C1 | Ir para a segunda linha, posição 1
-    OC | Visor LIGADO, cursor DESLIGADO
-    C1 | Ir para a segunda linha, posição 1
-    C2 | Ir para a segunda linha, posição 2
-
-</div>
+<p>O protocolo possibilita que a comunicação entre o SBC e a NodeMCU seja realizada de forma eficiente.
+Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Desenvolvedores
 
 | [<img src="https://avatars.githubusercontent.com/u/58979991?v=4" width=115><br><sub>Gabriel Carvalho</sub>](https://github.com/GabCarvaS) | [<img src="https://avatars.githubusercontent.com/u/7541966?v=4" width=115><br><sub>Vinicius Vieira</sub>](https://github.com/vini-insight) |
 | :---------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
-
-# Referências
-
-https://embarcados.com.br/introducao-ao-makefile/
-http://orion.lcg.ufrj.br/compgraf1/downloads/MakefileTut.pdf
-https://terminalroot.com.br/2019/12/como-criar-um-makefile.html#:~:text=Um%20makefile%20%C3%A9%20um%20arquivo,remover%20alguns%20arquivos%20e%20outros).
-https://pt.wikibooks.org/wiki/Programar_em_C/Makefiles
-https://resultadosdigitais.com.br/marketing/ssh/#:~:text=SSH%20%C3%A9%20a%20sigla%20para,uma%20conex%C3%A3o%20simples%20e%20segura.
