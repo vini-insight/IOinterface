@@ -29,7 +29,7 @@ IOinterface
 
 ## Botões de Controle (push buttons)
 
-<p></p>
+<p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
 
 <div>
 	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
@@ -57,6 +57,8 @@ IOinterface
 <p></p>
 
 ## Monitoramento
+
+<p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
 
 <div>
 	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
