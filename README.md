@@ -7,6 +7,16 @@ IOinterface
 
 <p>inserir viídeo aqui.</p>
 
+
+# Diagrama de Comunicação
+
+<p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
+
+<div>
+	<img src="/images/diagramaComunicação.jpg" alt="img" >
+</div>
+
+
 # Fluxogramas
 
 <!-- ![Screenshot]() -->
