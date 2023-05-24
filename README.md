@@ -9,28 +9,63 @@ IOinterface
 
 # Fluxogramas
 
-<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo.</p>
+<!-- ![Screenshot]() -->
+
+<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
 
 ## Chave liga e desliga (DIP switch)
 
 
-<!-- ![Screenshot]() -->
-<div>
-	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
-</div>
-
-<p>Os dois cliclos acima podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser ligado ou desligado em qualquer momento </p>
-
-<p></p>
-<p></p>
-<p></p>
 
 <div>
 	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
 </div>
 
+<p>Os dois cliclos acima podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. </p>
 
-https://app.diagrams.net/ (software utilizado para criar o fluxograma)
+<p></p>
+<p></p>
+<p></p>
+
+## Chave liga e desliga (DIP switch)
+
+<div>
+	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+</div>
+
+
+
+<p></p>
+<p></p>
+<p></p>
+
+## Chave liga e desliga (DIP switch)
+
+<div>
+	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+</div>
+
+
+
+<p></p>
+<p></p>
+<p></p>
+
+## Chave liga e desliga (DIP switch)
+
+<div>
+	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+</div>
+
+
+
+<p></p>
+<p></p>
+<p></p>
+
+
+
+
 
 # Visão Geral do Protótipo
 
