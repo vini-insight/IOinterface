@@ -11,23 +11,25 @@ IOinterface
 
 <!-- ![Screenshot]() -->
 
-<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
+<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. O primeiro sobre ligar e desligar. O segundo sobre os controles. O terceiro sobre a leitura de sensores. O quarto a respeito do monitoramento de unidades de sensoriamento. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
 
 ## Chave liga e desliga (DIP switch)
 
-
+<p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
 
 <div>
 	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
 </div>
 
-<p>Os dois cliclos acima podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. </p>
+
 
 <p></p>
 <p></p>
 <p></p>
 
-## Chave liga e desliga (DIP switch)
+## Botões de Controle (push buttons)
+
+<p></p>
 
 <div>
 	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
@@ -39,10 +41,10 @@ IOinterface
 <p></p>
 <p></p>
 
-## Chave liga e desliga (DIP switch)
+## Fazer leitura de sensores (analógico ou digital)
 
 <div>
-	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
 </div>
 
 
