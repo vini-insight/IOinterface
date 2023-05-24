@@ -85,7 +85,6 @@ IOinterface
 
 ## Sensor Analógico
 
-
 <p>
 	<img src="/images/instrumentacao_e_sensores_a01_f04_a.jpg" alt="img" align="right">
 	São os sensores que respondem através de sinais analógicos. Devido à sua natureza analógica, a saída desses sensores podem assumir infinitos valores ao longo do tempo, dentro de sua faixa de operação. Ou seja, considerando os seus limites inferior e superior de saída, para qualquer variação sentida pelo sensor existirá um sinal de saída equivalente. Portanto, os sinais de saída podem variar entre inúmeros valores dentro desses limites. ariáveis como temperatura, pressão, vazão, umidade, força, velocidade, distância etc., são exemplos de variáveis que podem assumir qualquer valor ao longo do tempo. A direita temos um gráfico do sinal da saída de um sensor analógico.
@@ -98,6 +97,11 @@ IOinterface
 </div> -->
 
 ## Sensor Digital
+
+<p>
+	<img src="/images/" alt="img" align="right">
+	
+</p>
 
 # Visão Geral do Protótipo
 
