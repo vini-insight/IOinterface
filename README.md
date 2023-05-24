@@ -3,11 +3,32 @@ IOinterface
  -->
  # Interface de E/S - Problema #2 – 2023.1
 
-# Demonstração
+# Vídeo Demonstrativo
 
-# Fluxograma
+<p>inserir viídeo aqui.</p>
 
-![Screenshot]()
+# Fluxogramas
+
+<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo.</p>
+
+## Chave liga e desliga (DIP switch)
+
+
+<!-- ![Screenshot]() -->
+<div>
+	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
+</div>
+
+<p>Os dois cliclos acima podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser ligado ou desligado em qualquer momento </p>
+
+<p></p>
+<p></p>
+<p></p>
+
+<div>
+	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
+</div>
+
 
 https://app.diagrams.net/ (software utilizado para criar o fluxograma)
 
