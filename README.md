@@ -41,7 +41,10 @@ IOinterface
 <p></p>
 <p></p>
 
-## Fazer leitura de sensores (analógico ou digital)
+## Ler Sensores (analógico ou digital)
+
+<p>Abaixo os detalhes de como são feitas as leituras dos sensores. Temos um Potênciômetro que fazer o papel do sensor analógico e dois push buttons que faz o papel dos sensores digitais.</p>
+
 
 <div>
 	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
@@ -53,10 +56,10 @@ IOinterface
 <p></p>
 <p></p>
 
-## Chave liga e desliga (DIP switch)
+## Monitoramento
 
 <div>
-	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
 </div>
 
 
