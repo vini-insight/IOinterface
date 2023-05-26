@@ -4,10 +4,6 @@ IOinterface
 
 # Interface de E/S - Problema #2 – 2023.1
 
-# Vídeo Demonstrativo
-
-<p>inserir viídeo aqui.</p>
-
 # Diagrama de Comunicação
 
 <p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
@@ -256,10 +252,26 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <!-- <div> -->
 
-<p>O LCD 16 × 2 é chamado assim porque; tem 16 colunas e 2 linhas. Existem muitas combinações disponíveis, como 8×1, 8×2, 10×2, 16×1, etc. Mas a mais usada é a LCD 16x2.</p>
+<p>O LCD 16 × 2 é chamado assim porque tem 16 colunas e 2 linhas. Existem muitas combinações disponíveis, como 8×1, 8×2, 10×2, 16×1, etc. Mas a mais usada é a LCD 16x2.</p>
 	
 <p>IC de interface como o HD44780 , que é montado no próprio módulo LCD. A função deste IC é obter os comandos e dados do MCU e processá-los para exibir informações significativas em nossa tela LCD.</p>
 <!-- </div> -->
+
+## Seleção da NodeMCU
+
+<img src="/images/selecaoNode.png" alt="img" >
+
+## Seleção do sensor
+
+<img src="/images/escolhaSensor.png" alt="img" >
+
+### Leitura do Sensor Digital
+
+<img src="/images/leituraSensor.png" alt="img" >
+
+### Leitura do Sensor Analógico
+
+<img src="/images/leituraSensorAnalogico.png" alt="img" >
 
 ## Protocolo:
 
@@ -269,15 +281,11 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
-# <<<<<<< HEAD
-
 # Referências
 
 https://materialpublic.imd.ufrn.br/curso/disciplina/1/52/1/7
 
 https://www.mundodaeletrica.com.br/o-que-sao-sensores-e-quais-as-suas-aplicacoes/
-
-> > > > > > > main
 
 # Desenvolvedores
 
