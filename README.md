@@ -91,13 +91,24 @@ IOinterface
 
 <p></p>
 
+
 ### Potenciômetro
 
-<p>
-	<img src="/images/potenciometro_5.jpg" alt="img" align="right" style="height: 25%; width: 25%;" >
-	Um potenciômetro é um tipo especial de resistor de três terminais cuja resistência pode ser ajustada por meio mecânico, girando ou deslizando um eixo móvel, formando assim um divisor de tensão ajustável. Os potenciômetros encontram inúmeras aplicações em vários campos da tecnologia, como por exemplo em amplificadores de áudio, instrumentos musicais eletrônicos, mixers de áudio, eletrodomésticos, televisores, equipamentos industriais, joysticks, osciloscópios analógicos, e muitos outros. Basicamente, os potenciômetros são usados de duas formas em circuitos eletrônicos: como divisores de tensão ajustáveis (aplicação mais comum) ou ainda como limitadores ajustáveis de corrente.</p>
 
-<p></p>
+<p>
+	<img src="/images/potenciometro_5.jpg" alt="img" align="right" style="height: 15%; width: 15%;" >
+	Um potenciômetro é um tipo especial de resistor de três terminais cuja resistência pode ser ajustada por meio mecânico, girando ou deslizando um eixo móvel, formando assim um divisor de tensão ajustável. Os potenciômetros encontram inúmeras aplicações em vários campos da tecnologia, como por exemplo em amplificadores de áudio, instrumentos musicais eletrônicos, mixers de áudio, eletrodomésticos, televisores, equipamentos industriais, joysticks, osciloscópios analógicos, e muitos outros. Basicamente, os potenciômetros são usados de duas formas em circuitos eletrônicos: como divisores de tensão ajustáveis (aplicação mais comum) ou ainda como limitadores ajustáveis de corrente.</p>
+</div>
+
+
+### ADC - Analog to Digital Converter (Conversor Analógico Digital)
+
+<p>Um Conversor Analógico Digital transforma um sinal analógico, contínuo no tempo, num sinal amostrado, discreto no tempo, quantizado dentro de um número finito de valores inteiros, determinado pela resolução característica do conversor em bits (8, 10, 12, 16, entre outros). Por exemplo, num conversor de 8 bits, o sinal de entrada é transformado em amostras com os valores entre 0 e 255. Na figura abaixo temos um sinal analógico (onda senoide) se transformando em um sinal digital (onda quadrada).</p>
+
+<img src="/images/ADCgraph.jpg" alt="img" align="center">
+
+<p>O módulo ESP8266 NodeMCU possui um ADC e também um pino (A0 porta de entrada analógica) destinado a lidar com a leitura de um sinal Analógico, ou seja, um pino cuja função é receber níveis de tensão e em seguida traduzir os mesmos em uma linguagem adequada para que possamos manipulá-los. Este processo ocorre da seguinte maneira: o NodeMCU que estamos utilizando suporta sinais de tensão entre 0 e 3,3V em suas entradas, portanto, caso nós coloquemos um sinal de tensão de 0 volts na porta de entrada analógica A0, o nosso módulo irá associar esta informação ao número 0 (zero) . Em contrapartida, caso o sinal em questão tenha magnitude de 3,3V, o NodeMCU irá referenciar este valor ao número 1023. Se a tensão estiver em qualquer valor intermediário, tera um valor proporcional dentro das 1014 divisões que é a pricisão máxima de leitura com 10 bits.</p>
+
 
 <!-- <div>	
 	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
@@ -286,6 +297,8 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Referências
+
+https://www.electronics-tutorials.ws/combination/analogue-to-digital-converter.html
 
 https://guiarobotica.com/push-button-arduino/#:~:text=O%20Push%20button%20(bot%C3%A3o%20de,circuito%20apenas%20de%20modo%20moment%C3%A2neo.
 
