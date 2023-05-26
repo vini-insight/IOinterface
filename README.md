@@ -261,17 +261,25 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <img src="/images/selecaoNode.png" alt="img" >
 
+<p>Exemplo de funcionamento: Seleção da NodeMCU.</p>
+
 ## Seleção do sensor
 
 <img src="/images/escolhaSensor.png" alt="img" >
+
+<p>Exemplo de funcionamento: Seleção do Tipo de Sensor.</p>
 
 ### Leitura do Sensor Digital
 
 <img src="/images/leituraSensor.png" alt="img" >
 
+<p>Exemplo de funcionamento: Seleção do Sensor Digital.</p>
+
 ### Leitura do Sensor Analógico
 
 <img src="/images/leituraSensorAnalogico.png" alt="img" >
+
+<p>Exemplo de funcionamento: Seleção do Sensor Analógico.</p>
 
 ## Protocolo:
 
