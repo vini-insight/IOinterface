@@ -278,6 +278,12 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 # Referências
 
+https://portal.vidadesilicio.com.br/lendo-um-potenciometro-com-o-esp8266-nodemcu/
+
+http://www.comofazerascoisas.com.br/potenciometro-o-que-e-para-que-serve-e-como-funciona.html
+
+https://materialpublic.imd.ufrn.br/curso/disciplina/1/52/1/8
+
 https://materialpublic.imd.ufrn.br/curso/disciplina/1/52/1/7
 
 https://www.mundodaeletrica.com.br/o-que-sao-sensores-e-quais-as-suas-aplicacoes/
