@@ -24,7 +24,6 @@ int temp1 = 0;   // temporary variable for reading the button pin status
 int dimmer_pin[] = {14, 5, 15};
 
 /* POTENCIOMETRO */
-/* const int analogInPin = A0; */ // ESP8266 Analog Pin ADC0 = A0  
 int analogInPin = A0;
 int sensorValue = 0;  // value read from the pot
 /* POTENCIOMETRO */
@@ -39,10 +38,7 @@ char protocolCodes[] = {
 0b00110010, 0b00110011, 0b00110100, 0b00110101, 0b00110110, 0b00110111, 0b00111000, 0b00111001, 0b00111010, 0b00111011,
 0b00111100, 0b00111101, 0b00111110, 0b00111111
 };
-/*                    analogico   digital 1   digital 2
-//      0 1    2      3   4   5       6     7     8
-char *lcdOptions[] = {"Anal.", "Dig.1", "Dig.2", "LED on", "LED off", "Analog Monitor:", "Monitor Dig.1:", "Monitor Dig.2:", "ALL sensors", "node MCU status", " <-- Voltar"};
-*/
+
 char toRequest[] = { 0b00100010, 0b00100011, 0b00100100, 0b00100101, 0b00100110, 0b00100111, 0b00101000, 0b00101001, 0b00101010 };
 
 void setup() {
@@ -93,10 +89,9 @@ void setup() {
   /* setup the OTA server */
   ArduinoOTA.begin();
 
-  /* switch on led */
-  pinMode(led_pin, OUTPUT);
-  pinMode(buttonD0, INPUT); // declare push button as input
-  pinMode(buttonD1, INPUT); // declare push button as input
+  pinMode(led_pin, OUTPUT); /* configura LED embutido como saída */  
+  pinMode(buttonD0, INPUT); /* configura D0 embutido como entrada (botão) */    
+  pinMode(buttonD1, INPUT); /* configura D1 embutido como entrada (botão) */    
   /* pinMode(analogInPin, INPUT); */
 }
 
@@ -104,27 +99,17 @@ void loop() {
   ArduinoOTA.handle();
   
   /* NÃO RETIRAR A FUNÇÃO DA LINHA ACIMA */  
-
   
   if(Serial.available() > 0) { /* CHECA SE ESTÁ RECEBENDO DADOS */
-      /* pega valor de RX */
-      //  char c = Serial.read();
-      //  if(c == 0b1){        
-      //String c = Serial.readString();
-      String c="";
-      char hex = Serial.read();
-      if(hex == protocolCodes[1] ){
-//        sensorValue = analogRead(analogInPin);
-//        Serial.print("FUNFA"); /* ENVIA O VALOR DO POTENCIOMENTRO */
-//        Serial.print(sensorValue, BIN); /* ENVIA O VALOR DO POTENCIOMENTRO */
+      char pc = Serial.read();
+      if(pc == protocolCodes[1] ){ /*SE RECEBER O CÓDIGO RELACIONADO A ESTA UNIDADE ELA RETORNA CÓDIGO DE STATUS OK*/
           Serial.print(protocolCodes[33], BIN); 
-      }
-      
-      if(hex == toRequest[0] ){
+      }      
+      if(pc == toRequest[0] ){ /*SE RECEBER O CÓDIGO REFERENTE AO SENSOR ANALÓGICO*/
         sensorValue = analogRead(analogInPin);
         Serial.print(sensorValue, BIN); /* ENVIA O VALOR DO POTENCIOMENTRO */
       }
-      if(hex == toRequest[1] ){
+      if(pc == toRequest[1] ){  /*SER RECEBER O CÓDIGO REFERENTE AO SENSOR DIGITAL 1*/
         temp0 = digitalRead(buttonD0);
         if (temp0 == HIGH) {
           Serial.print(1, BIN);
@@ -133,7 +118,7 @@ void loop() {
           Serial.print(0, BIN);
         }
       }
-      if(hex == toRequest[2] ){
+      if(pc == toRequest[2] ){  /*SER RECEBER O CÓDIGO REFERENTE AO SENSOR DIGITAL 1*/
         temp1 = digitalRead(buttonD1);       
         if (temp1 == HIGH) {
           Serial.print(1, BIN);
@@ -142,54 +127,16 @@ void loop() {
           Serial.print(0, BIN);
         }
       }            
-      if(hex == toRequest[3] ){
+      if(pc == toRequest[3] ){ /* SE RECEBER CÓDIGO PARA ATIVAR LED*/
         digitalWrite(led_pin, LOW);
         Serial.print(1, BIN);
       }
-      if(hex == toRequest[4] ){
+      if(pc == toRequest[4] ){  /* SE RECEBER CÓDIGO PARA DESATIVAR LED*/
         digitalWrite(led_pin, HIGH);
         Serial.print(0, BIN);
       }      
-      if(hex == protocolCodes[63] ){
-        //Serial.println(3, BIN); // envia resposta com número da ESP para saber que ela está ativa.
-        Serial.println(3, BIN); // envia resposta com número da ESP para saber que ela está ativa.
-//        Serial.println(1, BIN); // envia resposta com número da ESP para saber que ela está ativa.
-//        Serial.println(2, BIN); // envia resposta com número da ESP para saber que ela está ativa.
-//        Serial.println(5, BIN); // envia resposta com número da ESP para saber que ela está ativa.        
-      } // IDEIA: coocar sleep multiplicado pelo número da node antes de responder. assim todos vão responder em seu devido tempo. e não dá confusão.
-        // IDEIA: do lado da orangePI colocar uma thread para controlar o tempo total e sair quando atinger esse tempo.
-        // IDEIA: essa condição de tempo deve ser assim : while (1 & time == true) { serialPuchar(); serialResponse();}
-        
-//      
-//      if(c.equals("ESP3.Anal")){
-//        sensorValue = analogRead(analogInPin);
-//        Serial.print(sensorValue, BIN); /* ENVIA O VALOR DO POTENCIOMENTRO */
-//      }
-//      if(c.equals("ESP3.Dig.1")){
-//        temp0 = digitalRead(buttonD0);
-//        if (temp0 == HIGH) {
-//          Serial.print(1, BIN);
-//        }
-//        else {
-//          Serial.print(0, BIN);
-//        }
-//      }
-//      if(c.equals("ESP3.Dig.2")){        
-//        temp1 = digitalRead(buttonD1);
-//        if (temp1 == HIGH) {
-//          Serial.print(1, BIN);
-//        }
-//        else {
-//          Serial.print(0, BIN);
-//        }
-//      }
-//      if(c.equals("ESP3.LEDon")){
-//        digitalWrite(led_pin, LOW);
-//        Serial.print(1, BIN);
-//      }
-//      if(c.equals("ESP3.LEDoff")){
-//        digitalWrite(led_pin, HIGH);
-//        Serial.print(0, BIN);
-//      }
+      if(pc == protocolCodes[63] ){ /*BROADCAST*/
+        Serial.println(1, BIN);
+      }
   }
 }
