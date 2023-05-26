@@ -125,13 +125,15 @@ IOinterface
 ### Push Button
 
 <p>
-	<img src="/images/chave-tactil-push-button-BCE04-foto-prod.png" alt="img" align="right" style="height: 20%; width: 20%;" >
+	<img src="/images/chave-tactil-push-button-BCE04-foto-prod.png" alt="img" align="right" style="height: 25%; width: 25%;" >
 	O Push button (botão de pressão) é uma chave que, quando pressionado o botão, ela abre ou fecha o circuito, convertendo assim, um comando mecânico em elétrico. Geralmente eles tem um contato de ação momentânea, abrindo ou fechando o circuito apenas de modo momentâneo. As chaves podem ser do tipo NA (Normalmente aberta) Com o intuito de que, quando pressionado fecha o circuito permitindo assim a passagem de corrente, e mandando um sinal HIGH (1) para o circuito. Ou uma chave NF (normalmente fechada) a fim de que quando pressionada, abra o circuito impedindo a passagem de corrente, mandando assim um sinal LOW (0) para o circuito. Existem dois modos de usar o Push Button:</p>
 
 <li>Funcionamento com resistor Pull-down: Funciona como NA, ou seja, só ira mandar um sinal lógico HIGH (1) para o circuito enquanto estiver pressionado, permitindo assim passagem de corrente. Geralmente utiliza-se um resistor de 10KΩ para esta finalidade. </li>
 <li>Funcionamento com resistor Pull-up: Funciona como NF, ou seja, o circuito esta normalmente fechado, mandando um sinal HIGH (1) para o Arduino, enquanto pressionado, a porta digital irá receber um sinal LOW (0) , funciona de modo invertido ao NA.</li>
-<li></li>
-<li></li>
+
+<br>
+</br>
+
 
 <div>
 	<p>O módulo ESP8266 NodeMCU possui alguns pinos GPIO (D0 e D1) em que nossos push buttons estão conectados. Eles farão o papel de Sensores Digitais.</p>
