@@ -104,15 +104,15 @@ IOinterface
 
 <p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SPB</a> e os valores das leituras serão mostrados no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a></p>
 
-## Requisitos Atendidos
+## Requisitos
 
 <ul> 
-<li> Solução desenvolvida em linguagem C </li>
-<li>Script de compilação do tipo Makefile para criação do executavel </li>
+<li> Solução deve ser desenvolvida em linguagem C </li>
+<li> Deve conter o Script de compilação do tipo Makefile para criação do executavel </li>
 <li>Para o SBC
 <ul> 
-  <li>Apenas o SBC é capaz de iniciar a comunicação </li>
-  <li>Interligação com até 32 unidades de sensoriamento </li>
+  <li>Apenas o SBC deve ser capaz de iniciar a comunicação </li>
+  <li>Deve ser possível a interligação com até 32 unidades de sensoriamento </li>
 </ul>
 <li>Para a NodeMCU
 <ul> 
@@ -289,6 +289,34 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
 
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
+
+# Resultados e Conclusões
+
+## Requisitos Atendidos
+
+<ul> 
+<li> Solução foi desenvolvida em linguagem C </li>
+<li> Contém o Script de compilação do tipo Makefile para criação do executavel </li>
+<li>Para o SBC
+<ul> 
+  <li>Apenas o SBC é capaz de iniciar a comunicação </li>
+</ul>
+<li>Para a NodeMCU
+<ul> 
+  <li>A leitura dos sensores tem a maior precisão possível </li>
+  <li>Os comandos são compostos por palavras de 1 byte (8 bits) </li>
+  <li>As requisições podem ser direcionadas para uma unidade ou todas </li>
+  <li>Comandos e respostas são exibidas no display LCD 16x2 </li>
+</ul>
+</ul>
+
+## Conclusão
+
+<p> Desse modo, dos requisitos descritos pelo problemas, conseguimos implementar quase todos. Cumprindo uma boa porcentagem do do que foi solicitado.</p>
+
+<p> O protótipo não realiza a comunicação completa com as 32 NodeMCU (função de Broadcast), apesar de existir a opção no menu.</p>
+
+<p> Em suma, é uma melhoria possível de ser implementada em versões futuras.</p>
 
 # Referências
 
