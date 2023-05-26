@@ -79,16 +79,15 @@ IOinterface
 
 <p>Um Sensor é um dispositivo que tem a função de detectar e responder com eficiência algum estímulo. Existem vários tipos de sensores que respondem à estímulos diferentes como por exemplo: luz, som, eletricidade, magnétismo, temperatura, pressão, movimento, entre outros. Depois que o sensor recebe o estímulo, a sua função é emitir um sinal que seja capaz de ser convertido e interpretado pelos outros dispositivos.</p>
 
-<p>Os sensores são usados em vários tipos de aplicações nas indústrias, comércios e residenciais. Por exemplo, um sensor Mecâncico pode fornecer informações a respeito de posição (linear / angular), aceleração, força, massa, densidade, momento, torque e aceleração. Um sensor Óptico, por sua vez, fornece informações a respieto de onda (amplitude, fase, polarização), velocidade da onda, índice de refração, emissividade, absorsão e refletividade.</p>
+<p>Os sensores são usados em vários tipos de aplicações nas indústrias, comércios e residenciais. Por exemplo, um sensor Mecâncico pode fornecer informações a respeito de posição (linear / angular), aceleração, força, massa, densidade, momento, torque e aceleração. Um sensor Óptico, por sua vez, fornece informações a respieto de onda (amplitude, fase, polarização), velocidade da onda, índice de refração, emissividade, absorsão e refletividade. A escolha do sensor depende exclusivamente do objetivo da sua instalação. Portanto, é preciso avaliar as condições do ambiente e optar pelo sensor mais adequado para aquela atividade.</p>
 
-<p>A escolha do sensor depende exclusivamente do objetivo da sua instalação. Portanto, é preciso avaliar as condições do ambiente e optar pelo sensor mais adequado para aquela atividade. Existem sensores Analógicos e Digitais.</p>
+<p>Em relação à natureza da saída, existem basicamente dois tipos de sensores: os analógicos, que produzem uma saída contínua proporcional à variação de algum parâmetro da entrada; e os digitais, que geram uma saída do tipo liga/desliga (on / off). Os sensores que produzem saídas digitais do tipo trem de pulsos, por exemplo, são considerados sensores digitais.</p>
 
 ## Sensor Analógico
 
 <p>
 	<img src="/images/instrumentacao_e_sensores_a01_f04_a.jpg" alt="img" align="right">
-	São os sensores que respondem através de sinais analógicos. Devido à sua natureza analógica, a saída desses sensores podem assumir infinitos valores ao longo do tempo, dentro de sua faixa de operação. Ou seja, considerando os seus limites inferior e superior de saída, para qualquer variação sentida pelo sensor existirá um sinal de saída equivalente. Portanto, os sinais de saída podem variar entre inúmeros valores dentro desses limites. ariáveis como temperatura, pressão, vazão, umidade, força, velocidade, distância etc., são exemplos de variáveis que podem assumir qualquer valor ao longo do tempo. A direita temos um gráfico do sinal da saída de um sensor analógico.
-</p>
+	São os sensores que respondem através de sinais analógicos. Devido à sua natureza analógica, a saída desses sensores podem assumir infinitos valores ao longo do tempo, dentro de sua faixa de operação. Ou seja, considerando os seus limites inferior e superior de saída, para qualquer variação sentida pelo sensor existirá um sinal de saída equivalente. Portanto, os sinais de saída podem variar entre inúmeros valores dentro desses limites. ariáveis como temperatura, pressão, vazão, umidade, força, velocidade, distância etc., são exemplos de variáveis que podem assumir qualquer valor ao longo do tempo. Ao lado temos um gráfico do sinal da saída de um sensor analógico.</p>
 
 <p></p>
 
@@ -99,9 +98,8 @@ IOinterface
 ## Sensor Digital
 
 <p>
-	<img src="/images/" alt="img" align="right">
-	
-</p>
+	<img src="/images/instrumentacao_e_sensores_a01_f05_a.jpg" alt="img" align="right">
+	São sensores cujas amplitudes da saída são representadas por números binários. Isso significa que os níveis de tensão de saída podem ser interpretados como "0" ou "1", não havendo possibilidade de existir qualquer outro valor entre eles. No entanto, as variáveis físicas "lidas" pelos sensores digitais se apresentam na natureza de forma analógica. Então, para que esses tipos de sensores apresentem na sua saída um formato digital, faz-se necessária a utilização de um circuito eletrônico que possa fazer essa conversão. Na maioria dos casos é utilizado um conversor analógico digital. Ao lado temos um gráfico do sinal da saída de um conversor analógico digital.</p>
 
 # Visão Geral do Protótipo
 
