@@ -358,6 +358,8 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 # Referências
 
+https://fabacademy.org/archives/2015/doc/networking-esp8266.html
+
 https://blogmasterwalkershop.com.br/embarcados/nodemcu/nodemcu-uma-plataforma-com-caracteristicas-singulares-para-o-seu-projeto-iot
 
 https://embarcados.com.br/conversor-a-d/
