@@ -7,12 +7,6 @@
 // rm p.c && nano p.c
 /* COMANDOS DO CONSOLE PARA COMPILAR E EXECUTAR	*/
 
-// dip switch
-// DPS 1 = PA6  WiringPi    2 pin
-// DPS 2 = PA1  WiringPi    5 pin
-// DPS 3 = PA0  WiringPi    7 pin
-// DPS 4 = PA3  WiringPi    8 pin
-
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>	// FOR sleep
@@ -31,11 +25,10 @@
 #define LCD_D6  26               //Data pin 6
 #define LCD_D7  27               //Data pin 7
 // dip switch pins
-
-char DIP1 = 2;               //dip switch 1
-char DIP2 = 5;               //dip switch 2
-char DIP3 = 7;               //dip switch 3
-char DIP4 = 8;               //dip switch 4
+char DIP1 = 2;               //dip switch 1 = PA6  WiringPi    2 pin
+char DIP2 = 5;               //dip switch 2 = PA1  WiringPi    5 pin
+char DIP3 = 7;               //dip switch 3 = PA0  WiringPi    7 pin
+char DIP4 = 8;               //dip switch 4 = PA3  WiringPi    8 pin
 char espnode = 0b00000001;
 char analog = 0b00100010;
 char dig1 = 0b00100011;
@@ -46,33 +39,26 @@ char okStatus = 0b00100001;
 char request = 0b00100001;
 char responseCode = 0b00111111;
 char allNodesMCU = 0b00111111;
-
 // push buttons
 char subButton = 19;
 char selectButton = 23;
 char addButton = 25;
 
-bool monitor = true;
 bool timeOut = false;
 bool enviarParaTodos = false;
+
 int fd;
 int lcd;
-int i = 0;
 int allMonitors = 0;
-
 int mainMenu = 0;
 int nodeMCU = 1;
 int oldNodeMCU = 0;
 int sensor = 0;
-int soma = 0;
 int sda = 9;
 int sgc = 9;
 int part = -1;
-float volts = -1.0;
 
-char ca[10];
-char int_str[100];
-char stringANDint[201] = "soma = ";
+float volts = -1.0;
 
 //char *protocolCodes[] = {"ESP%d.Anal", "ESP%d.Dig.1", "ESP%d.Dig.2", "ESP%d.LEDon", "ESP%d.LEDoff", "ESP%d.voltar"};
 char protocolCodes[] = {
@@ -86,23 +72,26 @@ char protocolCodes[] = {
 };
 
 char toRequest[] = { 0b00100010, 0b00100011, 0b00100100, 0b00100101, 0b00100110, 0b00100111, 0b00101000, 0b00101001, 0b00101010 };
-//						0		1		   2	    3		4	  			5		    		6					78				9					10
-// char *lcdOptions[] = {"Anal.", "Dig.1", "Dig.2", "LED on", "LED off", "Analog Monitor:", "Monitor Dig.1:", "Monitor Dig.2:", "ALL sensors", "node MCU status", " <-- Voltar"};
 char *lcdOptions[] = {"Anal.", "Dig.1", "Dig.2", "LED on", "LED off", "Analog Monitor:", "Monitor Dig.1:", "Monitor Dig.2:", "ALL sensors", " <-- Voltar"};
 char *lcdMainOptions[] = {"Escolher ESP:", "BROADCAST", " <-- Voltar", "node MCU status"};
 
 char *lcdAnswersL0[] = {"Analog Sensor:", "Sensor Dig.1:", "Sensor Dig.2:", "LED on", "LED off", "status"};
 char *lcdAnswersL1[] = {"ADC=%d V=%0.3f", "bit %d PB", "bit %d PB", "LED bit %d", "LED bit %d", "OK"};
 
+char int_str[100];
 int allNodesBroadcast[32];
 int broadcastIndex = 0;
 
 /* INICIO definição das funções (PRTÓTIPOS)	*/
-void bTOd();
 int convert(int);
+void bTOd(char array[]);
 void delayButton();
-void serialResponseBroadcast();
-void respostaSerial();
+
+void changeControlValues();
+void monitoring(char request);
+void soltarBotao();
+void chooseButtons(char, int *var, int, int); // VAR é PONTEIRO.
+
 void serialResponse();
 char* intTOstring(char int_str[], int);
 void displayMessage(char l0[], char l1[]);
@@ -110,6 +99,7 @@ void displayMessageIntegerPointer(char l0[], char l1[], int *ip);
 void chooseOptions();
 void chooseESP();
 void chooseSensor();
+void showResponsesLCD();
 /* FIM definição das funções (PRTÓTIPOS)	*/
 
 char* intTOstring(char int_str[], int v)
@@ -120,15 +110,23 @@ char* intTOstring(char int_str[], int v)
 
 int convert(int n) {	// CONVERTE BINARIO EM DECIMAL
 	int dec = 0, i = 0, rem;
-
-	while (n!=0) {
-	rem = n % 10;
-	n /= 10;
-	dec += rem * pow(2, i);
-	++i;
+	while (n!=0)
+	{
+		rem = n % 10;
+		n /= 10;
+		dec += rem * pow(2, i);
+		++i;
 	}
-
 	return dec;
+}
+
+void bTOd(char array[])
+{
+	int integerValue;
+	sscanf(array, "%d", &integerValue);
+	printf("VALOR INTEIRO É : %d\n", integerValue);
+	part = convert(integerValue);
+	printf("VALOR convertido É : %d\n", part);
 }
 
 void delayButton()	// enquanto não pressionar o botão não sai do laço
@@ -159,107 +157,16 @@ void displayMessageIntegerPointer(char l0[], char l1[], int *ip)	// configura o 
 	lcdPrintf(lcd, l1, *ip);
 }
 
-void serialResponseBroadcast()	// espera a resposta da mensagem de BROADCAST
-{
-	int iLocal = 0;
-	char caLocal[10];
-	printf ("aqui 1\n");
-	while(sda != 0)
-	{
-		sgc = serialGetchar(fd);        	
-		printf ("char %c\n", sgc);
-		sda = serialDataAvail(fd);
-		printf ("AVAIL %d\n", sda);
-		// printf ("%c", sgc);
-		fflush (stdout);
-		if(sgc != -1)
-		{
-			caLocal[iLocal] = (char) sgc;
-			iLocal++;
-		}
-		else
-		{      	
-			printf ("\nTIMEOUT\n");
-			timeOut = true;
-			iLocal = 0;
-			displayMessage("NAO responde", "(TIMEOUT)");
-		}
-	}
-	printf ("aqui 2\n");
-	printf ("\n");
-	sda = 9;
-	sgc = 9;
-	if(timeOut)
-	{
-		timeOut = false;
-	}
-	else
-	{
-		int integerValue;
-		sscanf(caLocal, "%d", &integerValue);
-		printf("broad cast VALOR INTEIRO É : %d\n", integerValue);
-		part = convert(integerValue);
-		printf("broad cast VALOR convertido É : %d\n", part);
-		if(enviarParaTodos)
-		    allNodesBroadcast[broadcastIndex] = part;
-		broadcastIndex++;
-	}
-}
-
 void serialResponse()	// espera a resposta serial da UART
 {
 	int iLocal = 0;
 	char caLocal[10];
-	printf ("aqui 1\n");
 	while(sda != 0)
 	{
 		sgc = serialGetchar(fd);        	
-		printf ("char %c\n", sgc);
+		// printf ("char %c\n", sgc);
 		sda = serialDataAvail(fd);
-		printf ("AVAIL %d\n", sda);
-		// printf ("%c", sgc);
-		fflush (stdout);
-		if(sgc != -1)
-		{
-			caLocal[iLocal] = (char) sgc;
-			iLocal++;
-		}
-		else
-		{      	
-			printf ("\nTIMEOUT\n");
-			timeOut = true;
-			iLocal = 0;
-			displayMessage("NAO responde", "(TIMEOUT)");
-		}
-	}
-	printf ("aqui 2\n");
-	printf ("\n");
-	sda = 9;
-	sgc = 9;
-	if(timeOut)
-	{
-		timeOut = false;
-	}
-	else
-	{
-		int integerValue;
-		sscanf(caLocal, "%d", &integerValue);
-		printf("VALOR INTEIRO É : %d\n", integerValue);
-		part = convert(integerValue);
-		printf("VALOR convertido É : %d\n", part);
-	}
-}
-
-void respostaSerial()	// exibe mensagems no display LCD de acordo com as opções escolhidas no Menu
-{
-	int iLocal = 0;
-	char caLocal[10];			
-	while(sda != 0) //while(sgc != -1 || sda != 0)
-	{	//printf ("avail %d\n", serialDataAvail(fd));
-		sgc = serialGetchar(fd);        	
-		sda = serialDataAvail(fd);
-		//printf ("sDA = %d\n", sda);
-		//printf ("sGC = %d\n", sgc);
+		// printf ("AVAIL %d\n", sda);
 		printf ("%c", sgc);
 		fflush (stdout);
 		if(sgc != -1)
@@ -278,111 +185,152 @@ void respostaSerial()	// exibe mensagems no display LCD de acordo com as opçõe
 	printf ("\n");
 	sda = 9;
 	sgc = 9;
-	printf ("\n");
 	if(timeOut)
 	{
 		timeOut = false;
 	}
 	else
 	{
-		int integerValue;
-		sscanf(caLocal, "%d", &integerValue);
-		printf("VALOR INTEIRO É : %d\n", integerValue);
-		//printf("VALOR convertido É : %d\n", convert(integerValue));				
-		// int part = convert(integerValue);
-		// float volts = part*3.3/1024;
-		part = convert(integerValue);
-		volts = part*3.3/1024;
-		printf ("teste volts = %f\n", volts);
-		printf("VALOR convertido É : %d\n", part);				
-		printf ("\n");
-		lcdClear(lcd);
-		
-		/* PARA LIHA 0 DO LCD */
-		
-		lcdPosition(lcd, 0, 0);
-		
-		if(sensor == 5) {
-			lcdPrintf(lcd, lcdAnswersL0[0]);
-		}
-		else if(sensor == 6) {
-			lcdPrintf(lcd, lcdAnswersL0[1]);
-		}
-		else if(sensor == 7) {
-			lcdPrintf(lcd, lcdAnswersL0[2]);
-		}
-		else /*(sensor < 5)*/
-		{
-			lcdPrintf(lcd, lcdAnswersL0[sensor]);
-		}
-		printf ("\n");
-		/* PARA LIHA 1 DO LCD */
-		
-		lcdPosition(lcd, 0, 1);
+		bTOd(caLocal);
 		if(sensor == 0 || sensor == 5)
 		{
+		    volts = part*3.3/1024;
+		}
+		if(enviarParaTodos)
+		    allNodesBroadcast[broadcastIndex] = part;
+		broadcastIndex++;
+	}
+}
+
+void showResponsesLCD()
+{
+    lcdClear(lcd);
+		
+	/* PARA LIHA 0 DO LCD */
+	
+	lcdPosition(lcd, 0, 0);
+	if(sensor == 5) {
+		lcdPrintf(lcd, lcdAnswersL0[0]);
+	}
+	else if(sensor == 6) {
+		lcdPrintf(lcd, lcdAnswersL0[1]);
+	}
+	else if(sensor == 7) {
+		lcdPrintf(lcd, lcdAnswersL0[2]);
+	}
+	else /*(sensor < 5)*/
+	{
+		lcdPrintf(lcd, lcdAnswersL0[sensor]);
+	}
+	printf ("\n");
+
+	/* PARA LIHA 1 DO LCD */
+	
+	lcdPosition(lcd, 0, 1);
+	if(sensor == 0 || sensor == 5) // analógico OU monitor analógico
+	{
+		if(part > 1023)
+		{
+			lcdPrintf(lcd, "READING ERROR");
+		}
+		else
+			lcdPrintf(lcd, lcdAnswersL1[0], part, volts);
+	}
+	else if(sensor == 6 || sensor == 7)		// MONITOR DIG 1 ou DIG 2.
+		{lcdPrintf(lcd, lcdAnswersL1[1], part);} // NÃO TROCAR INDICE POIS DA ERRO.
+	else if (sensor == 1 || sensor == 2)	// DIG 1 ou DIG 2.
+        {lcdPrintf(lcd, lcdAnswersL1[sensor], part);}
+	else if (sensor == 3 || sensor == 4)	// LED ON ou LED OFF
+		{lcdPrintf(lcd, lcdAnswersL1[sensor], part);}
+	else if(sensor == 8) {		// TODOS OS SENSORES
+
+	    /* PARA LIHA 0 DO LCD */
+		lcdPosition(lcd, 0, 0);
+
+		lcdPrintf(lcd, lcdAnswersL0[allMonitors]);
+		
+		/* PARA LIHA 1 DO LCD */
+	    lcdPosition(lcd, 0, 1);
+		
+		if(allMonitors == 0) {
 			if(part > 1023)
 			{
 				lcdPrintf(lcd, "READING ERROR");
 			}
 			else
-				lcdPrintf(lcd, lcdAnswersL1[0], part, volts);
+				lcdPrintf(lcd, lcdAnswersL1[allMonitors], part, volts);
 		}
-		else if(sensor == 6 || sensor == 7)
-			{lcdPrintf(lcd, lcdAnswersL1[1], integerValue);}
-		else if (sensor == 1 || sensor == 2)
-			{lcdPrintf(lcd, lcdAnswersL1[sensor], integerValue);}
-		else if (sensor == 3 || sensor == 4)
-			{lcdPrintf(lcd, lcdAnswersL1[sensor], integerValue);}
-		else if(sensor == 8) {
-		    /* PARA LIHA 0 DO LCD */
-    		lcdPosition(lcd, 0, 0);
-    		
-    		if(allMonitors == 0) {
-    			lcdPrintf(lcd, lcdAnswersL0[0]);
-    		}
-    		if(allMonitors == 1) {
-    			lcdPrintf(lcd, lcdAnswersL0[1]);
-    		}
-    		if(allMonitors == 2) {
-    			lcdPrintf(lcd, lcdAnswersL0[2]);
-    		}
-    		
-    		/* PARA LIHA 1 DO LCD */
-		    lcdPosition(lcd, 0, 1);
-    		
-    		if(allMonitors == 0) {
-    			if(part > 1023)
-    			{
-    				lcdPrintf(lcd, "READING ERROR");
-    			}
-    			else
-    				lcdPrintf(lcd, lcdAnswersL1[0], part, volts);
-    		}
-    		if(allMonitors == 1) {
-    			lcdPrintf(lcd, lcdAnswersL1[1], integerValue);
-    		}
-    		if(allMonitors == 2) {
-    			lcdPrintf(lcd, lcdAnswersL1[2], integerValue);
-    		}
-		}
-		else //if(sensor == 9)
-		{
-		    if(part == (int) protocolCodes[33])
-		    {
-		        printf("NODE OK");
-				displayMessage(lcdAnswersL0[5], lcdAnswersL1[5]);
-		    }
-		    else
-		    {
-		        printf("E R R O");
-				displayMessage("E R R O", "E R R O");
-		    }
-		    delay(1000);
-		}
+		else
+			lcdPrintf(lcd, lcdAnswersL1[allMonitors], part);
+	}
+	else //if(sensor == 9)
+	{
+	    if(part == (int) protocolCodes[33])
+	    {
+	        printf("NODE OK");
+			displayMessage(lcdAnswersL0[5], lcdAnswersL1[5]);
+	    }
+	    else
+	    {
+	        printf("E R R O");
+			displayMessage("E R R O", "E R R O");
+	    }
+	    delay(1000);
 	}
 	delay(1000);
 	printf ("\n");
+}
+
+void changeControlValues()
+{
+	printf("DESLIGADO\n");
+	mainMenu = 0;
+	nodeMCU = 1;
+	oldNodeMCU = 0;
+	sensor = 0;
+}
+
+void monitoring(char request)
+{
+	while (digitalRead(selectButton) == 1)
+	{
+		serialPutchar(fd, request);
+        serialResponse();
+		showResponsesLCD();
+	}	// se não funcionar colocar o subButton
+	displayMessage("monitoring OFF", "back to the menu");
+	delay(1000);
+}
+
+void soltarBotao()
+{
+	delay(250);
+	while(digitalRead(selectButton) == 0) // SE NÃO LARGAR O BOTÃO
+	{	//delay(500);
+		printf ("solta o botão! \n");
+	}
+}
+
+void chooseButtons(char pb, int *var, int min, int max) // VAR é PONTEIRO
+{
+// 	if (digitalRead(addButton) == 0)
+// 	{
+// 		*var++;
+// 		if(*var > max) *var = min;
+// 	}
+// 	if (digitalRead(subButton) == 0)
+// 	{
+// 		*var--;
+// 		if(*var < min) *var = max;
+// 	}
+// 	delay(100);
+    // if (digitalRead(addButton) == 0)
+    if (digitalRead(pb) == 0)
+	{
+		mainMenu++;
+		if(mainMenu > 1) mainMenu = 0;
+		delay(100);
+	}
 }
 
 void chooseSensor()	// permite escolher sensores, Monitoramento e outras opções exibidas na linha 1 do LCD
@@ -393,12 +341,7 @@ void chooseSensor()	// permite escolher sensores, Monitoramento e outras opçõe
 		displayMessage("Escolha Opcao:", lcdOptions[sensor]);
 		if (digitalRead(selectButton) == 0)
 		{
-			delay(250);
-			while(digitalRead(selectButton) == 0) // SE NÃO LARGAR O BOTÃO
-			{	//delay(500);
-				printf ("solta o botão! \n");
-			}
-			// if(sensor == 10)
+			soltarBotao();
 			if(sensor == 9)
 			{
 				oldNodeMCU = nodeMCU;
@@ -406,31 +349,13 @@ void chooseSensor()	// permite escolher sensores, Monitoramento e outras opçõe
 				break; // <-- VOLTAR	// SAI DO LAÇO ATUAL	
 			}
 			else if(sensor == 5) {
-				while (digitalRead(selectButton) == 1)
-				{
-				    serialPutchar(fd, toRequest[0]);
-				    respostaSerial();
-				}	// se não funcionar colocar o subButton
-				displayMessage("monitoring OFF", "back to the menu");
-				delay(1000);
+				monitoring(toRequest[0]);
 			}
 			else if(sensor == 6) {
-				while (digitalRead(selectButton) == 1)
-				{
-				    serialPutchar(fd, toRequest[1]);
-					respostaSerial();
-				}	// se não funcionar colocar o subButton
-				displayMessage("monitoring OFF", "back to the menu");
-				delay(1000);
+				monitoring(toRequest[1]);
 			}		      
 			else if(sensor == 7) {
-				while (digitalRead(selectButton) == 1)
-				{
-				    serialPutchar(fd, toRequest[2]);
-					respostaSerial();
-				}	// se não funcionar colocar o subButton
-				displayMessage("monitoring OFF", "back to the menu");
-				delay(1000);
+				monitoring(toRequest[2]);
 			}
 			else if(sensor == 8) {
 				displayMessage("mostraremos 1", "sensor por seg.");
@@ -439,7 +364,8 @@ void chooseSensor()	// permite escolher sensores, Monitoramento e outras opçõe
 				{
 				    delay(2000);
 				    serialPutchar(fd, toRequest[allMonitors]);
-				    respostaSerial();
+				    serialResponse();
+				    showResponsesLCD();
 					allMonitors++;
 					if(allMonitors > 2)
 					    allMonitors = 0;
@@ -447,21 +373,17 @@ void chooseSensor()	// permite escolher sensores, Monitoramento e outras opçõe
 				displayMessage("monitoring OFF", "back to the menu");
 				delay(1000);
 			}
-			// else if(sensor == 9) {
-			//     displayMessage("enviando ...", "requisicao ...");
-			//     serialPutchar(fd, protocolCodes[nodeMCU]);
-			//     printf ("\n%d\n", protocolCodes[nodeMCU]);
-			// 	respostaSerial();
-			// 	delayButton();
-			// }
 			else {
 				displayMessage("enviando ...", "requisicao ...");
-				printf ("\n%d\n", toRequest[sensor]);
 				serialPutchar(fd, toRequest[sensor]);
-				respostaSerial();
+				serialResponse();
+				showResponsesLCD();
 				delayButton();
 			}
 		}
+// 		chooseButtons(&sensor, 0, 9);
+//         chooseButtons(addButton, &sensor, 0, 9);
+// 		chooseButtons(subButton, &sensor, 0, 9);
 		if (digitalRead(addButton) == 0)
 		{
 			sensor++;
@@ -477,11 +399,7 @@ void chooseSensor()	// permite escolher sensores, Monitoramento e outras opçõe
 		delay(250); // PRECISA
 		if(digitalRead(DIP4) == 0)
 		{
-    	    printf("DESLIGADO\n");
-    	    mainMenu = 0;
-            nodeMCU = 1;
-            oldNodeMCU = 0;
-            sensor = 0;
+    	    changeControlValues();
             chooseOptions();
     	    lcdClear(lcd);
     	    break;
@@ -502,29 +420,29 @@ void chooseESP()	// permite escolher node na linha 1 do LCD
 		displayMessageIntegerPointer("Escolher ESP:", "node MCU = %d", &nodeMCU);
 		if (digitalRead(selectButton) == 0)
 		{
-			delay(250);
-			while(digitalRead(selectButton) == 0) // SE NÃO LARGAR O BOTÃO
-			{	//delay(500);
-				// printf ("solta o botão! \n");
-			}
+			soltarBotao();
 			displayMessage(lcdMainOptions[3], "pedir status");
+			delay(1000);
 			serialPutchar(fd, protocolCodes[nodeMCU]);
 			serialResponse();
 			printf("part = %d\n", part);
 			if(part == okStatus)
 			{
-				printf("AÇÔÔÔÔÔÔ !\n");
+				printf("STATUS OK !\n");
 				displayMessage(lcdAnswersL0[5], lcdAnswersL1[5]);
+				delay(1000);
 				chooseSensor();
 			}
 			else
 			{
-				printf("não açô\n");
 				displayMessage("NAO responde", "(TIMEOUT)");
 				delayButton();
 			}
 		}
-		if (digitalRead(addButton) == 0)
+// 		chooseButtons(&nodeMCU, 1, 32);
+//         chooseButtons(addButton, &nodeMCU, 1, 32);
+// 		chooseButtons(subButton, &nodeMCU, 1, 32);
+        if (digitalRead(addButton) == 0)
 		{
 			nodeMCU++;
 			if(nodeMCU > 32) nodeMCU = 1;
@@ -538,11 +456,7 @@ void chooseESP()	// permite escolher node na linha 1 do LCD
 		}
 		if(digitalRead(DIP4) == 0)
 		{
-    	    printf("DESLIGADO\n");
-    	    mainMenu = 0;
-            nodeMCU = 1;
-            oldNodeMCU = 0;
-            sensor = 0;
+    	    changeControlValues();
             chooseOptions();
     	    lcdClear(lcd);
     	    break;
@@ -559,11 +473,7 @@ void chooseOptions()	// ESCOLHER NODE OU ENVIAR MENSAGEM PARA TODAS AS NODES
 		displayMessage("Escolher Opcao:", lcdMainOptions[mainMenu]);
 		if (digitalRead(selectButton) == 0)
 		{
-			delay(250);
-			while(digitalRead(selectButton) == 0) // SE NÃO LARGAR O BOTÃO
-			{	//delay(500);
-				printf ("solta o botão! \n");
-			}
+			soltarBotao();
 			if(mainMenu == 0)	// ESCOLHER NODE
 			{
 			    chooseESP();
@@ -573,16 +483,16 @@ void chooseOptions()	// ESCOLHER NODE OU ENVIAR MENSAGEM PARA TODAS AS NODES
 				enviarParaTodos = true;
 				displayMessage(lcdMainOptions[1], "enviar...");
 				serialPutchar(fd, allNodesMCU);
-				printf ("ENVIOU! \n");
-				serialResponseBroadcast();
-				printf ("PAROU ! \n");
+				serialResponse();
 				displayMessage("TOTAL", intTOstring(int_str, broadcastIndex));
 				delayButton();
 				enviarParaTodos = false;
 				broadcastIndex = 0;
 			}
 		}
-		if (digitalRead(addButton) == 0)
+// 		chooseButtons(addButton, &mainMenu, 0, 1);
+// 		chooseButtons(subButton, &mainMenu, 0, 1);
+        if (digitalRead(addButton) == 0)
 		{
 			mainMenu++;
 			if(mainMenu > 1) mainMenu = 0;
@@ -596,12 +506,7 @@ void chooseOptions()	// ESCOLHER NODE OU ENVIAR MENSAGEM PARA TODAS AS NODES
 		}
 		if(digitalRead(DIP4) == 0)
 		{
-    	    printf("DESLIGADO\n");
-    	    lcdClear(lcd);
-    	    mainMenu = 0;
-            nodeMCU = 1;
-            oldNodeMCU = 0;
-            sensor = 0;
+    	    changeControlValues();
     	    break;
 		}
 		delay(100);
@@ -622,11 +527,7 @@ int main()
 	pinMode(DIP2,INPUT);// Sets the pin as input.
 	pinMode(DIP3,INPUT);// Sets the pin as input.
 	pinMode(DIP4,INPUT);// Sets the pin as input.
-	lcd = lcdInit (2, 16, 4, LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7, 0, 0, 0, 0); // (ROWS, COLUMNS, BIT MODE, LCD_RS, LCD_E, LCD_D0, LCD_D1, LCD_D2, LCD_D3, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
-// 	printf("ligado\n");
-// 	chooseOptions();
-// 	serialClose(fd);
-	
+	lcd = lcdInit (2, 16, 4, LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7, 0, 0, 0, 0); // (ROWS, COLUMNS, BIT MODE, LCD_RS, LCD_E, LCD_D0, LCD_D1, LCD_D2, LCD_D3, LCD_D4, LCD_D5, LCD_D6, LCD_D7);	
 	while(1) // ENQUANTO O DIP SWITCH NÃO ESTIVER LIGADO NADA ACONTECE. SE ESTIVER DESLIGADO TUDO PARA DE FUNCIONAR
 	{
 	    if(digitalRead(DIP4) == 1)
@@ -637,27 +538,10 @@ int main()
     	}
     	else
     	{
-    	    printf("DESLIGADO\n");
-    	    lcdClear(lcd);
-    	    mainMenu = 0;
-            nodeMCU = 1;
-            oldNodeMCU = 0;
-            sensor = 0;
+    	    changeControlValues();
     	    lcdClear(lcd);
     	}
 	}
 	serialClose(fd);
 	return 0;
 }
-
-void bTOd()
-{
-	int integerValue;
-	sscanf(ca, "%d", &integerValue);
-	printf("VALOR INTEIRO É : %d\n", integerValue);
-	printf("VALOR convertido É : %d\n", convert(integerValue));
-	for (i = 0; i < 10; i++) {
-		ca[i]=0;
-	}
-}
-
