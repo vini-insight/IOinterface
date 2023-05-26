@@ -91,9 +91,18 @@ IOinterface
 
 <p></p>
 
+### Potenciômetro
+
+<p>
+	<img src="/images/potenciometro_5.jpg" alt="img" align="right" style="height: 25%; width: 25%;" >
+	Um potenciômetro é um tipo especial de resistor de três terminais cuja resistência pode ser ajustada por meio mecânico, girando ou deslizando um eixo móvel, formando assim um divisor de tensão ajustável. Os potenciômetros encontram inúmeras aplicações em vários campos da tecnologia, como por exemplo em amplificadores de áudio, instrumentos musicais eletrônicos, mixers de áudio, eletrodomésticos, televisores, equipamentos industriais, joysticks, osciloscópios analógicos, e muitos outros. Basicamente, os potenciômetros são usados de duas formas em circuitos eletrônicos: como divisores de tensão ajustáveis (aplicação mais comum) ou ainda como limitadores ajustáveis de corrente.</p>
+
+<p></p>
+
 <!-- <div>	
 	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
 </div> -->
+<p></p>
 
 ## Sensor Digital
 
@@ -277,6 +286,8 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Referências
+
+https://guiarobotica.com/push-button-arduino/#:~:text=O%20Push%20button%20(bot%C3%A3o%20de,circuito%20apenas%20de%20modo%20moment%C3%A2neo.
 
 https://portal.vidadesilicio.com.br/lendo-um-potenciometro-com-o-esp8266-nodemcu/
 
