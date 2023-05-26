@@ -107,7 +107,7 @@ IOinterface
 
 <img src="/images/ADCgraph.jpg" alt="img" align="center">
 
-<p>O módulo ESP8266 NodeMCU possui um ADC e também um pino (A0 porta de entrada analógica) destinado a lidar com a leitura de um sinal Analógico, ou seja, um pino cuja função é receber níveis de tensão e em seguida traduzir os mesmos em uma linguagem adequada para que possamos manipulá-los. Este processo ocorre da seguinte maneira: o NodeMCU que estamos utilizando suporta sinais de tensão entre 0 e 3,3V em suas entradas, portanto, caso nós coloquemos um sinal de tensão de 0 volts na porta de entrada analógica A0, o nosso módulo irá associar esta informação ao número 0 (zero) . Em contrapartida, caso o sinal em questão tenha magnitude de 3,3V, o NodeMCU irá referenciar este valor ao número 1023. Se a tensão estiver em qualquer valor intermediário, tera um valor proporcional dentro das 1014 divisões que é a pricisão máxima de leitura com 10 bits.</p>
+<p>O módulo ESP8266 NodeMCU possui um ADC e também um pino (A0 porta de entrada analógica) destinado a lidar com a leitura de um sinal Analógico, ou seja, um pino cuja função é receber níveis de tensão e em seguida traduzir os mesmos em uma linguagem adequada para que possamos manipulá-los. Este processo ocorre da seguinte maneira: o NodeMCU que estamos utilizando suporta sinais de tensão entre 0 e 3,3V em suas entradas, portanto, caso nós coloquemos um sinal de tensão de 0 volts na porta de entrada analógica A0, o nosso módulo irá associar esta informação ao número 0 (zero). Em contrapartida, caso o sinal em questão tenha magnitude de 3,3V, o NodeMCU irá referenciar este valor ao número 1023. Se a tensão estiver em qualquer valor intermediário, tera um valor proporcional dentro das 1014 divisões que é a pricisão máxima de leitura com 10 bits.</p>
 
 
 <!-- <div>	
@@ -120,6 +120,25 @@ IOinterface
 <p>
 	<img src="/images/instrumentacao_e_sensores_a01_f05_a.jpg" alt="img" align="right">
 	São sensores cujas amplitudes da saída são representadas por números binários. Isso significa que os níveis de tensão de saída podem ser interpretados como "0" ou "1", não havendo possibilidade de existir qualquer outro valor entre eles. No entanto, as variáveis físicas "lidas" pelos sensores digitais se apresentam na natureza de forma analógica. Então, para que esses tipos de sensores apresentem na sua saída um formato digital, faz-se necessária a utilização de um circuito eletrônico que possa fazer essa conversão. Na maioria dos casos é utilizado um conversor analógico digital. Ao lado temos um gráfico do sinal da saída de um conversor analógico digital.</p>
+	
+	
+### Push Button
+
+<p>
+	<img src="/images/chave-tactil-push-button-BCE04-foto-prod.png" alt="img" align="right" style="height: 15%; width: 15%;" >
+	O Push button (botão de pressão) é uma chave que, quando pressionado o botão, ela abre ou fecha o circuito, convertendo assim, um comando mecânico em elétrico. Geralmente eles tem um contato de ação momentânea, abrindo ou fechando o circuito apenas de modo momentâneo. As chaves podem ser do tipo NA (Normalmente aberta) Com o intuito de que, quando pressionado fecha o circuito permitindo assim a passagem de corrente, e mandando um sinal HIGH (1) para o circuito. Ou uma chave NF (normalmente fechada) a fim de que quando pressionada, abra o circuito impedindo a passagem de corrente, mandando assim um sinal LOW (0) para o circuito. Existem dois modos de usar o Push Button:</p>
+
+<li>Funcionamento com resistor Pull-down: Funciona como NA, ou seja, só ira mandar um sinal lógico HIGH (1) para o circuito enquanto estiver pressionado, permitindo assim passagem de corrente. Geralmente utiliza-se um resistor de 10KΩ para esta finalidade. </li>
+<li>Funcionamento com resistor Pull-up: Funciona como NF, ou seja, o circuito esta normalmente fechado, mandando um sinal HIGH (1) para o Arduino, enquanto pressionado, a porta digital irá receber um sinal LOW (0) , funciona de modo invertido ao NA.</li>
+
+<div>
+<p>O módulo ESP8266 NodeMCU possui alguns pinos GPIO (D0 e D1) em que nossos push buttons estão conectados. Eles farão o papel de Sensores Digitais.</p>
+</div>
+
+
+
+<p></p>
+
 
 # Visão Geral do Protótipo
 
@@ -297,6 +316,8 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Referências
+
+https://embarcados.com.br/conversor-a-d/
 
 https://www.electronics-tutorials.ws/combination/analogue-to-digital-converter.html
 
