@@ -152,9 +152,13 @@ IOinterface
 
 # NodeMCU e ESP8266
 
-<p>O Módulo NodeMCU ESP8266 CP2102 é uma placa de desenvolvimento para IOT – Internet of Thinks (internet das coisas).  O nome "NodeMCU" é a combinação de: node que significa "nó", a sigla MCU significa "MicroController Unit" ou Unidade de Microcontrolador. O nodeMCU possui o seu próprio microcontrolador de 32bits, dispensando o uso de um microcontrolador externo, como o Arduino Uno R3. Possui entrada USB Micro que serve tanto para a conexão com um computador quanto para a alimentação, além de um regulador de tensão AMS1117 para diminuir a tensão de entrada de 5V para 3.3V, tensão de operação do NodeMCU, entre outras especificações.</p>
+<p>O Módulo NodeMCU é uma placa de desenvolvimento para IOT – Internet of Thinks (internet das coisas).  O nome "NodeMCU" é a combinação de: node que significa "nó", a sigla MCU significa "MicroController Unit" ou Unidade de Microcontrolador.</p>
 
-<p>Uma das principais características da placa NodeMCU é o uso do módulo ESP8266 para realizar a conexão com a rede Wifi, dando a possibilidade de conectar qualquer dispositivo microcontrolado à rede de internet. Além de uma boa capacidade de processamento, e a conexão com uma rede Wifi, possibilitando conectar diversos dispositivos à Internet atendendo assim uma gama enorme de aplicações, tais como automação residencial, monitoramento remoto, rede de sensores, controle industrial sem fio, entre muitas outras.
+<p>O nodeMCU possui o seu próprio microcontrolador de 32bits, dispensando o uso de um microcontrolador externo, como o Arduino Uno R3. Possui entrada USB Micro que serve tanto para a conexão com um computador quanto para a alimentação, além de um regulador de tensão AMS1117 para diminuir a tensão de entrada de 5V para 3.3V, tensão de operação do NodeMCU, entre outras especificações.</p>
+
+<p>O ESP8266 é um SOC (sistema em um chip). É um chip altamente integrado projetado para fornecer conectividade total à Internet via wi-fi em um pacote pequeno. Pode ser usado como um módulo Wifi externo, usando o firmware padrão AT Command set, conectando-o a qualquer microcontrolador usando o UART serial, ou servindo diretamente como um microcontrolador habilitado para Wifi.</p>
+
+<p>Uma das principais características da placa NodeMCU é ter integrado o módulo ESP8266 para realizar a conexão com a rede Wifi, dando a possibilidade de conectar qualquer dispositivo microcontrolado à rede de internet. Além de uma boa capacidade de processamento, e a conexão com uma rede Wifi, possibilitando conectar diversos dispositivos à Internet atendendo assim uma gama enorme de aplicações, tais como automação residencial, monitoramento remoto, rede de sensores, controle industrial sem fio, entre muitas outras.
 <br></br>
 <img src="/images/nodeMCUesp8266.png" alt="img" align="center" >
 </p>
