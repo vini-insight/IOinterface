@@ -140,6 +140,23 @@ IOinterface
 </div>
 
 
+# Comunicação Serial.
+
+# UART (protocolos de comunicação serial)
+
+# inserir códigos de protocolos
+
+# linguagem C
+
+# Microcontrolador
+
+# ESP8266 NodeMCU
+
+# sbc e arquitetura arm
+
+# PINOUT DA NODE ESP
+
+
 
 <p></p>
 
