@@ -280,6 +280,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <img src="/images/leituraSensorAnalogico.png" alt="img" >
 
 <p>Exemplo de funcionamento: Seleção do Sensor Analógico.</p>
+<p>A leitura mostra o valor proveniente do sensor (ADC) e a tensão (V).</p>
 
 ## Protocolo:
 
