@@ -11,7 +11,7 @@
 
 const char* ssid = STASSID; 
 const char* password = STAPSK;
-const char* host = "ESP-10.0.0.108";
+const char* host = "ESP-10.0.0.107";
 
 int led_pin = LED_BUILTIN;
 
@@ -150,10 +150,16 @@ void loop() {
         digitalWrite(led_pin, HIGH);
         Serial.print(0, BIN);
       }      
-      if(hex == protocolCodes[0] ){
+      if(hex == protocolCodes[63] ){
         //Serial.println(3, BIN); // envia resposta com número da ESP para saber que ela está ativa.
         Serial.println(3, BIN); // envia resposta com número da ESP para saber que ela está ativa.
-      }
+//        Serial.println(1, BIN); // envia resposta com número da ESP para saber que ela está ativa.
+//        Serial.println(2, BIN); // envia resposta com número da ESP para saber que ela está ativa.
+//        Serial.println(5, BIN); // envia resposta com número da ESP para saber que ela está ativa.        
+      } // IDEIA: coocar sleep multiplicado pelo número da node antes de responder. assim todos vão responder em seu devido tempo. e não dá confusão.
+        // IDEIA: do lado da orangePI colocar uma thread para controlar o tempo total e sair quando atinger esse tempo.
+        // IDEIA: essa condição de tempo deve ser assim : while (1 & time == true) { serialPuchar(); serialResponse();}
+        
 //      
 //      if(c.equals("ESP3.Anal")){
 //        sensorValue = analogRead(analogInPin);

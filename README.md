@@ -1,12 +1,98 @@
+<!-- # IOinterface
+IOinterface
+ -->
+
 # Interface de E/S - Problema #2 – 2023.1
 
-# Demonstração
+# Vídeo Demonstrativo
 
-# Fluxograma
+<p>inserir viídeo aqui.</p>
 
-![Screenshot]()
+# Diagrama de Comunicação
 
-https://app.diagrams.net/ (software utilizado para criar o fluxograma)
+<p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
+
+<div>
+	<img src="/images/diagramaComunicação.jpg" alt="img" >
+</div>
+
+# Fluxogramas
+
+<!-- ![Screenshot]() -->
+
+<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. O primeiro sobre ligar e desligar. O segundo sobre os controles. O terceiro sobre a leitura de sensores. O quarto a respeito do monitoramento de unidades de sensoriamento. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
+
+## Chave liga e desliga (DIP switch)
+
+<p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
+
+<div>
+	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
+</div>
+
+<p></p>
+<p></p>
+<p></p>
+
+## Botões de Controle (push buttons)
+
+<p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
+
+<div>
+	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+</div>
+
+<p></p>
+<p></p>
+<p></p>
+
+## Ler Sensores (analógico ou digital)
+
+<p>Abaixo os detalhes de como são feitas as leituras dos sensores. Temos um Potênciômetro que fazer o papel do sensor analógico e dois push buttons que faz o papel dos sensores digitais.</p>
+
+<div>
+	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
+</div>
+
+<p></p>
+<p></p>
+<p></p>
+
+## Monitoramento
+
+<p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
+
+<div>
+	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
+</div>
+
+# Sensor
+
+<p>Um Sensor é um dispositivo que tem a função de detectar e responder com eficiência algum estímulo. Existem vários tipos de sensores que respondem à estímulos diferentes como por exemplo: luz, som, eletricidade, magnétismo, temperatura, pressão, movimento, entre outros. Depois que o sensor recebe o estímulo, a sua função é emitir um sinal que seja capaz de ser convertido e interpretado pelos outros dispositivos.</p>
+
+<p>Os sensores são usados em vários tipos de aplicações nas indústrias, comércios e residenciais. Por exemplo, um sensor Mecâncico pode fornecer informações a respeito de posição (linear / angular), aceleração, força, massa, densidade, momento, torque e aceleração. Um sensor Óptico, por sua vez, fornece informações a respieto de onda (amplitude, fase, polarização), velocidade da onda, índice de refração, emissividade, absorsão e refletividade.</p>
+
+<p>A escolha do sensor depende exclusivamente do objetivo da sua instalação. Portanto, é preciso avaliar as condições do ambiente e optar pelo sensor mais adequado para aquela atividade. Existem sensores Analógicos e Digitais.</p>
+
+## Sensor Analógico
+
+<p>
+	<img src="/images/instrumentacao_e_sensores_a01_f04_a.jpg" alt="img" align="right">
+	São os sensores que respondem através de sinais analógicos. Devido à sua natureza analógica, a saída desses sensores podem assumir infinitos valores ao longo do tempo, dentro de sua faixa de operação. Ou seja, considerando os seus limites inferior e superior de saída, para qualquer variação sentida pelo sensor existirá um sinal de saída equivalente. Portanto, os sinais de saída podem variar entre inúmeros valores dentro desses limites. ariáveis como temperatura, pressão, vazão, umidade, força, velocidade, distância etc., são exemplos de variáveis que podem assumir qualquer valor ao longo do tempo. A direita temos um gráfico do sinal da saída de um sensor analógico.
+</p>
+
+<p></p>
+
+<!-- <div>
+	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
+</div> -->
+
+## Sensor Digital
+
+<p>
+	<img src="/images/" alt="img" align="right">
+	
+</p>
 
 # Visão Geral do Protótipo
 
@@ -182,6 +268,16 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
 
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
+
+# <<<<<<< HEAD
+
+# Referências
+
+https://materialpublic.imd.ufrn.br/curso/disciplina/1/52/1/7
+
+https://www.mundodaeletrica.com.br/o-que-sao-sensores-e-quais-as-suas-aplicacoes/
+
+> > > > > > > main
 
 # Desenvolvedores
 
