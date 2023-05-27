@@ -146,7 +146,21 @@ IOinterface
 
 # inserir códigos de protocolos
 
-# linguagem C
+# Linguagem C
+
+<p>C é uma linguagem de programação de computador de uso geral. A linguagem C foi criado na década de 1970 por Dennis Ritchie e continua sendo amplamente utilizada em sistemas operacionais, drivers de dispositivo, pilhas de protocolos de comunicação, em arquiteturas de computador que vão desde o maiordesde supercomputadores até os menores microcontroladores e sistemas embarcados. Existem compiladores C disponíveis para praticamente todas as arquiteturas de computadores e sistemas operacionais modernos. C foi padronizado pela ANSI desde 1989 ( ANSI C) e pela Organização Internacional de Normalização (ISO).</p>
+
+<p>C é uma linguagem procedural imperativa, suportando programação estruturada, escopo de variável léxica e recursão, com um sistema de tipo estático. Ele foi projetado para ser compilado para fornecer acesso de baixo nível à memória e construções de linguagem que mapeiam com eficiência as instruções da máquina, tudo com suporte mínimo de tempo de execução.</p>
+
+<p>Apesar de seus recursos de baixo nível, a linguagem foi projetada para incentivar a programação entre plataformas. Um programa C compatível com os padrões escrito com portabilidade em mente pode ser compilado para uma ampla variedade de plataformas de computador e sistemas operacionais com poucas alterações em seu código-fonte.</p>
+
+<p>
+	<img src="/images/cHW.jpg" alt="img" align="left" >
+	C não deve ser confundida com C++ (Cplusplus), C# (Csharp), ou, Objective-C que são outras liguagens de programação. A diferença mais importante entre elas é a abordagem de programação que cada uma usa, em outras palavras, o seu paradigma de programação. C++, C# e Objective-C são orientadas a Objetos e seu programas são divididos em conjunto de Classes que instanciam os Objetos. C é uma linguagem orientada a procedimentos e sua ênfase está nas funções. Os programas são divididos em um conjunto de funções. Ao lado um exemplo de código em C.</p>
+
+<p></p>
+<p></p>
+<br></br>
 
 # Microcontrolador
 
@@ -357,6 +371,8 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Referências
+
+https://www.freecodecamp.org/news/c-vs-cpp-whats-the-difference/
 
 https://fabacademy.org/archives/2015/doc/networking-esp8266.html
 
