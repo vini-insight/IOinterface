@@ -149,15 +149,21 @@ IOinterface
 
 # Comunicação Serial.
 
+<p>Nas telecomunicações e na transmissão de dados, a comunicação serial é o processo de envio de dados Byte a Byte, com um bit sendo enviado de cada vez, sequencialmente, por um único canal de comunicação ou barramento de computador. Isso contrasta com a comunicação paralela, onde existem vários canais no barramento, um para cada bit do dado a ser transmitido e todos são transmitidos ao mesmo tempo. A comunicação serial é usada para todas as comunicações de longa distância e para a maioria das redes de computadores, onde o custo do cabo e as dificuldades de sincronização tornam a comunicação paralela impraticável.</p>
 
-Nas telecomunicações e na transmissão de dados, a comunicação serial é o processo de envio de dados Byte a Byte, com um bit sendo enviado de cada vez, sequencialmente, por um canal de comunicação ou barramento de computador. Isso contrasta com a comunicação paralela, onde vários bits são enviados como um todo, em um link com vários canais paralelos. A comunicação serial é usada para todas as comunicações de longa distância e para a maioria das redes de computadores, onde o custo do cabo e as dificuldades de sincronização tornam a comunicação paralela impraticável.
+<p>Para se comunicar é necessário enivar alguma informação. Ela pode ser pequana ou grande. Quando esse tamanho é maior do que 1 Byte, ela é separada em grupos de 1 Byte cada e enviada um bit por vez. Quando um caracter é enviado, ele é representado por uma sequência de 8 bits (1 Byte). Para o computador identificar qual o caractere que está chegando é necessário determinar quando termina o envio de um caracter e inicia o seguinte. Essa separação é feita incluindo um bit adicional avisando o computador que um novo dado serial esta disponível (start bit), seguido dos bits de dados, um bit opcional de paridade (checagem de erros) e um ou mais bits de parada (stop bits). Esse é conhecido como Comunicação Assíncrona na qual os dados podem ser enviados e recebidos a qualquer momento.</p>
 
-Para se comunicar é necessário enivar alguma informação. Ela pode ser pequana ou grande. Quando esse tamanho é maior do que 1 Byte, ela é separada em grupos de 1 byte cada e enviada um bit por vez.
-Quando um caracter é enviado, ele é representado por uma sequência de 8 bits (1 Byte). Para o computador identificar qual o caractere que está chegando é necessário determinar quando termina o envio de um caracter e inicia o seguinte. 
+## Métodos de transmisão
 
-Essa separação é feita incluindo um bit adicional avisando o computador que um novo dado serial esta disponível, seguido dos bits de dados, um bit opcional de paridade (checagem de erros) e um ou mais bits de parada (stop bits). Esse é conhecido como Comunicação Assíncrona na qual os dados podem ser enviados e recebidos a qualquer momento.
+<p>Síncrono é o método de comunicação que depende de um sinal de "clock", ou seja, cada bit ou conjunto de bits enviado depende de um pulso do clock, tendo como principal vantagem sua velocidade de transmissão de dados, em contrapartida é necessario um fio extra para o clock.</p>
 
-Na comunicação assíncrona a sequência de bits que formam o caracter é iniciada por um sinal de +12V (start bit) avisando o computador que um novo dado serial esta disponível, seguido dos bits de dados, um bit opcional de paridade (parity) e um ou mais bits de parada (stop bits).
+<p>Assíncrono é um método de comunicação que não precisa de um sinal de clock, portanto o número de fios necessários é menor. Contudo, o envio dos dados é mais complicado e susceptível a erros, por isso alguns parâmetros são necessários para garantir o envio sem erros. Um parâmetro muito evidente em comunicações assíncrona é o Baud Rate que especifica a velocidade de recepção e envio, por isso é muito importante que os dois dispositivos utilizem a mesma taxa.</p>
+
+## Sentido de Transmissão
+
+<li>Full-duplex: Indica que o dispositivo pode transmitir e receber dados ao mesmo tempo.</li>
+<li>Half-duplex: O dispositivo que comunica dessa forma pode enviar ou receber mas não executa essas funções simultaneamente.</li>
+<li>Simplex: Se trata de dispositivos que sua comunicação é unidirecional, ou seja, apenas efetua o envio ou recebimento.</li>
 
 
 <p></p>
@@ -417,6 +423,7 @@ https://paginas.fe.up.pt/~hsm/misc/old/comp/uart/
 
 https://materialpublic.imd.ufrn.br/curso/disciplina/2/61/4/7
 
+https://www.cnblogs.com/answer/archive/2007/07/12/815282.html
 
 
 
