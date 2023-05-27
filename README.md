@@ -131,8 +131,7 @@ IOinterface
 <li>Funcionamento com resistor Pull-down: Funciona como NA, ou seja, só ira mandar um sinal lógico HIGH (1) para o circuito enquanto estiver pressionado, permitindo assim passagem de corrente. Geralmente utiliza-se um resistor de 10KΩ para esta finalidade. </li>
 <li>Funcionamento com resistor Pull-up: Funciona como NF, ou seja, o circuito esta normalmente fechado, mandando um sinal HIGH (1) para o Arduino, enquanto pressionado, a porta digital irá receber um sinal LOW (0) , funciona de modo invertido ao NA.</li>
 
-<br>
-</br>
+<br> </br>
 
 
 <div>
@@ -152,6 +151,18 @@ IOinterface
 <p>Nas telecomunicações e na transmissão de dados, a comunicação serial é o processo de envio de dados Byte a Byte, com um bit sendo enviado de cada vez, sequencialmente, por um único canal de comunicação ou barramento de computador. Isso contrasta com a comunicação paralela, onde existem vários canais no barramento, um para cada bit do dado a ser transmitido e todos são transmitidos ao mesmo tempo. A comunicação serial é usada para todas as comunicações de longa distância e para a maioria das redes de computadores, onde o custo do cabo e as dificuldades de sincronização tornam a comunicação paralela impraticável.</p>
 
 <p>Para se comunicar é necessário enivar alguma informação. Ela pode ser pequana ou grande. Quando esse tamanho é maior do que 1 Byte, ela é separada em grupos de 1 Byte cada e enviada um bit por vez. Quando um caracter é enviado, ele é representado por uma sequência de 8 bits (1 Byte). Para o computador identificar qual o caractere que está chegando é necessário determinar quando termina o envio de um caracter e inicia o seguinte. Essa separação é feita incluindo um bit adicional avisando o computador que um novo dado serial esta disponível (start bit), seguido dos bits de dados, um bit opcional de paridade (checagem de erros) e um ou mais bits de parada (stop bits). Esse é conhecido como Comunicação Assíncrona na qual os dados podem ser enviados e recebidos a qualquer momento.</p>
+
+<div align="right"> envio de 3 caracteres de forma Paralela</div>
+<img src="/images/parallel.gif" alt="img" align="right" style="height: 80%; width: 80%;">
+<div align="left">envio de 3 caracteres de forma Serial</div>
+<img src="/images/anim_com_serial.gif" alt="img" align="left" >
+
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
 
 ## Métodos de transmisão
 
