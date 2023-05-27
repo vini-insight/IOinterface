@@ -149,6 +149,17 @@ IOinterface
 
 # Comunicação Serial.
 
+
+Nas telecomunicações e na transmissão de dados, a comunicação serial é o processo de envio de dados Byte a Byte, com um bit sendo enviado de cada vez, sequencialmente, por um canal de comunicação ou barramento de computador. Isso contrasta com a comunicação paralela, onde vários bits são enviados como um todo, em um link com vários canais paralelos. A comunicação serial é usada para todas as comunicações de longa distância e para a maioria das redes de computadores, onde o custo do cabo e as dificuldades de sincronização tornam a comunicação paralela impraticável.
+
+Para se comunicar é necessário enivar alguma informação. Ela pode ser pequana ou grande. Quando esse tamanho é maior do que 1 Byte, ela é separada em grupos de 1 byte cada e enviada um bit por vez.
+Quando um caracter é enviado, ele é representado por uma sequência de 8 bits (1 Byte). Para o computador identificar qual o caractere que está chegando é necessário determinar quando termina o envio de um caracter e inicia o seguinte. 
+
+Essa separação é feita incluindo um bit adicional avisando o computador que um novo dado serial esta disponível, seguido dos bits de dados, um bit opcional de paridade (checagem de erros) e um ou mais bits de parada (stop bits). Esse é conhecido como Comunicação Assíncrona na qual os dados podem ser enviados e recebidos a qualquer momento.
+
+Na comunicação assíncrona a sequência de bits que formam o caracter é iniciada por um sinal de +12V (start bit) avisando o computador que um novo dado serial esta disponível, seguido dos bits de dados, um bit opcional de paridade (parity) e um ou mais bits de parada (stop bits).
+
+
 <p></p>
 <p></p>
 <p></p>
