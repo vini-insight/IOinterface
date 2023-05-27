@@ -158,11 +158,18 @@ IOinterface
 	<img src="/images/cHW.jpg" alt="img" align="left" >
 	C não deve ser confundida com C++ (Cplusplus), C# (Csharp), ou, Objective-C que são outras liguagens de programação. A diferença mais importante entre elas é a abordagem de programação que cada uma usa, em outras palavras, o seu paradigma de programação. C++, C# e Objective-C são orientadas a Objetos e seu programas são divididos em conjunto de Classes que instanciam os Objetos. C é uma linguagem orientada a procedimentos e sua ênfase está nas funções. Os programas são divididos em um conjunto de funções. Ao lado um exemplo de código em C.</p>
 
-<p></p>
+
 <p></p>
 <br></br>
 
 # Microcontrolador
+
+<p>Um microcontrolador é um pequeno computador em um único chip de circuito integrado. Um microcontrolador contém CPUs ( núcleos de processador ) juntamente com memória e periféricos de entrada/saída programáveis. Os microcontroladores são projetados para aplicações embarcadas, em contraste com os microprocessadores usados em computadores pessoais ou outras aplicações de uso geral que consistem em vários chips discretos.</p>
+
+<p>Na terminologia moderna, um microcontrolador é semelhante, mas menos sofisticado do que um sistema em um chip (SoC). Um SoC pode conectar os chips do microcontrolador externo como os componentes da placa-mãe, mas um SoC geralmente integra os periféricos avançados, como a unidade de processamento gráfico (GPU) e o controlador de interface Wi-Fi , como circuitos internos da unidade do microcontrolador.</p>
+
+<p>Os microcontroladores são usados em produtos e dispositivos controlados automaticamente, como sistemas de controle de motores de automóveis, dispositivos médicos implantáveis, controles remotos, máquinas de escritório, eletrodomésticos, ferramentas elétricas, brinquedos e outros sistemas embarcados. No contexto da internet das coisas (IOT), os microcontroladores são um meio econômico e popular de coleta de dados, sentindo e acionando o mundo físico como dispositivos de borda.</p>
+
 
 # NodeMCU e ESP8266
 
@@ -371,6 +378,12 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Referências
+
+https://edu.ieee.org/br-ufcgras/o-que-e-um-microcontrolador/
+
+https://victorvision.com.br/blog/o-que-e-um-microcontolador/#:~:text=Para%20te%20introduzir%20no%20assunto,o%20poder%20de%20serem%20programados.
+
+https://pt.wikipedia.org/wiki/Microcontrolador
 
 https://www.freecodecamp.org/news/c-vs-cpp-whats-the-difference/
 
