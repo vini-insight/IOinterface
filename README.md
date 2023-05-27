@@ -145,16 +145,15 @@ IOinterface
 
 <p>Um grupo de dígitos binários é comumente chamado de cadeia de bits (string), vetor de bits (array). Um grupo de oito bits é chamado de um Byte. Caracter é representação binária com 8 bits (1 byte) para codificar letras, números, acentuação, espaçamento e símbolos diversos. O símbolo internacional para o bit" de acordo com o padrão internacioal é a letra minúscula "b". Não devemos confundir com "B" maiúsculo que é o símbolo padrão internacional para o Byte.</p>
 
-
 # Comunicação Serial.
 
 <p>Nas telecomunicações e na transmissão de dados, a comunicação serial é o processo de envio de dados Byte a Byte, com um bit sendo enviado de cada vez, sequencialmente, por um único canal de comunicação ou barramento de computador. Isso contrasta com a comunicação paralela, onde existem vários canais no barramento, um para cada bit do dado a ser transmitido e todos são transmitidos ao mesmo tempo. A comunicação serial é usada para todas as comunicações de longa distância e para a maioria das redes de computadores, onde o custo do cabo e as dificuldades de sincronização tornam a comunicação paralela impraticável.</p>
 
 <p>Para se comunicar é necessário enivar alguma informação. Ela pode ser pequana ou grande. Quando esse tamanho é maior do que 1 Byte, ela é separada em grupos de 1 Byte cada e enviada um bit por vez. Quando um caracter é enviado, ele é representado por uma sequência de 8 bits (1 Byte). Para o computador identificar qual o caractere que está chegando é necessário determinar quando termina o envio de um caracter e inicia o seguinte. Essa separação é feita incluindo um bit adicional avisando o computador que um novo dado serial esta disponível (start bit), seguido dos bits de dados, um bit opcional de paridade (checagem de erros) e um ou mais bits de parada (stop bits). Esse é conhecido como Comunicação Assíncrona na qual os dados podem ser enviados e recebidos a qualquer momento.</p>
 
-<div align="right"> envio de 3 caracteres de forma Paralela</div>
+<div align="right"> envio de 3 caracteres de forma Paralela:</div>
 <img src="/images/parallel.gif" alt="img" align="right" style="height: 80%; width: 80%;">
-<div align="left">envio de 3 caracteres de forma Serial</div>
+<div align="left">envio de 3 caracteres de forma Serial:</div>
 <img src="/images/anim_com_serial.gif" alt="img" align="left" >
 
 <br> </br>
@@ -172,9 +171,11 @@ IOinterface
 
 ## Sentido de Transmissão
 
-<li>Full-duplex: Indica que o dispositivo pode transmitir e receber dados ao mesmo tempo.</li>
-<li>Half-duplex: O dispositivo que comunica dessa forma pode enviar ou receber mas não executa essas funções simultaneamente.</li>
-<li>Simplex: Se trata de dispositivos que sua comunicação é unidirecional, ou seja, apenas efetua o envio ou recebimento.</li>
+<li>Simplex: os dados são enviados apenas em uma direção. Se trata de dispositivos que sua comunicação é Unidirecional. Efetua apenas o envio ou recebimento.</li>
+<li>Half-duplex: os dois lados transmitem, mas somente um de cada vez. O dispositivo que comunica dessa forma pode enviar ou receber mas não executa essas funções simultaneamente.</li>
+<li>Full-duplex: ambos os lados podem transmitir simultaneamente. Indica que o dispositivo pode transmitir e receber dados ao mesmo tempo.</li>
+
+
 
 
 <p></p>
@@ -185,7 +186,28 @@ IOinterface
 <br></br>
 
 
-# UART (protocolos de comunicação serial)
+# UART
+
+<p>
+	<img src="/images/05_Understanding-UART_01_w640_hX.png" alt="img" align="right">
+	UART significa "Universal Asynchronous Receiver/Transmitter", ou, Transmissor/Receptor Assíncrono Universal. UART define um protocolo, ou seja, um conjunto de regras para a troca de dados seriais entre dois dispositivos. O UART é muito simples e utiliza somente dois fios entre o transmissor (Tx) e o receptor (Rx) para transmitir e receber em ambas as direções. Ambas as extremidades também têm um aterramento. A comunicação em UART pode ser simplex, half-duplex, ou full-duplex. Dados em UART são transmitidos na forma de frames. O formato e o conteúdo desses frames serão brevemente descritos e explicados. </p>
+
+## Formato de frame (pacote) UART
+
+
+
+<p>UART contém bits inciais, finais, de dados e um bit opcional de paridade para checagem de erros. Como na maioria dos Sistemas Digitais, um "alto" nível de tensão é utilizado para indicar um "1" lógico e um "baixo" nível de tensão é utilizado para indicar um "0" lógico. Uma vez que o protocolo UART não define tensões ou faixas de tensão específicas para esses níveis, algumas vezes o nível alto é chamado "marca", enquanto o nível baixo é chamado "espaço". Observe que, no estado inativo (em que nenhum dado está sendo transmitido) a linha é mantida alta. Isso permite detectar facilmente danos em uma linha ou em um transmissor.</p>
+
+
+
+<p>Devido ao UART ser Assíncrono, o transmissor precisa sinalizar que os bits de dados estão chegando. Isso é possível ao utilizar o bit inicial. O bit inicial é uma transição do estado inativo para um estado baixo, imediatamente seguido pelos bits de dados do usuário. Depois que os bits de dados tiverem terminado, o bit final indica o fim dos dados do usuário. O bit de parada é uma transição de volta para o estado alto ou inativo, ou a permanência no estado alto for um tempo de bit adicional. Um segundo bit final (opcional) pode ser configurado, geralmente para dar ao receptor tempo para se preparar para o próximo frame, mas essa é uma prática relativamente incomum.</p>
+
+<p>Os bits de dados são dados de usuário ou bits "úteis" e vêm imediatamente depois do bit inicial. Pode haver de 5 a 9 bits de dados de usuários, apesar de ser mais comum haver 7 ou 8 bits. Esses bits de dados geralmente são transmitidos com o bit menos significativo primeiro (LSB first).</p>
+
+<p>Um frame UART também pode conter um bit opcional de paridade que pode ser utilizado para detecção de erros. Esse bit é inserido entre o fim dos bits de dados e o bit final. O valor do bit de paridade depende do tipo de paridade sendo utilizado (par ou ímpar):</p>
+
+<li>Na paridade par, esse bit é definido de modo que o número total de 1s no frame seja par.</li>
+<li>Na paridade ímpar, esse bit é definido de modo que o número total de 1s no frame seja ímpar.</li>
 
 # inserir códigos de protocolos
 
@@ -420,6 +442,11 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
+# Desenvolvedores
+
+| [<img src="https://avatars.githubusercontent.com/u/58979991?v=4" width=115><br><sub>Gabriel Carvalho</sub>](https://github.com/GabCarvaS) | [<img src="https://avatars.githubusercontent.com/u/7541966?v=4" width=115><br><sub>Vinicius Vieira</sub>](https://github.com/vini-insight) |
+| :---------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
+
 # Referências
 
 https://www.rohde-schwarz.com/br/produtos/teste-e-medicao/essentials-test-equipment/digital-oscilloscopes/compreender-uart_254524.html#:~:text=O%20que%20%C3%A9%20o%20UART,dados%20seriais%20entre%20dois%20dispositivos.
@@ -473,7 +500,3 @@ https://materialpublic.imd.ufrn.br/curso/disciplina/1/52/1/7
 https://www.mundodaeletrica.com.br/o-que-sao-sensores-e-quais-as-suas-aplicacoes/
 
 
-# Desenvolvedores
-
-| [<img src="https://avatars.githubusercontent.com/u/58979991?v=4" width=115><br><sub>Gabriel Carvalho</sub>](https://github.com/GabCarvaS) | [<img src="https://avatars.githubusercontent.com/u/7541966?v=4" width=115><br><sub>Vinicius Vieira</sub>](https://github.com/vini-insight) |
-| :---------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
