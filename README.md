@@ -163,7 +163,7 @@ IOinterface
 <br> </br>
 <br> </br>
 
-## Métodos de transmisão
+## Métodos de Transmisão
 
 <p>Síncrono é o método de comunicação que depende de um sinal de "clock", ou seja, cada bit ou conjunto de bits enviado depende de um pulso do clock, tendo como principal vantagem sua velocidade de transmissão de dados, em contrapartida é necessario um fio extra para o clock.</p>
 
@@ -194,11 +194,9 @@ IOinterface
 
 ## Formato de frame (pacote) UART
 
-
-
-<p>UART contém bits inciais, finais, de dados e um bit opcional de paridade para checagem de erros. Como na maioria dos Sistemas Digitais, um "alto" nível de tensão é utilizado para indicar um "1" lógico e um "baixo" nível de tensão é utilizado para indicar um "0" lógico. Uma vez que o protocolo UART não define tensões ou faixas de tensão específicas para esses níveis, algumas vezes o nível alto é chamado "marca", enquanto o nível baixo é chamado "espaço". Observe que, no estado inativo (em que nenhum dado está sendo transmitido) a linha é mantida alta. Isso permite detectar facilmente danos em uma linha ou em um transmissor.</p>
-
-
+<p>
+	<img src="/images/05_Understanding-UART_02_w640_hX-JPG.jpg" alt="img" align="left">
+	UART contém bits inciais, finais, de dados e um bit opcional de paridade para checagem de erros. Como na maioria dos Sistemas Digitais, um "alto" nível de tensão é utilizado para indicar um "1" lógico e um "baixo" nível de tensão é utilizado para indicar um "0" lógico. Uma vez que o protocolo UART não define tensões ou faixas de tensão específicas para esses níveis, algumas vezes o nível alto é chamado "marca", enquanto o nível baixo é chamado "espaço". Observe que, no estado inativo (em que nenhum dado está sendo transmitido) a linha é mantida alta. Isso permite detectar facilmente danos em uma linha ou em um transmissor.</p>
 
 <p>Devido ao UART ser Assíncrono, o transmissor precisa sinalizar que os bits de dados estão chegando. Isso é possível ao utilizar o bit inicial. O bit inicial é uma transição do estado inativo para um estado baixo, imediatamente seguido pelos bits de dados do usuário. Depois que os bits de dados tiverem terminado, o bit final indica o fim dos dados do usuário. O bit de parada é uma transição de volta para o estado alto ou inativo, ou a permanência no estado alto for um tempo de bit adicional. Um segundo bit final (opcional) pode ser configurado, geralmente para dar ao receptor tempo para se preparar para o próximo frame, mas essa é uma prática relativamente incomum.</p>
 
