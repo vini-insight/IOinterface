@@ -405,6 +405,21 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 # Referências
 
+https://www.rohde-schwarz.com/br/produtos/teste-e-medicao/essentials-test-equipment/digital-oscilloscopes/compreender-uart_254524.html#:~:text=O%20que%20%C3%A9%20o%20UART,dados%20seriais%20entre%20dois%20dispositivos.
+
+https://docs.freebsd.org/pt-br/articles/serial-uart/
+
+https://newtoncbraga.com.br/index.php/telecom-artigos/1709-
+
+https://victorvision.com.br/blog/interface-uart/
+
+https://paginas.fe.up.pt/~hsm/misc/old/comp/uart/
+
+https://materialpublic.imd.ufrn.br/curso/disciplina/2/61/4/7
+
+
+
+
 https://www.robocore.net/tutoriais/comparacao-entre-protocolos-de-comunicacao-serial.html
 
 http://www.c2o.pro.br/automacao/ar01s11.html
