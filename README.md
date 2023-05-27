@@ -140,7 +140,22 @@ IOinterface
 </div>
 
 
+# bit, Byte e caracter
+
+<p>O nome bit é a combinação e abreviação de "binary digit" ou dígito binário. O bit é a unidade de informação mais básica em computação e comunicação digital. O bit representa um estado lógico que pode conter dois valores possíveis como verdadeiro / falso, sim / não , ativado / desativado ou alto / baixo. No entanto esses valores geralmente são representados como "1" ou "0".</p>
+
+<p>Um grupo de dígitos binários é comumente chamado de cadeia de bits (string), vetor de bits (array). Um grupo de oito bits é chamado de um Byte. Caracter é representação binária com 8 bits (1 byte) para codificar letras, números, acentuação, espaçamento e símbolos diversos. O símbolo internacional para o bit" de acordo com o padrão internacioal é a letra minúscula "b". Não devemos confundir com "B" maiúsculo que é o símbolo padrão internacional para o Byte.</p>
+
+
 # Comunicação Serial.
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<br></br>
+
 
 # UART (protocolos de comunicação serial)
 
@@ -379,11 +394,17 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 # Referências
 
+https://www.robocore.net/tutoriais/comparacao-entre-protocolos-de-comunicacao-serial.html
+
+http://www.c2o.pro.br/automacao/ar01s11.html
+
+https://en.wikipedia.org/wiki/Serial_communication
+
 https://edu.ieee.org/br-ufcgras/o-que-e-um-microcontrolador/
 
 https://victorvision.com.br/blog/o-que-e-um-microcontolador/#:~:text=Para%20te%20introduzir%20no%20assunto,o%20poder%20de%20serem%20programados.
 
-https://pt.wikipedia.org/wiki/Microcontrolador
+https://en.wikipedia.org/wiki/Microcontroller
 
 https://www.freecodecamp.org/news/c-vs-cpp-whats-the-difference/
 
