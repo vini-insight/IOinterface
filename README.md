@@ -150,7 +150,7 @@ IOinterface
 # Mapeamento dos pinos GPIO
 
 <div>
-	<img src="/images/mapeamentoGPIO.jpg" alt="img" >
+	<img src="/images/mapeamentoGPIOpi2.jpg" alt="img" >
 	<p>Esta seção apresenta o mapeamento dos pinos GPIO com as conexões do display (LCD 16x2) e botões (push buttons) utilizados no projeto. O mapeamento é essencial para garantir a correta comunicação entre o Orange PI e os demais componentes, possibilitando funcionamento das interfaces de usuário.</p>
 </div>
 
