@@ -7,13 +7,40 @@ IOinterface
 
 <p>inserir viídeo aqui.</p>
 
+# Descrição do Projeto e Requisitos
+
+<p> O objetivo é desenvolver um software capaz de ler de sensores analógicos e digitais em um microcontrolador utilizando comunicação serial.</p>
+
+<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma <a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">NodeMCU</a> para a confecção das unidades de sensoriamento.</p>
+
+<p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SBC</a> e os valores das leituras serão mostrados no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a></p>
+
+## Requisitos
+
+<ul> 
+<li> Solução deve ser desenvolvida em linguagem C </li>
+<li> Deve conter o Script de compilação do tipo Makefile para criação do executavel </li>
+<li>Para o SBC
+<ul> 
+  <li>Apenas o SBC deve ser capaz de iniciar a comunicação </li>
+  <li>Deve ser possível a interligação com até 32 unidades de sensoriamento </li>
+</ul>
+<li>Para a NodeMCU
+<ul> 
+  <li>A leitura dos sensores deve ter a maior precisão possível </li>
+  <li>Os comandos serão compostos por palavras de 1 byte (8 bits) </li>
+  <li>As requisições podem ser direcionadas para uma unidade ou todas </li>
+  <li>Comandos e respostas devem ser exibidas no display LCD 16x2 </li>
+</ul>
+</ul>
+
 
 # Diagrama de Comunicação
 
 <p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
 
 <div>
-	<img src="/images/diagramaComunicação.jpg" alt="img" >
+<!-- 	<img src="/images/diagramaComunicação.jpg" alt="img" > -->
 </div>
 
 
@@ -28,7 +55,7 @@ IOinterface
 <p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
 
 <div>
-	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
+<!-- 	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" > -->
 </div>
 
 
@@ -42,7 +69,7 @@ IOinterface
 <p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
 
 <div>
-	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+<!-- 	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" > -->
 </div>
 
 
@@ -57,7 +84,7 @@ IOinterface
 
 
 <div>
-	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
+<!-- 	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" > -->
 </div>
 
 
@@ -71,7 +98,7 @@ IOinterface
 <p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
 
 <div>
-	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
+<!-- 	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" > -->
 </div>
 
 
@@ -270,45 +297,6 @@ IOinterface
 <div>
 	<img src="/images/visãoGeralTimer.jpg" alt="img" >
 </div>
-
-# Descrição do Projeto e Requisitos
-
-<p> O objetivo é desenvolver um software capaz de ler de sensores analógicos e digitais em um microcontrolador utilizando comunicação serial.</p>
-
-<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma <a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">NodeMCU</a> para a confecção das unidades de sensoriamento.</p>
-
-<p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SPB</a> e os valores das leituras serão mostrados no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a></p>
-
-## Requisitos Atendidos
-
-<ul> 
-<li> Solução desenvolvida em linguagem C </li>
-<li>Script de compilação do tipo Makefile para criação do executavel </li>
-<li>Para o SBC
-<ul> 
-  <li>Apenas o SBC é capaz de iniciar a comunicação </li>
-  <li>Interligação com até 32 unidades de sensoriamento </li>
-</ul>
-<li>Para a NodeMCU
-<ul> 
-  <li>A leitura dos sensores deve ter a maior precisão possível </li>
-  <li>Os comandos serão compostos por palavras de 1 byte (8 bits) </li>
-  <li>As requisições podem ser direcionadas para uma unidade ou todas </li>
-  <li>Comandos e respostas devem ser exibidas no display LCD 16x2 </li>
-</ul>
-</ul>
-
-# Makefile
-
-<p>Um makefile é um arquivo que por padrão é chamado de "Makefile". Nele contém um conjunto de diretivas usadas pela ferramenta de automação de compilação make para gerar um alvo/meta(instalar, desinstalar, remover alguns arquivos e outros). Um makefile contém essencialmente atribuições de variáveis, comentários e regras (“targets”). Comentários são iniciados com o carácter "#".</p>
-
-<p>O texto contido em um Makefile é usado para a compilação, ligação(linking), montagem de arquivos de projeto entre outras tarefas como limpeza de arquivos temporários, execução de comandos, etc. Vantagens do uso do Makefile:</p>
-
-<li>Evita a compilação de arquivos desnecessários. Por exemplo, se seu programa utiliza 120 bibliotecas e você altera apenas uma, o make descobre (comparando as datas de alteração dos arquivos fontes com as dos arquivos anteriormente compilados) qual arquivo foi alterado e compila apenas a biblioteca necessária.</li>
-<li>Automatiza tarefas rotineiras como limpeza de vários arquivos criados temporariamente na compilação.</li>
-<li>Pode ser usado como linguagem geral de script embora seja mais usado para compilação.</li>
-
-<p>O objetivo de Makefile é definir regras de compilação para projetos de software. O programa make interpreta o conteúdo do Makefile e executa as regras lá definidas.</p>
 
 # Ambiente de Desenvolvimento e Testes
 
