@@ -170,7 +170,15 @@ IOinterface
 	<p> É necessário destacar que os pinos GPIO que estão conectados a botões são definidos como 'IN' (entrada) e os pinos GPIO que estão conectados aos LEDs e também ao display LCD estão definidos como 'OUT' (saída).</p>
 </div>
 
+## Wiring Pi Numeração de Pinos
+
+<p> A Wiring Pi tem seu próprio sistema de numeração de pinos, que é diferente da numeração oficial GPIO e também da ordem dos pinos fisicamente na placa. Isto se deve a evolução das interfaces GPIO e das placas como a Orange Pi. Originalmente, os pinos eram em menor quantidade e com o passasr do tempo eles aumentaram. Também devido a decisões de projeto alguns pinos tiveram sua numeração redefinida. No entanto a Wiring Pi encapsula todas essas informações, e, se você em seus códigos e projetos seguir usando o sistema de nuemração de pinos da Wiring Pi, vai consiguir manter a compatibilidade com versões antigas de placas e se em algum momento elas sofrerem alguma alteração no padrão de numeração, basta você atualizar a biblioteca. Isso evita que você tenha que sair renumerando todos os pinos em sues códigos e projetos. Abaixo segue o print do sistema de numeração de pinos da Wiring Pi.</p>
+
+<img src="/images/Comando gpio readall WiringPi PINs.jpg" alt="img">
+
 # Interface GPIO com o Botões e LEDs
+
+<img src="/images/Comando gpio readall PersonalSetting.png" alt="img">
 
 <div>
 	<img src="/images/GPIOtoLEDSandBUTTONS subtitles.jpg" alt="img" >
