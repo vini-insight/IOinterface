@@ -467,7 +467,7 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
 
 <div>
-<!-- 	<img src="/images/diagramaComunicação.jpg" alt="img" > -->
+	<img src="/images/diagramaComunicação.jpg" alt="img" >
 </div>
 
 
@@ -539,6 +539,14 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 | :---------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
 
 # Referências
+
+http://wiringpi.com/
+
+http://wiringpi.com/pins/
+
+https://projects.drogon.net/wiringpi-pin-numbering/
+
+http://wiringpi.com/reference/serial-library/
 
 https://www.rohde-schwarz.com/br/produtos/teste-e-medicao/essentials-test-equipment/digital-oscilloscopes/compreender-uart_254524.html#:~:text=O%20que%20%C3%A9%20o%20UART,dados%20seriais%20entre%20dois%20dispositivos.
 
