@@ -7,6 +7,12 @@ IOinterface
 
 <p>inserir viídeo aqui.</p>
 
+# Visão Geral do Protótipo
+
+<div>
+	<img src="/images/visãoGeralTimer.jpg" alt="img" >
+</div>
+
 # Descrição do Projeto e Requisitos
 
 <p> O objetivo é desenvolver um software capaz de ler de sensores analógicos e digitais em um microcontrolador utilizando comunicação serial.</p>
@@ -34,7 +40,25 @@ IOinterface
 </ul>
 </ul>
 
+# Funcionamento do Sistema de Sensoriamento
+
+<!-- # Makefile -->
+
 # Ambiente de Desenvolvimento
+
+## SSH
+
+<img src="/images/SSH.png" alt="img" align="center">
+
+<p>SSH é a sigla para Secure Socket Shell. Em tradução livre, significa “Concha de Segurança”, mas pode ser adaptado para o termo “Bloqueio de Segurança”. Sendo um dos protocolos específicos de segurança de troca de arquivos entre cliente e servidor de internet, usando criptografia. O objetivo do SSH é permitir que desenvolvedores ou outros usuários realizem alterações em sites e servidores utilizando uma conexão simples e segura.</p>
+<p>Para para abrir conexões desse tipo utilizado o protocolo SSH, o sistema operacional deve ter um clienteSSH de forma nativa ou pode ser instalado. No Linux bastar abrir o Terminal e digitar comando SSH que consiste em 3 partes distintas:</p>
+
+    ssh {user}@{host}
+
+<p>O comando da tecla SSH instrui o sistema que deseja abrir uma Conexão de Shell segura criptografada. O {User} representa a conta à qual você deseja acessar. Por exemplo, você pode querer acessar o usuário raiz, que é basicamente sinônimo, para o administrador do sistema, com direitos completos para modificar qualquer coisa no sistema. O {host} refere-se ao computador ao qual você deseja acessar. Este pode ser um endereço IP (por exemplo, 244.235.23.19) ou, um nome de domínio (por exemplo, www.xyzdomain.com).</p>
+<p>Quando você pressionar enter, você será solicitado a inserir a senha da conta solicitada. Quando você digitou, nada aparecerá na tela, mas sua senha é, de fato, transmitida. Depois de terminar de digitar, pressione enter mais uma vez. Se sua senha estiver correta, você será saudado com uma janela de terminal remota como na imagem abaixo: </p>
+
+<img src="/images/TERMINAL.png" alt="img" align="center">
 
 # Linguagem C
 
@@ -51,6 +75,31 @@ IOinterface
 
 <p></p>
 <br></br>
+
+# Arquitetura ARM
+
+ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acrônimo de Reduced Instruction Set Computer, ou Computador com um conjunto reduzido de instruções. O que mostra que a arquitetura ARM foi inspirado no RISC, onde o objetivo era desenvolver um hardware simples e também um conjunto pequeno de instruções que garanta tamanho reduzido, velocidade e eficiência no consumo de potência.
+
+# Processador ARM
+
+<div>
+	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
+
+    Alguns detalhes e características do processador Allwinner H3:
+    - Quad-core Cortex-A7
+    - 1.6 GHz
+    - arquitetura ARM v7
+    - Representação em 32 bits
+    - 16 registradores:
+           - r0 até r12: são de uso geral
+           - r13: Stack Pointer (SP)
+           - r14: Link Register (LR)
+           - r15: Program Counter (PC)
+
+</div>
+
+
+
 
 # Fluxogramas
 
@@ -288,18 +337,6 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <p></p>
 
 
-# Visão Geral do Protótipo
-
-<div>
-	<img src="/images/visãoGeralTimer.jpg" alt="img" >
-</div>
-
-
-
-
-# Arquitetura ARM
-
-ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acrônimo de Reduced Instruction Set Computer, ou Computador com um conjunto reduzido de instruções. O que mostra que a arquitetura ARM foi inspirado no RISC, onde o objetivo era desenvolver um hardware simples e também um conjunto pequeno de instruções que garanta tamanho reduzido, velocidade e eficiência no consumo de potência.
 
 # Orange Pi PC Plus
 
@@ -308,38 +345,6 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 	<p>Orange Pi PC Plus é um SBC Single-Board Card computer, ou, Computador de Cartão de Placa Única. Tem código aberto e usa arquitetura ARM. Suporta alguns Sistemas Operacionais como Android, Debian, Lubuntu, Ubuntu. Orange Pi PC Plus usa Allwinner H3 como CPU.</p>
 	<p>A Orange Pi PC Plus pode ser usada para construir um servidor de rede sem fio, jogos, Reprodutor de música e video, entre outros fins. Ela foi projetada para quem deseja usar a tecnologia para criar e inovar.</p>
 	<p>O sistema operacional da Orange Pi que utilizamos no laboratório é o Ubuntu Armbian 22.08.8 Jammy. Seu Kernel é Linux 5.15.74-sunxi. Acessamos a placa utilizando um terminal de comandos utilizando protocolo SSH. Para mais informações sobre a Orange Pi, consultar site oficial (http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-PC-Plus.html) </p>
-</div>
-
-# SSH
-
-<img src="/images/SSH.png" alt="img" align="center">
-
-<p>SSH é a sigla para Secure Socket Shell. Em tradução livre, significa “Concha de Segurança”, mas pode ser adaptado para o termo “Bloqueio de Segurança”. Sendo um dos protocolos específicos de segurança de troca de arquivos entre cliente e servidor de internet, usando criptografia. O objetivo do SSH é permitir que desenvolvedores ou outros usuários realizem alterações em sites e servidores utilizando uma conexão simples e segura.</p>
-<p>Para para abrir conexões desse tipo utilizado o protocolo SSH, o sistema operacional deve ter um clienteSSH de forma nativa ou pode ser instalado. No Linux bastar abrir o Terminal e digitar comando SSH que consiste em 3 partes distintas:</p>
-
-    ssh {user}@{host}
-
-<p>O comando da tecla SSH instrui o sistema que deseja abrir uma Conexão de Shell segura criptografada. O {User} representa a conta à qual você deseja acessar. Por exemplo, você pode querer acessar o usuário raiz, que é basicamente sinônimo, para o administrador do sistema, com direitos completos para modificar qualquer coisa no sistema. O {host} refere-se ao computador ao qual você deseja acessar. Este pode ser um endereço IP (por exemplo, 244.235.23.19) ou, um nome de domínio (por exemplo, www.xyzdomain.com).</p>
-<p>Quando você pressionar enter, você será solicitado a inserir a senha da conta solicitada. Quando você digitou, nada aparecerá na tela, mas sua senha é, de fato, transmitida. Depois de terminar de digitar, pressione enter mais uma vez. Se sua senha estiver correta, você será saudado com uma janela de terminal remota como na imagem abaixo: </p>
-
-<img src="/images/TERMINAL.png" alt="img" align="center">
-
-# Processador ARM
-
-<div>
-	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
-
-    Alguns detalhes e características do processador Allwinner H3:
-    - Quad-core Cortex-A7
-    - 1.6 GHz
-    - arquitetura ARM v7
-    - Representação em 32 bits
-    - 16 registradores:
-           - r0 até r12: são de uso geral
-           - r13: Stack Pointer (SP)
-           - r14: Link Register (LR)
-           - r15: Program Counter (PC)
-
 </div>
 
 # GPIO
