@@ -108,7 +108,7 @@ IOinterface
 
 <div>
 	<img src="/images/Orange Pi PC Plus - Copia.png" alt="img" style="height: 50%; width: 50%;" align="right">
-	<p>Orange Pi PC Plus é um SBC Single-Board Card computer, ou, Computador de Cartão de Placa Única. Tem código aberto e usa arquitetura ARM. Suporta alguns Sistemas Operacionais como Android, Debian, Lubuntu, Ubuntu. Orange Pi PC Plus usa Allwinner H3 como CPU.</p>
+	<p>Orange Pi PC Plus é um SBC Single-Board Card Computer, ou, Computador de Cartão de Placa Única. Tem código aberto e usa arquitetura ARM. Suporta alguns Sistemas Operacionais como Android, Debian, Lubuntu, Ubuntu. Orange Pi PC Plus usa Allwinner H3 como CPU.</p>
 	<p>A Orange Pi PC Plus pode ser usada para construir um servidor de rede sem fio, jogos, Reprodutor de música e video, entre outros fins. Ela foi projetada para quem deseja usar a tecnologia para criar e inovar.</p>
 	<p>O sistema operacional da Orange Pi que utilizamos no laboratório é o Ubuntu Armbian 22.08.8 Jammy. Seu Kernel é Linux 5.15.74-sunxi. Acessamos a placa utilizando um terminal de comandos utilizando protocolo SSH. Para mais informações sobre a Orange Pi, consultar site oficial (http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-PC-Plus.html) </p>
 </div>
@@ -127,7 +127,7 @@ IOinterface
 - Pinos de aterramento que não fornecem energia, mas são necessários para completar alguns circuitos.
 - Pinos que fornecem energia em tensões típicas, como 3,3 V ou 5 V (para alimentar dispositivos conectados que não possuem fonte de alimentação própria, como um simples LED.
 
-<p>GPIO São usados por circuitos de sistema em chip (SOC), que incluem um processador, memória e interfaces externas em um único chip. Os pinos GPIO permitem que esses chips sejam configurados para diferentes finalidades e funcionem com diversos tipos de componentes.</p>
+<p>GPIO São usados por SOCs (System-on-a-Chip), ou, Sistema em um Chip, que incluem um processador, memória e interfaces externas em um único chip. Os pinos GPIO permitem que esses chips sejam configurados para diferentes finalidades e funcionem com diversos tipos de componentes.</p>
 
 <p>As interfaces GPIO são geralmente usadas em conjunto com uma placa de prototipação (Protoboard). Protoboards são um tipo de placa de circuito temporária. Você pode prototipar circuitos adicionando, removendo ou movendo componentes eletrônicos. Muitos projetos que envolvem dispositivos como um Orange Pi fazem com que você monte seu dispositivo em uma placa de ensaio e, em seguida, conecte-o aos pinos GPIO usando fios.</p>
 
@@ -162,7 +162,7 @@ IOinterface
 	<img src="/images/Comando gpio readall DefaultSetting.png" alt="img">
 	<br>
 	<br>
-	<p>Observe que a maior parte dos pinos está em modo 'OFF'. No entanto, depois que os pinos GPIO são configurados em linguagem Assembly, executamos novamente no terminal o comando 'gpio readall' e os pinos GPIO são configurados como segue o print abaixo:</p>
+	<p>Observe que a maior parte dos pinos está em modo 'OFF'. No entanto, depois que os pinos GPIO são configurados no código do projeto (em linguagem C), executamos novamente no terminal o comando 'gpio readall' e os pinos GPIO são configurados como segue o print abaixo:</p>
 	<br>
 	<img src="/images/Comando gpio readall PersonalSetting.png" alt="img">
 	<br>
@@ -174,7 +174,12 @@ IOinterface
 
 <div>
 	<img src="/images/GPIOtoLEDSandBUTTONS subtitles.jpg" alt="img" >
-	<p>Temos também o mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões são configurados como Entrada. Os botões quando pressionados indicam Anterior, Confirma e Próximo nas opções do menu que aparecem no Display LCD 16x2. </p>	
+	<p>O mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões são configurados como Entrada. Os botões quando pressionados indicam Anterior, Confirma e Próximo nas opções do menu que aparecem no Display LCD 16x2. </p>
+	
+	<p>O mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) e aos LEDs (vermelhor e azul) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões estão configurados como Entrada e os que estão conectados aos LEDs podem ser configurados como pinos de Saída. No entanto, para este projeto optamos por não utilizar os LEDs disponívels nesta interface com a Orange Pi. O único LED que utilizamos está embutido no módulo da nodeMCU e será explicado posteriormente neste texto. Os botões quando pressionados servem para movimentar nas opções no menu que aparecem no Display LCD 16x2</p>
+	
+<!-- 	<p>Quando a contagem é iniciada, o LED vermelho está desligado. Permanece desligado até o fim da contagem. Nesse momento é ligado durante apenas um segundo e depois é desligado. O LED azul é ligado quando a contagem começa e desliga quando a contagem termina.</p> -->
+	
 </div>
 
 # Interface GPIO com o Display LCD 16x2
