@@ -137,7 +137,7 @@ IOinterface
 # Diagrama de Pinagem do Orange Pi PC Plus v1.2
 
 <div>
-	<img src="/images/orangePI PC PLUS pinout diagram.png" alt="img" >
+	<img src="/images/orangePI PC PLUS pinout diagram-EDIT.jpg" alt="img" >
 </div>
 
 # Corte detalhado da interface GPIO com os demais componentes
