@@ -176,12 +176,10 @@ IOinterface
 
 <img src="/images/Comando gpio readall WiringPi PINs.jpg" alt="img">
 
-# Interface GPIO com o Botões e LEDs
-
-<img src="/images/Comando gpio readall PersonalSetting.png" alt="img">
+# Interface GPIO com o Botões e DIP Switch
 
 <div>
-	<img src="/images/GPIOtoLEDSandBUTTONS subtitles.jpg" alt="img" >
+	<img src="/images/GPIOtoDIP-SWITCHsandBUTTONS subtitles.jpg" alt="img" >
 	<p>O mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões são configurados como Entrada. Os botões quando pressionados indicam Anterior, Confirma e Próximo nas opções do menu que aparecem no Display LCD 16x2. </p>
 	
 	<p>O mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) e aos LEDs (vermelhor e azul) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões estão configurados como Entrada e os que estão conectados aos LEDs podem ser configurados como pinos de Saída. No entanto, para este projeto optamos por não utilizar os LEDs disponívels nesta interface com a Orange Pi. O único LED que utilizamos está embutido no módulo da nodeMCU e será explicado posteriormente neste texto. Os botões quando pressionados servem para movimentar nas opções no menu que aparecem no Display LCD 16x2</p>
@@ -193,7 +191,7 @@ IOinterface
 # Interface GPIO com o Display LCD 16x2
 
 <div>
-	<img src="/images/GPIOtoLCD subtitles.jpg" alt="img" >
+	<img src="/images/GPIOtoLCD subtitlesRED.jpg" alt="img" >
 	<p>O mapeamento entre a GPIO e o display LCD 16x2 no modo 4 bits é feito por meio da conexão de 7 pinos da porta GPIO da Orange Pi com outros 7 pinos do microcontrolador display (LCD 16x2). Esses 7 pinos são divididos em 4 bits de dados e 3 bits de controle.</p>
 	<p>Os 4 bits de dados (DB4 a DB7) são responsáveis por enviar as informações que serão exibidas no display. Já os 3 bits de controle (RS, Enable e RW) são responsáveis por indicar ao display qual informação está sendo enviada (dados ou instruções), quando uma nova informação deve ser lida (sinal de enable) e se a operação será de escrita ou leitura (neste caso, o bit RW é configurado como leitura ou escrita).Neste contexto, o bit referente ao RW é sempre setado como escrita.</p>
 	<p>Para o mapeamento, são utilizados os pinos GPIO do microcontrolador, que são configurados como saídas e conectados aos pinos correspondentes no display.</p>
