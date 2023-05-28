@@ -345,7 +345,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 ### Push Button
 
 <p>
-	<img src="/images/chave-tactil-push-button-BCE04-foto-prod.png" alt="img" align="right" style="height: 25%; width: 25%;" >
+	<img src="/images/chave-tactil-push-button-BCE04-foto-prod.png" alt="img" align="right" style="height: 15%; width: 15%;" >
 	O Push button (botão de pressão) é uma chave que, quando pressionado o botão, ela abre ou fecha o circuito, convertendo assim, um comando mecânico em elétrico. Geralmente eles tem um contato de ação momentânea, abrindo ou fechando o circuito apenas de modo momentâneo. As chaves podem ser do tipo NA (Normalmente aberta) Com o intuito de que, quando pressionado fecha o circuito permitindo assim a passagem de corrente, e mandando um sinal HIGH (1) para o circuito. Ou uma chave NF (normalmente fechada) a fim de que quando pressionada, abra o circuito impedindo a passagem de corrente, mandando assim um sinal LOW (0) para o circuito. Existem dois modos de usar o Push Button:</p>
 
 <p>
