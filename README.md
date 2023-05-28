@@ -463,9 +463,40 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 <br> </br>
 
-# inserir códigos de protocolos
+# Protocolo:
 
-## Protocolo:
+
+## Códigos de para selecionar e identificar módulos nodeMCU
+
+| **nodeMCUs 1 até 8**  | **nodeMCUs 9 até 16** | **nodeMCUs 17 até 24** | **nodeMCUs 25 até 32** |
+|:---------------------:|:---------------------:|:----------------------:|:----------------------:|
+| 0b00000001 (node-01)  | 0b00001001 (node-09)  | 0b00010001 (node-17)   | 0b00011001 (node-25)   |
+| 0b00000010 (node-02)  | 0b00001010 (node-10)  | 0b00010010 (node-18)   | 0b00011010 (node-26)   |
+| 0b00000011 (node-03)  | 0b00001011 (node-11)  | 0b00010011 (node-19)   | 0b00011011 (node-27)   |
+| 0b00000100 (node-04)  | 0b00001100 (node-12)  | 0b00010100 (node-20)   | 0b00011100 (node-28)   |
+| 0b00000101 (node-05)  | 0b00001101 (node-13)  | 0b00010101 (node-21)   | 0b00011101 (node-29)   |
+| 0b00000110 (node-06)  | 0b00001110 (node-14)  | 0b00010110 (node-22)   | 0b00011110 (node-30)   |
+| 0b00000111 (node-07)  | 0b00001111 (node-15)  | 0b00010111 (node-23)   | 0b00011111 (node-31)   |
+| 0b00001000 (node-08)  | 0b00010000 (node-16)  | 0b00011000 (node-24)   | 0b00100000 (node-32)   |
+
+## Códigos de para selecionar sensores e outras funções
+
+| **codigo** | **descrição**                |
+|:----------:|:----------------------------:|
+| 0b00100001 | nodeMCU ok                   |
+| 0b00100010 | Analog Sensor                |
+| 0b00100011 | Digital sensor 1             |
+| 0b00100100 | Digital sensor 2             |
+| 0b00100101 | LED on                       |
+| 0b00100110 | LED off                      |
+| 0b00100111 | Analog Sensor Monitoring     |
+| 0b00101000 | Digital Sensor 1 Monitoring  |
+| 0b00101001 | Digital Sensor 2 Monitoring  |
+| 0b00101010 | ALL sensors Monitoring       |
+| 0b00111111 | BROADCAST                    |
+| 0b00000000 | sensor ERRO                  |
+
+
 
 <p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
 
