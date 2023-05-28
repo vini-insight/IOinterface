@@ -40,8 +40,6 @@ IOinterface
 </ul>
 </ul>
 
-# Funcionamento do Sistema de Sensoriamento
-
 <!-- # Makefile -->
 
 # Ambiente de Desenvolvimento
@@ -246,7 +244,7 @@ IOinterface
 
 <p> Mais detalhes de como usar e operar o Display LCD 16x2 podem ser consultados no seu datasheet https://github.com/vini-insight/Assembly1/tree/main/Datasheets</p>
 
-# Arquitetura ARM
+<!-- # Arquitetura ARM
 
 ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acrônimo de Reduced Instruction Set Computer, ou Computador com um conjunto reduzido de instruções. O que mostra que a arquitetura ARM foi inspirado no RISC, onde o objetivo era desenvolver um hardware simples e também um conjunto pequeno de instruções que garanta tamanho reduzido, velocidade e eficiência no consumo de potência.
 
@@ -266,68 +264,36 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
            - r14: Link Register (LR)
            - r15: Program Counter (PC)
 
-</div>
+</div> -->
+
+# Microcontrolador
+
+<p>Um microcontrolador é um pequeno computador em um único chip de circuito integrado. Um microcontrolador contém CPUs ( núcleos de processador ) juntamente com memória e periféricos de entrada/saída programáveis. Os microcontroladores são projetados para aplicações embarcadas, em contraste com os microprocessadores usados em computadores pessoais ou outras aplicações de uso geral que consistem em vários chips discretos.</p>
+
+<p>Na terminologia moderna, um microcontrolador é semelhante, mas menos sofisticado do que um sistema em um chip (SoC). Um SoC pode conectar os chips do microcontrolador externo como os componentes da placa-mãe, mas um SoC geralmente integra os periféricos avançados, como a unidade de processamento gráfico (GPU) e o controlador de interface Wi-Fi , como circuitos internos da unidade do microcontrolador.</p>
+
+<p>Os microcontroladores são usados em produtos e dispositivos controlados automaticamente, como sistemas de controle de motores de automóveis, dispositivos médicos implantáveis, controles remotos, máquinas de escritório, eletrodomésticos, ferramentas elétricas, brinquedos e outros sistemas embarcados. No contexto da internet das coisas (IOT), os microcontroladores são um meio econômico e popular de coleta de dados, sentindo e acionando o mundo físico como dispositivos de borda.</p>
 
 
+# NodeMCU e ESP8266
 
+<p>O Módulo NodeMCU é uma placa de desenvolvimento para IOT – Internet of Thinks (internet das coisas).  O nome "NodeMCU" é a combinação de: node que significa "nó", a sigla MCU significa "MicroController Unit" ou Unidade de Microcontrolador.</p>
 
-# Fluxogramas
+<p>O nodeMCU possui o seu próprio microcontrolador de 32bits, dispensando o uso de um microcontrolador externo, como o Arduino Uno R3. Possui entrada USB Micro que serve tanto para a conexão com um computador quanto para a alimentação, além de um regulador de tensão AMS1117 para diminuir a tensão de entrada de 5V para 3.3V, tensão de operação do NodeMCU, entre outras especificações.</p>
 
-<!-- ![Screenshot]() -->
+<p>O ESP8266 é um SOC (sistema em um chip). É um chip altamente integrado projetado para fornecer conectividade total à Internet via wi-fi em um pacote pequeno. Pode ser usado como um módulo Wifi externo, usando o firmware padrão AT Command set, conectando-o a qualquer microcontrolador usando o UART serial, ou servindo diretamente como um microcontrolador habilitado para Wifi.</p>
 
-<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. O primeiro sobre ligar e desligar. O segundo sobre os controles. O terceiro sobre a leitura de sensores. O quarto a respeito do monitoramento de unidades de sensoriamento. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
+<p>Uma das principais características da placa NodeMCU é ter integrado o módulo ESP8266 para realizar a conexão com a rede Wifi, dando a possibilidade de conectar qualquer dispositivo microcontrolado à rede de internet. Além de uma boa capacidade de processamento, e a conexão com uma rede Wifi, possibilitando conectar diversos dispositivos à Internet atendendo assim uma gama enorme de aplicações, tais como automação residencial, monitoramento remoto, rede de sensores, controle industrial sem fio, entre muitas outras.
+<br></br>
+<img src="/images/nodeMCUesp8266.png" alt="img" align="center" >
+</p>
 
-## Chave liga e desliga (DIP switch)
+## Diagrama de Pinagem do Módulo
 
-<p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
-
-<div>
-<!-- 	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" > -->
-</div>
-
-
-
-<p></p>
-<p></p>
-<p></p>
-
-## Botões de Controle (push buttons)
-
-<p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
-
-<div>
-<!-- 	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" > -->
-</div>
-
-
-
-<p></p>
-<p></p>
-<p></p>
-
-## Ler Sensores (analógico ou digital)
-
-<p>Abaixo os detalhes de como são feitas as leituras dos sensores. Temos um Potênciômetro que fazer o papel do sensor analógico e dois push buttons que faz o papel dos sensores digitais.</p>
-
-
-<div>
-<!-- 	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" > -->
-</div>
-
-
-
-<p></p>
-<p></p>
-<p></p>
-
-## Monitoramento
-
-<p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
-
-<div>
-<!-- 	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" > -->
-</div>
-
+<p>Utilizamos os pinos A0 (ADC) conectado ao potenciômetro, D0, D1 (GPIO) conectados aos botões.
+<br></br>
+<img src="/images/nodeMCUesp8266pinout.png" alt="img" align="center" >
+</p>
 
 # Sensor
 
@@ -382,16 +348,12 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 	<img src="/images/chave-tactil-push-button-BCE04-foto-prod.png" alt="img" align="right" style="height: 25%; width: 25%;" >
 	O Push button (botão de pressão) é uma chave que, quando pressionado o botão, ela abre ou fecha o circuito, convertendo assim, um comando mecânico em elétrico. Geralmente eles tem um contato de ação momentânea, abrindo ou fechando o circuito apenas de modo momentâneo. As chaves podem ser do tipo NA (Normalmente aberta) Com o intuito de que, quando pressionado fecha o circuito permitindo assim a passagem de corrente, e mandando um sinal HIGH (1) para o circuito. Ou uma chave NF (normalmente fechada) a fim de que quando pressionada, abra o circuito impedindo a passagem de corrente, mandando assim um sinal LOW (0) para o circuito. Existem dois modos de usar o Push Button:</p>
 
-<li>Funcionamento com resistor Pull-down: Funciona como NA, ou seja, só ira mandar um sinal lógico HIGH (1) para o circuito enquanto estiver pressionado, permitindo assim passagem de corrente. Geralmente utiliza-se um resistor de 10KΩ para esta finalidade. </li>
-<li>Funcionamento com resistor Pull-up: Funciona como NF, ou seja, o circuito esta normalmente fechado, mandando um sinal HIGH (1) para o Arduino, enquanto pressionado, a porta digital irá receber um sinal LOW (0) , funciona de modo invertido ao NA.</li>
+<p>
+	<li>Funcionamento com resistor Pull-down: Funciona como NA, ou seja, só ira mandar um sinal lógico HIGH (1) para o circuito enquanto estiver pressionado, permitindo assim passagem de corrente. Geralmente utiliza-se um resistor de 10KΩ para esta finalidade. </li>
+	<li>Funcionamento com resistor Pull-up: Funciona como NF, ou seja, o circuito esta normalmente fechado, mandando um sinal HIGH (1) para o Arduino, enquanto pressionado, a porta digital irá receber um sinal LOW (0) , funciona de modo invertido ao NA.</li>
+</p>
 
-<br> </br>
-
-
-<div>
-	<p>O módulo ESP8266 NodeMCU possui alguns pinos GPIO (D0 e D1) em que nossos push buttons estão conectados. Eles farão o papel de Sensores Digitais.</p>
-</div>
-
+<p>O módulo ESP8266 NodeMCU possui alguns pinos GPIO (D0 e D1) em que nossos push buttons estão conectados. Eles farão o papel de Sensores Digitais.</p>
 
 # bit, Byte e caracter
 
@@ -429,17 +391,6 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <li>Half-duplex: os dois lados transmitem, mas somente um de cada vez. O dispositivo que comunica dessa forma pode enviar ou receber mas não executa essas funções simultaneamente.</li>
 <li>Full-duplex: ambos os lados podem transmitir simultaneamente. Indica que o dispositivo pode transmitir e receber dados ao mesmo tempo.</li>
 
-
-
-
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<br></br>
-
-
 # UART
 
 <p>
@@ -461,6 +412,47 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <li>Na paridade par, esse bit é definido de modo que o número total de 1s no frame seja par.</li>
 <li>Na paridade ímpar, esse bit é definido de modo que o número total de 1s no frame seja ímpar.</li>
 
+# Funcionamento do Sistema de Sensoriamento
+
+# Fluxogramas
+
+<!-- ![Screenshot]() -->
+
+<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. O primeiro sobre ligar e desligar. O segundo sobre os controles. O terceiro sobre a leitura de sensores. O quarto a respeito do monitoramento de unidades de sensoriamento. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
+
+## Chave liga e desliga (DIP switch)
+
+<p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
+
+<div>
+<!-- 	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" > -->
+</div>
+
+## Botões de Controle (push buttons)
+
+<p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
+
+<div>
+<!-- 	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" > -->
+</div>
+
+## Ler Sensores (analógico ou digital)
+
+<p>Abaixo os detalhes de como são feitas as leituras dos sensores. Temos um Potênciômetro que fazer o papel do sensor analógico e dois push buttons que faz o papel dos sensores digitais.</p>
+
+
+<div>
+<!-- 	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" > -->
+</div>
+
+## Monitoramento
+
+<p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
+
+<div>
+<!-- 	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" > -->
+</div>
+
 # inserir códigos de protocolos
 
 INSERIR CÓDIGOS DE COMANDOS AQUI
@@ -473,40 +465,22 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <!-- 	<img src="/images/diagramaComunicação.jpg" alt="img" > -->
 </div>
 
-# Microcontrolador
-
-<p>Um microcontrolador é um pequeno computador em um único chip de circuito integrado. Um microcontrolador contém CPUs ( núcleos de processador ) juntamente com memória e periféricos de entrada/saída programáveis. Os microcontroladores são projetados para aplicações embarcadas, em contraste com os microprocessadores usados em computadores pessoais ou outras aplicações de uso geral que consistem em vários chips discretos.</p>
-
-<p>Na terminologia moderna, um microcontrolador é semelhante, mas menos sofisticado do que um sistema em um chip (SoC). Um SoC pode conectar os chips do microcontrolador externo como os componentes da placa-mãe, mas um SoC geralmente integra os periféricos avançados, como a unidade de processamento gráfico (GPU) e o controlador de interface Wi-Fi , como circuitos internos da unidade do microcontrolador.</p>
-
-<p>Os microcontroladores são usados em produtos e dispositivos controlados automaticamente, como sistemas de controle de motores de automóveis, dispositivos médicos implantáveis, controles remotos, máquinas de escritório, eletrodomésticos, ferramentas elétricas, brinquedos e outros sistemas embarcados. No contexto da internet das coisas (IOT), os microcontroladores são um meio econômico e popular de coleta de dados, sentindo e acionando o mundo físico como dispositivos de borda.</p>
-
-
-# NodeMCU e ESP8266
-
-<p>O Módulo NodeMCU é uma placa de desenvolvimento para IOT – Internet of Thinks (internet das coisas).  O nome "NodeMCU" é a combinação de: node que significa "nó", a sigla MCU significa "MicroController Unit" ou Unidade de Microcontrolador.</p>
-
-<p>O nodeMCU possui o seu próprio microcontrolador de 32bits, dispensando o uso de um microcontrolador externo, como o Arduino Uno R3. Possui entrada USB Micro que serve tanto para a conexão com um computador quanto para a alimentação, além de um regulador de tensão AMS1117 para diminuir a tensão de entrada de 5V para 3.3V, tensão de operação do NodeMCU, entre outras especificações.</p>
-
-<p>O ESP8266 é um SOC (sistema em um chip). É um chip altamente integrado projetado para fornecer conectividade total à Internet via wi-fi em um pacote pequeno. Pode ser usado como um módulo Wifi externo, usando o firmware padrão AT Command set, conectando-o a qualquer microcontrolador usando o UART serial, ou servindo diretamente como um microcontrolador habilitado para Wifi.</p>
-
-<p>Uma das principais características da placa NodeMCU é ter integrado o módulo ESP8266 para realizar a conexão com a rede Wifi, dando a possibilidade de conectar qualquer dispositivo microcontrolado à rede de internet. Além de uma boa capacidade de processamento, e a conexão com uma rede Wifi, possibilitando conectar diversos dispositivos à Internet atendendo assim uma gama enorme de aplicações, tais como automação residencial, monitoramento remoto, rede de sensores, controle industrial sem fio, entre muitas outras.
-<br></br>
-<img src="/images/nodeMCUesp8266.png" alt="img" align="center" >
-</p>
-
-## Diagrama de Pinagem do Módulo
-
-<p>Utilizamos os pinos A0 (ADC) conectado ao potenciômetro, D0, D1 (GPIO) conectados aos botões.
-<br></br>
-<img src="/images/nodeMCUesp8266pinout.png" alt="img" align="center" >
-</p>
-
 <p></p>
-
 <p></p>
-
-
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 
 ## Protocolo:
 
