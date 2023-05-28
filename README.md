@@ -53,7 +53,7 @@ IOinterface
 
     ssh {user}@{host}
 
-<p>O comando da tecla SSH instrui o sistema que deseja abrir uma Conexão de Shell segura criptografada. O {User} representa a conta à qual você deseja acessar. Por exemplo, você pode querer acessar o usuário raiz, que é basicamente sinônimo, para o administrador do sistema, com direitos completos para modificar qualquer coisa no sistema. O {host} refere-se ao computador ao qual você deseja acessar. Este pode ser um endereço IP (por exemplo, 244.235.23.19) ou, um nome de domínio (por exemplo, www.xyzdomain.com).</p>
+<p>O comando SSH instrui o sistema que deseja abrir uma Conexão de Shell segura criptografada. O {User} representa a conta à qual você deseja acessar. Por exemplo, você pode querer acessar o usuário raiz, que é basicamente sinônimo, para o administrador do sistema, com direitos completos para modificar qualquer coisa no sistema. O {host} refere-se ao computador ao qual você deseja acessar. Este pode ser um endereço IP (por exemplo, 244.235.23.19) ou, um nome de domínio (por exemplo, www.xyzdomain.com).</p>
 <p>Quando você pressionar enter, você será solicitado a inserir a senha da conta solicitada. Quando você digitou, nada aparecerá na tela, mas sua senha é, de fato, transmitida. Depois de terminar de digitar, pressione enter mais uma vez. Se sua senha estiver correta, você será saudado com uma janela de terminal remota como na imagem abaixo: </p>
 
 <img src="/images/TERMINAL.png" alt="img" align="center">
@@ -127,7 +127,7 @@ IOinterface
 - Pinos de aterramento que não fornecem energia, mas são necessários para completar alguns circuitos.
 - Pinos que fornecem energia em tensões típicas, como 3,3 V ou 5 V (para alimentar dispositivos conectados que não possuem fonte de alimentação própria, como um simples LED.
 
-<p>GPIO São usados por SOCs (System-on-a-Chip), ou, Sistema em um Chip, que incluem um processador, memória e interfaces externas em um único chip. Os pinos GPIO permitem que esses chips sejam configurados para diferentes finalidades e funcionem com diversos tipos de componentes.</p>
+<p>GPIO São usados por SoC (System-on-a-Chip), ou, Sistema em um Chip, que incluem um processador, memória e interfaces externas em um único chip. Os pinos GPIO permitem que esses chips sejam configurados para diferentes finalidades e funcionem com diversos tipos de componentes.</p>
 
 <p>As interfaces GPIO são geralmente usadas em conjunto com uma placa de prototipação (Protoboard). Protoboards são um tipo de placa de circuito temporária. Você pode prototipar circuitos adicionando, removendo ou movendo componentes eletrônicos. Muitos projetos que envolvem dispositivos como um Orange Pi fazem com que você monte seu dispositivo em uma placa de ensaio e, em seguida, conecte-o aos pinos GPIO usando fios.</p>
 
@@ -201,7 +201,9 @@ IOinterface
 
 <!-- <div> -->
 
-<p>O LCD 16 × 2 é chamado assim porque; tem 16 colunas e 2 linhas. Existem muitas combinações disponíveis, como 8×1, 8×2, 10×2, 16×1, etc. Mas a mais usada é a LCD 16x2.</p>
+<p>O LCD 16 × 2 é chamado assim porque tem 16 colunas e 2 linhas. Existem muitas combinações disponíveis, como 8×1, 8×2, 10×2, 16×1, etc. Mas a mais usada é a LCD 16x2. Todos os visores LCD mencionados terão 16 pinos e a abordagem de programação também é a mesma.</p>
+
+<p>O LCD é matricial e composto por caracteres * linhas, ou, 16 * 2, e assim terá (16 * 2 = 32), ou seja, 32 caracteres no total. Cada caractere será feito de 5 * 8 pontos de pixel. Agora, sabemos que cada caractere tem (5 * 8 = 40) 40 pixels e para 32 caracteres teremos (32 * 40) 1280 pixels. Além disso, o LCD também deve ser instruído sobre a posição onde cada cada caractere deve ser inserido. O mesmo acontece com os pixils se quisermos desenhar caracteres expeciais ou psersonalizadosdos.</p>
 	
 <p>IC de interface como o HD44780 , que é montado no próprio módulo LCD. A função deste IC é obter os comandos e dados do MCU e processá-los para exibir informações significativas em nossa tela LCD.</p>
 <!-- </div> -->
