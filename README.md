@@ -435,7 +435,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 # UART
 
 <p>
-	<img src="/images/05_Understanding-UART_01_w640_hX.png" alt="img" align=" right"style="height: 50%; width: 50%;" >
+	<img src="/images/05_Understanding-UART_01_w640_hX.png" alt="img" align="right" style="height: 50%; width: 50%;">
 	UART significa "Universal Asynchronous Receiver/Transmitter", ou, Transmissor/Receptor Assíncrono Universal. UART define um protocolo, ou seja, um conjunto de regras para a troca de dados seriais entre dois dispositivos. O UART é muito simples e utiliza somente dois fios entre o transmissor (Tx) e o receptor (Rx) para transmitir e receber em ambas as direções. Ambas as extremidades também têm um aterramento. A comunicação em UART pode ser simplex, half-duplex, ou full-duplex. Dados em UART são transmitidos na forma de frames. O formato e o conteúdo desses frames serão brevemente descritos e explicados. </p>
 
 ## Formato de frame (pacote) UART
