@@ -176,7 +176,7 @@ IOinterface
 
 <img src="/images/Comando gpio readall WiringPi PINs.jpg" alt="img">
 
-# Interface GPIO com o Botões e DIP Switch
+# Interface GPIO da Orange Pi com o Botões e DIP Switch
 
 <div>
 	<img src="/images/GPIOtoDIP-SWITCHsandBUTTONS subtitles.jpg" alt="img" >
@@ -188,7 +188,7 @@ IOinterface
 	
 </div>
 
-# Interface GPIO com o Display LCD 16x2
+# Interface GPIO da Orange Pi com o Display LCD 16x2
 
 <div>
 	<img src="/images/GPIOtoLCD subtitlesRED.jpg" alt="img" >
@@ -311,6 +311,12 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <img src="/images/nodeMCUesp8266pinout.png" alt="img" align="center" >
 </p>
 
+# Interfaceamento de Pinos do módulo nodeMCU com Potenciômetro e botões.
+
+<img src="/images/NODEsubtitles.jpg" alt="img" align="center" >
+
+<br></br>
+
 # Sensor
 
 <p>Um Sensor é um dispositivo que tem a função de detectar e responder com eficiência algum estímulo. Existem vários tipos de sensores que respondem à estímulos diferentes como por exemplo: luz, som, eletricidade, magnétismo, temperatura, pressão, movimento, entre outros. Depois que o sensor recebe o estímulo, a sua função é emitir um sinal que seja capaz de ser convertido e interpretado pelos outros dispositivos.</p>
@@ -394,6 +400,12 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <br> </br>
 <br> </br>
 <br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
+<br> </br>
 
 ## Métodos de Transmisão
 
@@ -427,6 +439,37 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <li>Na paridade par, esse bit é definido de modo que o número total de 1s no frame seja par.</li>
 <li>Na paridade ímpar, esse bit é definido de modo que o número total de 1s no frame seja ímpar.</li>
+
+# Comunicação Serial entre Orange Pi e nodeMCU via interface UART
+
+<div>
+	<img src="/images/serialUART.jpg" alt="img" >
+</div>
+
+<p>Existe um fio conectando o pino PA13 da Orange Pi com o pino GPIO3 da nodeMCU, e, outro fio conectando o pino PA14 da Orange Pi com o pino GPIO1 da nodeMCU. Este esquema faz a comunicação serial via inteface UART onde todos as requisições e comandos são enviados pela Orange Pi. A nodeMCU recebe os comandos e responde as requisições.</p>
+
+<br> </br>
+
+# inserir códigos de protocolos
+
+## Protocolo:
+
+<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
+
+<p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
+
+<p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
+
+INSERIR CÓDIGOS DE COMANDOS AQUI
+
+# Diagrama de Comunicação
+
+<p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
+
+<div>
+<!-- 	<img src="/images/diagramaComunicação.jpg" alt="img" > -->
+</div>
+
 
 # Funcionamento do Sistema de Sensoriamento
 
@@ -469,17 +512,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <!-- 	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" > -->
 </div>
 
-# inserir códigos de protocolos
 
-INSERIR CÓDIGOS DE COMANDOS AQUI
-
-# Diagrama de Comunicação
-
-<p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
-
-<div>
-<!-- 	<img src="/images/diagramaComunicação.jpg" alt="img" > -->
-</div>
 
 <p></p>
 <p></p>
@@ -498,13 +531,7 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <p></p>
 <p></p>
 
-## Protocolo:
 
-<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
-
-<p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
-
-<p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
 
 # Desenvolvedores
 
