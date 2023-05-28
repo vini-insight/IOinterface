@@ -385,7 +385,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 # Comunicação Serial e Paralela.
 
-<img src="/images/Serial_vs._parallel_transmission.jpg" alt="img" align="right" style="height: 40%; width: 40%;" >
+<img src="/images/Serial_vs._parallel_transmission.jpg" alt="img" align="right" style="height: 50%; width: 50%;" >
 
 <p>Nas comunicações a transmissão de dados pode acontecer de duas formas: Paralela e Serial.</p>
 
