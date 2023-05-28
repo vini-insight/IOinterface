@@ -60,6 +60,30 @@ IOinterface
 
 <img src="/images/TERMINAL.png" alt="img" align="center">
 
+## Principais comandos utilizados no terminal
+
+	- ssh {user}@{host}
+	- sudo {senha}
+	- cd {nome pasta}
+	- cd .. (volta para pasta anterior)
+	- cat {nomeArquivo}
+	- nano {nomeArquivo}
+	- mkdir {nome pasta}
+	- rm {nomeArquivo}
+	- echo > {nomeArquivo}
+	- && (para executar dois comandos como por exemplo mkdir novaPasta && cd novaPasta
+	- ls
+	- cat {nomeArquivo} (apenas ver o conteudo do arquivo)
+	- nano {nomeArquivo}
+	- nano (atalhos) CTRL + O (salvar) CTRL + X (fechar editor)
+	- gpio readall
+	- make {senha}
+	- gcc
+	- gcc t.c && ./t.out
+	- gcc c.c -o c && chmod +x c && ./c
+
+<p> </p>
+
 # Linguagem C
 
 <p>C é uma linguagem de programação de computador de uso geral. A linguagem C foi criado na década de 1970 por Dennis Ritchie e continua sendo amplamente utilizada em sistemas operacionais, drivers de dispositivo, pilhas de protocolos de comunicação, em arquiteturas de computador que vão desde o maiordesde supercomputadores até os menores microcontroladores e sistemas embarcados. Existem compiladores C disponíveis para praticamente todas as arquiteturas de computadores e sistemas operacionais modernos. C foi padronizado pela ANSI desde 1989 ( ANSI C) e pela Organização Internacional de Normalização (ISO).</p>
@@ -75,6 +99,13 @@ IOinterface
 
 <p></p>
 <br></br>
+
+# Esquemático do protótipo
+
+<img src="/images/esquematico.jpg" alt="img" >
+
+<p>Prototipação feita antes da montagem dos componentes.</p>
+
 
 # Arquitetura ARM
 
