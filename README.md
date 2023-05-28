@@ -156,6 +156,29 @@ IOinterface
 	<p>Esta seção apresenta o mapeamento dos pinos GPIO com as conexões do display (LCD 16x2) e botões (push buttons) utilizados no projeto. O mapeamento é essencial para garantir a correta comunicação entre o Orange PI e os demais componentes, possibilitando funcionamento das interfaces de usuário.</p>
 </div>
 
+# Comando "gpio readall"
+
+<div>
+	<p>Para visualizar a flexibilidade de configuração dos pinos GPIO, abaixo segue um print da configuração padrão, quando a Orange Pi acabou de se ligada e o seu sistema operacional iniciado. Apenas digitamos o comando 'gpio readall' no terminal e vemos a saída abaixo:</p>
+	<br>
+	<img src="/images/Comando gpio readall DefaultSetting.png" alt="img">
+	<br>
+	<br>
+	<p>Observe que a maior parte dos pinos está em modo 'OFF'. No entanto, depois que os pinos GPIO são configurados em linguagem Assembly, executamos novamente no terminal o comando 'gpio readall' e os pinos GPIO são configurados como segue o print abaixo:</p>
+	<br>
+	<img src="/images/Comando gpio readall PersonalSetting.png" alt="img">
+	<br>
+	<br>
+	<p> É necessário destacar que os pinos GPIO que estão conectados a botões são definidos como 'IN' (entrada) e os pinos GPIO que estão conectados aos LEDs e também ao display LCD estão definidos como 'OUT' (saída).</p>
+</div>
+
+# Interface GPIO com o Botões e LEDs
+
+<div>
+	<img src="/images/GPIOtoLEDSandBUTTONS subtitles.jpg" alt="img" >
+	<p>Temos também o mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões são configurados como Entrada. Os botões quando pressionados indicam Anterior, Confirma e Próximo nas opções do menu que aparecem no Display LCD 16x2. </p>	
+</div>
+
 # Interface GPIO com o Display LCD 16x2
 
 <div>
@@ -164,13 +187,6 @@ IOinterface
 	<p>Os 4 bits de dados (DB4 a DB7) são responsáveis por enviar as informações que serão exibidas no display. Já os 3 bits de controle (RS, Enable e RW) são responsáveis por indicar ao display qual informação está sendo enviada (dados ou instruções), quando uma nova informação deve ser lida (sinal de enable) e se a operação será de escrita ou leitura (neste caso, o bit RW é configurado como leitura ou escrita).Neste contexto, o bit referente ao RW é sempre setado como escrita.</p>
 	<p>Para o mapeamento, são utilizados os pinos GPIO do microcontrolador, que são configurados como saídas e conectados aos pinos correspondentes no display.</p>
     <p>Para simplificar a manipulação do display e das informações que serão exibidas, foi utiilizada a biblioteca lcd.h </p>
-</div>
-
-# Interface GPIO com o Botões e LEDs
-
-<div>
-	<img src="/images/GPIOtoLEDSandBUTTONS subtitles.jpg" alt="img" >
-	<p>Temos também o mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões são configurados como Entrada. Os botões quando pressionados indicam Anterior, Confirma e Próximo nas opções do menu que aparecem no Display LCD 16x2. </p>	
 </div>
 
 ## Display LCD 16x2
@@ -184,6 +200,51 @@ IOinterface
 <p>IC de interface como o HD44780 , que é montado no próprio módulo LCD. A função deste IC é obter os comandos e dados do MCU e processá-los para exibir informações significativas em nossa tela LCD.</p>
 <!-- </div> -->
 
+### Comandos LCD:
+
+<p>Existem algumas instruções de comandos predefinidos no LCD, que precisamos enviar para o LCD através de algum microcontrolador. Algumas instruções de comando importantes são dadas abaixo:</p>
+
+<div>
+	<img src="/images/5x8.jpg" alt="img" align="right">
+	
+	Código hexadecimal | Comando para registro de instrução LCD
+
+	0F | LCD LIGADO, cursor LIGADO
+	01 | Limpar tela de exibição
+	02 | voltar para casa
+	04 | Diminuir o cursor (deslocar o cursor para a esquerda)
+	06 | Incrementar o cursor (deslocar o cursor para a direita)
+	05 | Deslocar exibição para a direita
+	07 | Deslocar exibição para a esquerda
+	0E | Visor LIGADO, cursor piscando
+	80 | Forçar o cursor para o início da primeira linha
+	C0 | Forçar o cursor para o início da segunda linha
+	38 | 2 linhas e matriz 5×7
+	83 | Cursor linha 1 posição 3
+	3C | ativar segunda linha
+	08 | Visor DESLIGADO, cursor DESLIGADO
+	C1 | Ir para a segunda linha, posição 1
+	OC | Visor LIGADO, cursor DESLIGADO
+	C1 | Ir para a segunda linha, posição 1
+	C2 | Ir para a segunda linha, posição 2
+
+</div>
+
+### Modo de operação do LCD em 4 bits e em 8 bits:
+
+<p>O LCD pode funcionar em dois modos diferentes, nomeadamente o modo de 4 bits e o modo de 8 bits. No modo de 4 bits, enviamos os dados nibble por nibble, primeiro nibble superior e depois nibble inferior. Para aqueles que não sabem o que é um nibble: um nibble é um grupo de quatro bits, então os quatro bits inferiores (D0-D3) de um byte formam o nibble inferior enquanto os quatro bits superiores (D4-D7) de um byte formam o nibble superior. Isso nos permite enviar dados de 8 bits.</p>
+
+<p>Enquanto no modo de 8 bits, podemos enviar os dados de 8 bits diretamente de uma vez, pois usamos todas as 8 linhas de dados.</p>
+
+<p>O modo de 8 bits é mais rápido e sem falhas do que o modo de 4 bits. Mas a principal desvantagem é que ele precisa de 8 linhas de dados conectadas ao microcontrolador. Isso fará com que fiquemos sem pinos de E/S em nosso MCU, então o modo de 4 bits é amplamente usado. Nenhum pino de controle é usado para definir esses modos. É apenas a maneira de programar essa mudança.</p>
+
+<img src="/images/howTOuseLCD16x2.jpg" alt="img" >
+
+<p>Modo de leitura e gravação do LCD:</p>
+
+<p>Como dito, o próprio LCD consiste em um IC de interface. O MCU pode ler ou gravar neste IC de interface. Na maioria das vezes estaremos apenas escrevendo para o IC, pois a leitura o tornará mais complexo e tais cenários são muito raros. Informações como posição do cursor, interrupções de conclusão de status etc.</p>
+
+<p> Mais detalhes de como usar e operar o Display LCD 16x2 podem ser consultados no seu datasheet https://github.com/vini-insight/Assembly1/tree/main/Datasheets</p>
 
 # Arquitetura ARM
 
