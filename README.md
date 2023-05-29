@@ -674,6 +674,8 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 # Resultados
 
+Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe foi de ver o projeto funcionar o mais breve possível. Foi implementado por partes e quando cada uma estava funcionando individualmente, fizemos a junção das partes e testamos. Com isso consguimos fazer coisas a mais como inserir uma chave para ligar e desligar o sistema, alertar quando o valor ADC do sensor analógico extrapola o valor máximo, o que na prática é um erro de leitura, e também exibir o valor da tensão em medida em volts. Com isso o único requisto que não funciona bem é o de BROADCAST. Conseguimos enviar a mensagem para todas as unidades, no entanto as respostas, em algums momentos não são as esperadas. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
+
 # Requisitos atendidos
 
 <ul>
@@ -687,7 +689,8 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 <li>controle (acender ou apagar) LED embutido da nodeMCU</li>
 <li>solicitar medida de sensores</li>
 	<ul>
-		<li>valor do Sensor Analógico com máximo de precisão (10 bits)</li>
+		<li>valor de litura ADC do Sensor Analógico com máximo de precisão (10 bits)</li>
+		<li>converção do valor ADC para Tensão em Volts</li>
 	</ul>	
 <li>fazer monitoramento de sensores</li>
 	<ul>
@@ -700,6 +703,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 		<li>se não obter qualquer resposta (TIMEOUT)</li>
 		<li>quando sensor analógico retorna valor maior que 1023 (erro de leitura do sensor)</li>
 	</ul>
+<li>adicionado chave liga / desliga no projeto</li>
 </ul>
 
 <!-- 
