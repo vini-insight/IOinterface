@@ -500,6 +500,8 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 # Protocolo:
 
+<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente. Tanto os comandos quanto as respostas são compostos por palavras de 8 bits. Existem códigos para identificar cada unidade de sensoriamento (nodeMCU) e também para cada Sensor, além de códigos para identificar ações específicas, como respostas sobre status de funcionamento da unidade de sensoriamento ou de enviar mensagem para todas as unidades ou fazer monitoramento. </p>
+
 ## Códigos de para identificar módulos nodeMCU
 
 | **nodeMCUs 1 até 8**  | **nodeMCUs 9 até 16** | **nodeMCUs 17 até 24** | **nodeMCUs 25 até 32** |
@@ -584,14 +586,6 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
   </tr>
 </tbody>
 </table>
-
-<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
-
-<p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
-
-<p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
-
-INSERIR CÓDIGOS DE COMANDOS AQUI
 
 # Diagrama de Comunicação
 
