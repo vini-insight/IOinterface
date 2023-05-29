@@ -64,6 +64,8 @@ Na primeira linha o comando faz compilação do código fonte se não for encont
 
 Os códigos de programa da nodeMCU eram feitos usando o Arduino IDE (https://docs.arduino.cc/software/ide-v1/tutorials/Environment). Antes de tudo é necessário baixar e instalar os pacotes necessários para que a IDE reconheça o módulo. Existem alguns tutorias disponíveis na internet que ensinam como configurar nodeMCU e ESP8266.
 
+No código é necessário inserir o IP e nome da rede que o módulo está conectado. Também é preciso checar se está selecionada a placa correta e se a porta serial (com identificação do IP correto está selecionada). Depois disso, basta compilar e descarregar o código.
+
 ## Outras Ferramentas e Instrumentos
 
 Foi utilizado um Multímetro para verificar a continuidade da alguns contatos e confirmar informações do mapeamento dos pinos da Orange Pi e também do módulo nodeMCU conectados aos demais componentes eletrônicos do protótipo. Também é possível usar um Osciloscópio para capturar algum sinal dentro do protótipo.
