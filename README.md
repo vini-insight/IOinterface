@@ -54,9 +54,11 @@ Utilizamos o Sublime Text (https://www.sublimetext.com/), e o TextEditor (https:
 
 A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www.nano-editor.org/) acessado diretamente via terminal de comando da Orange Pi. Para compilar e executar usamos os comandos abaixo. O arquivo fonte é o 'p.c' e o executável apenas 'p'.
 
-	gcc p.c -o p -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt // COMPILA SE NÃO ENCONTRAR ERROS
-	chmod +x p // ALTERA PERMISSÕES DO ARQUIVO
-	sudo ./p // EXECUTA COM PERMISSÕES DE ADMINISTRADOR POIS É NECESSÁRIO ACESSAR PINOS GPIO.
+	gcc p.c -o p -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt
+	chmod +x p
+	sudo ./p
+
+Na primeira linha o comando faz compilação do código fonte se não for encontrado nenhum erro. Na segunda linha o comando altera as permissões do arquivo no Sistema Operacional. Na terceira linha o comando faz execução do programa usando permissões do super usuário. Estas permissões são necessárias para acessar pinos GPIO.
 
 ## Módulo nodeMCU
 
