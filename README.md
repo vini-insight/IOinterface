@@ -40,12 +40,9 @@ IOinterface
 </ul>
 </ul>
 
-<!-- # Makefile -->
-
 # Ambiente de Desenvolvimento
 
 Neste projeto existem vários ambientes de desenvolvimento e execução. Parte na Orange Pi e parte no módulo nodeMCU. Do lado da Orange Pi foi necessário fazer acesso remoto via protoclo SSH, e, do lado da nodeMCU os códigos eram carregados por Wi-Fi usando o módulo ESP8266 integrado a nodeMCU. A edição dos códigos foi feita usando editores de texto nativos nos computadores do laboratório, ou IDEs que foram instaladas, ou cujo acesso está disponível online (via navegador de intenet).
-
 
 ## Wiring Pi
 
@@ -138,16 +135,11 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 	<img src="/images/cHW.jpg" alt="img" align="left" >
 	C não deve ser confundida com C++ (Cplusplus), C# (Csharp), ou, Objective-C que são outras liguagens de programação. A diferença mais importante entre elas é a abordagem de programação que cada uma usa, em outras palavras, o seu paradigma de programação. C++, C# e Objective-C são orientadas a Objetos e seu programas são divididos em conjunto de Classes que instanciam os Objetos. C é uma linguagem orientada a procedimentos e sua ênfase está nas funções. Os programas são divididos em um conjunto de funções. Ao lado um exemplo de código em C.</p>
 
-
-<p></p>
-<br></br>
-
 # Esquemático do protótipo
 
 <img src="/images/esquematico.jpg" alt="img" >
 
 <p>Prototipação feita antes da montagem dos componentes.</p>
-
 
 # Arquitetura ARM
 
@@ -263,14 +255,11 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <img src="/images/LCD 16x2 myPinout.jpg" alt="img" >
 
-<!-- <div> -->
-
 <p>O LCD 16 × 2 é chamado assim porque tem 16 colunas e 2 linhas. Existem muitas combinações disponíveis, como 8×1, 8×2, 10×2, 16×1, etc. Mas a mais usada é a LCD 16x2. Todos os visores LCD mencionados terão 16 pinos e a abordagem de programação também é a mesma.</p>
 
 <p>O LCD é matricial e composto por caracteres * linhas, ou, 16 * 2, e assim terá (16 * 2 = 32), ou seja, 32 caracteres no total. Cada caractere será feito de 5 * 8 pontos de pixel. Agora, sabemos que cada caractere tem (5 * 8 = 40) 40 pixels e para 32 caracteres teremos (32 * 40) 1280 pixels. Além disso, o LCD também deve ser instruído sobre a posição onde cada cada caractere deve ser inserido. O mesmo acontece com os pixils se quisermos desenhar caracteres expeciais ou psersonalizadosdos.</p>
 	
 <p>IC de interface como o HD44780 , que é montado no próprio módulo LCD. A função deste IC é obter os comandos e dados do MCU e processá-los para exibir informações significativas em nossa tela LCD.</p>
-<!-- </div> -->
 
 ### Comandos LCD:
 
@@ -299,7 +288,6 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 	OC | Visor LIGADO, cursor DESLIGADO
 	C1 | Ir para a segunda linha, posição 1
 	C2 | Ir para a segunda linha, posição 2
-
 </div>
 
 ### Modo de operação do LCD em 4 bits e em 8 bits:
@@ -325,7 +313,6 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <p>Na terminologia moderna, um microcontrolador é semelhante, mas menos sofisticado do que um sistema em um chip (SoC). Um SoC pode conectar os chips do microcontrolador externo como os componentes da placa-mãe, mas um SoC geralmente integra os periféricos avançados, como a unidade de processamento gráfico (GPU) e o controlador de interface Wi-Fi , como circuitos internos da unidade do microcontrolador.</p>
 
 <p>Os microcontroladores são usados em produtos e dispositivos controlados automaticamente, como sistemas de controle de motores de automóveis, dispositivos médicos implantáveis, controles remotos, máquinas de escritório, eletrodomésticos, ferramentas elétricas, brinquedos e outros sistemas embarcados. No contexto da internet das coisas (IOT), os microcontroladores são um meio econômico e popular de coleta de dados, sentindo e acionando o mundo físico como dispositivos de borda.</p>
-
 
 # NodeMCU e ESP8266
 
@@ -367,11 +354,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 	<img src="/images/instrumentacao_e_sensores_a01_f04_a.jpg" alt="img" align="right">
 	São os sensores que respondem através de sinais analógicos. Devido à sua natureza analógica, a saída desses sensores podem assumir infinitos valores ao longo do tempo, dentro de sua faixa de operação. Ou seja, considerando os seus limites inferior e superior de saída, para qualquer variação sentida pelo sensor existirá um sinal de saída equivalente. Portanto, os sinais de saída podem variar entre inúmeros valores dentro desses limites. ariáveis como temperatura, pressão, vazão, umidade, força, velocidade, distância etc., são exemplos de variáveis que podem assumir qualquer valor ao longo do tempo. Ao lado temos um gráfico do sinal da saída de um sensor analógico.</p>
 
-<p></p>
-
-
 ### Potenciômetro
-
 
 <p>
 	<img src="/images/potenciometro_5.jpg" alt="img" align="right" style="height: 25%; width: 25%;" >
@@ -386,7 +369,6 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 <img src="/images/ADCgraph.jpg" alt="img" align="center">
 
 <p>O módulo ESP8266 NodeMCU possui um ADC e também um pino (A0 porta de entrada analógica) destinado a lidar com a leitura de um sinal Analógico, ou seja, um pino cuja função é receber níveis de tensão e em seguida traduzir os mesmos em uma linguagem adequada para que possamos manipulá-los. Este processo ocorre da seguinte maneira: o NodeMCU que estamos utilizando suporta sinais de tensão entre 0 e 3,3V em suas entradas, portanto, caso nós coloquemos um sinal de tensão de 0 volts na porta de entrada analógica A0, o nosso módulo irá associar esta informação ao número 0 (zero). Em contrapartida, caso o sinal em questão tenha magnitude de 3,3V, o NodeMCU irá referenciar este valor ao número 1023. Se a tensão estiver em qualquer valor intermediário, tera um valor proporcional dentro das 1014 divisões que é a pricisão máxima de leitura com 10 bits.</p>
-
 
 <!-- <div>	
 	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
@@ -443,7 +425,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 </table>
  
 <!-- <br> </br>
-<p> testando sapoha</p>
+<p> testando </p>
 <br> </br>
 <br> </br>
 <br> </br>
@@ -496,8 +478,6 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 <p>Existe um fio conectando o pino PA13 da Orange Pi com o pino GPIO3 da nodeMCU, e, outro fio conectando o pino PA14 da Orange Pi com o pino GPIO1 da nodeMCU. Este esquema faz a comunicação serial via inteface UART onde todos as requisições e comandos são enviados pela Orange Pi. A nodeMCU recebe os comandos e responde as requisições.</p>
 
-<br> </br>
-
 # Protocolo:
 
 <p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente. Tanto os comandos quanto as respostas são compostos por palavras de 8 bits. Existem códigos para identificar cada unidade de sensoriamento (nodeMCU) e também para cada Sensor, além de códigos para identificar ações específicas, como respostas sobre status de funcionamento da unidade de sensoriamento ou de enviar mensagem para todas as unidades ou fazer monitoramento. Os códigos variam de '0b00000000' até '0b00111111'. Porém não usamos todos os valores nesta faixa. Cada código se incia com '0b' pois esta é uma representação em binário usando linguagem C.</p>
@@ -534,8 +514,6 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 | 0b00111111 | BROADCAST                    |
 | 0b00000000 | sensor ERRO                  |
  -->
-
-
 <!-- style="text-align: center;" -->
 
 <table>
@@ -640,7 +618,6 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 <p>Abaixo os detalhes de como são feitas as leituras dos sensores. Temos um Potênciômetro que fazer o papel do sensor analógico e dois push buttons que faz o papel dos sensores digitais.</p>
 
-
 <div>
 	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
 </div>
@@ -653,30 +630,11 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
 </div>
 
-
-
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-
 # Resultados
 
 Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe foi de ver o projeto funcionar o mais breve possível. Foi implementado por partes e quando cada uma estava funcionando individualmente, fizemos a junção das partes e testamos. Com isso consguimos fazer coisas a mais como inserir uma chave para ligar e desligar o sistema, alertar quando o valor de leitura ADC do sensor analógico extrapola o valor máximo, o que na prática é um erro de leitura, e também exibir o valor da tensão medida em Volts a partir da conversão da leitura do valor ADC. Com isso o único requisto que não funciona bem é o de BROADCAST. Conseguimos enviar a mensagem para todas as unidades ao mesmo tempo, no entanto, a resposta de que a mensagem de BROADCAST foi recebida, em algums momentos não é a esperada. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
 
-# Requisitos Atendidos
+## Requisitos Atendidos
 
 <ul>
 <li>interliga até 32 unidades de sensoriamento nodeMCU</li>
@@ -706,7 +664,7 @@ Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe 
 <li>adicionado chave liga / desliga no projeto</li>
 </ul>
 
-# Requisitos Não Atendidos
+## Requisitos Não Atendidos
 
 A mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esperada, de que a mensagem foi recebida, não é a resposta esperada. Neste requisito temos um comportamento inconsistente. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
 
@@ -799,4 +757,19 @@ https://materialpublic.imd.ufrn.br/curso/disciplina/1/52/1/7
 
 https://www.mundodaeletrica.com.br/o-que-sao-sensores-e-quais-as-suas-aplicacoes/
 
-
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
