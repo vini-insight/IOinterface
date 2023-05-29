@@ -201,7 +201,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 	<img src="/images/orangePI PC PLUS pinout diagram-EDIT.jpg" alt="img" style="height: 150%; width: 150%;" align="left">
 </div>
 
-# Corte detalhado da interface GPIO com os demais componentes
+# Corte da interface GPIO com os demais componentes
 
 <div>
 	<img src="/images/placa de extensão GPIO.jpg" alt="img" >
