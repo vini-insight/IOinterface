@@ -198,7 +198,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 # Diagrama de Pinagem do Orange Pi PC Plus v1.2
 
 <div>
-	<img src="/images/orangePI PC PLUS pinout diagram-EDIT.jpg" alt="img" >
+	<img src="/images/orangePI PC PLUS pinout diagram-EDIT.jpg" alt="img" style="height: 150%; width: 150%;" align="left">
 </div>
 
 # Corte detalhado da interface GPIO com os demais componentes
