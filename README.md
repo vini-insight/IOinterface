@@ -674,9 +674,9 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 # Resultados
 
-Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe foi de ver o projeto funcionar o mais breve possível. Foi implementado por partes e quando cada uma estava funcionando individualmente, fizemos a junção das partes e testamos. Com isso consguimos fazer coisas a mais como inserir uma chave para ligar e desligar o sistema, alertar quando o valor ADC do sensor analógico extrapola o valor máximo, o que na prática é um erro de leitura, e também exibir o valor da tensão em medida em volts. Com isso o único requisto que não funciona bem é o de BROADCAST. Conseguimos enviar a mensagem para todas as unidades, no entanto as respostas, em algums momentos não são as esperadas. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
+Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe foi de ver o projeto funcionar o mais breve possível. Foi implementado por partes e quando cada uma estava funcionando individualmente, fizemos a junção das partes e testamos. Com isso consguimos fazer coisas a mais como inserir uma chave para ligar e desligar o sistema, alertar quando o valor de leitura ADC do sensor analógico extrapola o valor máximo, o que na prática é um erro de leitura, e também exibir o valor da tensão medida em Volts a partir da conversão da leitura do valor ADC. Com isso o único requisto que não funciona bem é o de BROADCAST. Conseguimos enviar a mensagem para todas as unidades ao mesmo tempo, no entanto, a resposta de que a mensagem de BROADCAST foi recebida, em algums momentos não é a esperada. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
 
-# Requisitos atendidos
+# Requisitos Atendidos
 
 <ul>
 <li>interliga até 32 unidades de sensoriamento nodeMCU</li>
@@ -705,6 +705,10 @@ Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe 
 	</ul>
 <li>adicionado chave liga / desliga no projeto</li>
 </ul>
+
+# Requisitos Não Atendidos
+
+<li>mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esperada, de que a mensagem foi recebida, não é a resposta esperada. Neste requisito temos um comportamento inconsistente</li>
 
 <!-- 
 ## Requisitos Atendidos
