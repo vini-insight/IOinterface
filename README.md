@@ -465,7 +465,6 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 # Protocolo:
 
-
 ## Códigos de para selecionar e identificar módulos nodeMCU
 
 | **nodeMCUs 1 até 8**  | **nodeMCUs 9 até 16** | **nodeMCUs 17 até 24** | **nodeMCUs 25 até 32** |
@@ -479,8 +478,10 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 | 0b00000111 (node-07)  | 0b00001111 (node-15)  | 0b00010111 (node-23)   | 0b00011111 (node-31)   |
 | 0b00001000 (node-08)  | 0b00010000 (node-16)  | 0b00011000 (node-24)   | 0b00100000 (node-32)   |
 
+
 ## Códigos de para selecionar sensores e outras funções
 
+<!-- 
 | **codigo** | **descrição**                |
 |:----------:|:----------------------------:|
 | 0b00100001 | nodeMCU ok                   |
@@ -495,8 +496,69 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 | 0b00101010 | ALL sensors Monitoring       |
 | 0b00111111 | BROADCAST                    |
 | 0b00000000 | sensor ERRO                  |
+ -->
 
+<table>
+<thead>
+  <tr>
+    <th>Código</th>
+    <th>Descrição</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0b00100001</td>
+    <td>nodeMCU ok  </td>
+  </tr>
+  <tr>
+    <td>0b00100010</td>
+    <td>Analog Sensor</td>
+  </tr>
+  <tr>
+    <td>0b00100011</td>
+    <td>Digital sensor 1</td>
+  </tr>
+  <tr>
+    <td>0b00100100</td>
+    <td>Digital sensor 2</td>
+  </tr>
+  <tr>
+    <td>0b00100101</td>
+    <td>LED on</td>
+  </tr>
+  <tr>
+    <td>0b00100110</td>
+    <td>LED off</td>
+  </tr>
+  <tr>
+    <td>0b00100111</td>
+    <td>Analog Sensor Monitoring</td>
+  </tr>
+  <tr>
+    <td>0b00101000</td>
+    <td>Digital Sensor 1 Monitoring</td>
+  </tr>
+  <tr>
+    <td>0b00101001</td>
+    <td>Digital Sensor 2 Monitoring</td>
+  </tr>
+  <tr>
+    <td>0b00101010</td>
+    <td>ALL sensors Monitoring</td>
+  </tr>
+  <tr>
+    <td>0b00111111</td>
+    <td>BROADCAST</td>
+  </tr>
+  <tr>
+    <td>0b00000000</td>
+    <td>sensor ERRO</td>
+  </tr>
+</tbody>
+</table>
 
+<p> TESTE
+Para se comunicar é necessário enivar alguma informação. Ela pode ser pequana ou grande. Quando esse tamanho é maior do que 1 Byte, ela é separada em grupos de 1 Byte cada e enviada um bit por vez. Quando um caracter é enviado, ele é representado por uma sequência de 8 bits (1 Byte). Para o computador identificar qual o caractere que está chegando é necessário determinar quando termina o envio de um caracter e inicia o seguinte. Essa separação é feita incluindo um bit adicional avisando o computador que um novo dado serial esta disponível (start bit), seguido dos bits de dados, um bit opcional de paridade (checagem de erros) e um ou mais bits de parada (stop bits). Esse é conhecido como Comunicação Assíncrona na qual os dados podem ser enviados e recebidos a qualquer momento.</p>
 
 <p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
 
