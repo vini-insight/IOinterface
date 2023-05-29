@@ -672,15 +672,6 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 <p></p>
 <p></p>
 
-
-## Protocolo:
-
-<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
-
-<p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
-
-<p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
-
 # Resultados e Conclusões
 
 ## Requisitos Atendidos
