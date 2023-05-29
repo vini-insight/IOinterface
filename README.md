@@ -589,12 +589,20 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 # Diagrama de Comunicação
 
-<p>Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. </p>
+<p>
+	<img src="/images/diagramaComunicação.jpg" alt="img" align="left" style="height: 40%; width: 40%;">
+	Este diagrama visa mostrar como se dá o protocolo de comunicação entre o SBC (Orange Pi PC Plus) e a nodeMCU (ESP8266) que estão acoplados em nosso protótipo. Cada comando de tamanho 8 bits (1 Byte) é enviado e todas as respostas também de mesmo tamanho.
+</p>
 
-<div>
-	<img src="/images/diagramaComunicação.jpg" alt="img" >
-</div>
+<p> Um exemplo é o comando para acender o LED embutido da nodeMCU. O SBC envia de forma serial 00100101 e a nodeMCU ativa o LED e responde 00000001 para informar que o LED foi ativado.</p>
 
+<p> Aqui vale uma atenção para a resposta da leitura do sensor Analógico. A resposta do Conversor Analógico Digital (ADC) pode vairar com valores na faixa de 0 até 1023. Em binário o número 1023 é representado com 10 bits (1111111111). Mas a comunicação serial emvia no máximo 8 bits, logo a representação estaria com valor errado, pois '11111111' é 255 em decimal e se enviar depois apenas '11' é 3 em decimal. Existem algumas formas de contornar esse problema. A forma adotada foi utilizar a função:</p>
+
+	Serial.print(valor, BIN);
+	
+<p>O segundo parâmetro que é opcional, especifíca a base (formato) a ser usado. Valores permitidos são BIN(binário, ou base 2), OCT(octal, ou base 8), DEC(decimal, ou base 10), HEX(hexadecimal, ou base 16). Para números de ponto flutuante, esse parâmetro especifica o número de casas decimais a serem impressas.</p>
+
+<p>Por exemplo: Serial.print(206, BIN) imprime "11001110" que é a representação binária de 206. No entanto cada um destes bits é enviado, um de cada vez, ou seja, para cada bit 1, é enviado a representação binária de oito bits que é '00000001', e para cada bit 0 é enviado a sua represntação binária de oito bits que é '00000000'. Isso quer dizer que se o valor tiver X bits, serão feitos X envios de 8 bits que representam cada bit enviado. </p>
 
 # Funcionamento do Sistema de Sensoriamento
 
