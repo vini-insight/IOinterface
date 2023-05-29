@@ -163,8 +163,9 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
            - r13: Stack Pointer (SP)
            - r14: Link Register (LR)
            - r15: Program Counter (PC)
-
 </div>
+
+<br></br>
 
 # Orange Pi PC Plus
 
