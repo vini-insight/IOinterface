@@ -44,7 +44,7 @@ IOinterface
 
 # Ambiente de Desenvolvimento
 
-Neste projeto existem vários ambientes de desenvolvimento e execução. Parte na Orange Pi e parte no módulo nodeMCU. Do lado da Orange Pi foi necessário fazer acesso remoto via protoclo SSH, e, do lado da nodeMCU os códigos eram baixados via WIFI usando o módulo ESP8266 integrado a nodeMCU. A edição dos códigos eram feitas usando editores de texto nativos nos computadores do laboratório, ou IDEs que foram instaladas, ou cujo acesso está disponível online (via navegador de intenet).
+Neste projeto existem vários ambientes de desenvolvimento e execução. Parte na Orange Pi e parte no módulo nodeMCU. Do lado da Orange Pi foi necessário fazer acesso remoto via protoclo SSH, e, do lado da nodeMCU os códigos eram carregados por Wi-Fi usando o módulo ESP8266 integrado a nodeMCU. A edição dos códigos foram feitas usando editores de texto nativos nos computadores do laboratório, ou IDEs que foram instaladas, ou cujo acesso está disponível online (via navegador de intenet).
 
 ## Computadores do Laboratório
 
@@ -56,15 +56,23 @@ A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www
 
 ## Módulo nodeMCU
 
-	falar sobre IDE arduido
+Os códigos de programa da nodeMCU eram feitos usando o Arduino IDE (https://docs.arduino.cc/software/ide-v1/tutorials/Environment). Antes de tudo é necessário baixar e instalar os pacotes necessários para que a IDE reconheça o módulo. Existem alguns tutorias disponíveis na internet que ensinam como configurar nodeMCU e ESP8266.
 
 ## Outras Ferramentas e Instrumentos
 
 Foi utilizado um Multímetro para verificar a continuidade da alguns contatos e confirmar informações do mapeamento dos pinos da Orange Pi e também do módulo nodeMCU conectados aos demais componentes eletrônicos do protótipo. Também é possível usar um Osciloscópio para capturar algum sinal dentro do protótipo.
 
-## Testes
+## Impedimentos, Dificuldades, Soluções e Testes
 
-Para testes foi utilizado o GDB online (https://www.onlinegdb.com/online_c_compiler).
+Para este projeto nem sempre poderíamos estar presentes no laboratório pra testar nossas ideias isso era um grande impedimento. Também tivemos dificuldades técnicas de causa raíz desconhecida, onde, o módulo nodeMCU se descofigurava com frequencia muito alta impedindo seu acesso via Wi-Fi e também não permitia descarregar o código.
+
+Para superar estas dificuldades criamos uma pequena biblioteca (.h) encontrada no seguinte arquivo: (https://github.com/vini-insight/IOinterface/blob/main/testeFunctions.h). Ela simula as funções relacionadas a comunicação serial, escrita de caracteres no display LCD, e leitura de valoes lógicos dos pinos, além de simular os botões da protótipo.
+
+Por exemplo, quando inserimos esta biblioteca no código, em todas as chamadas da função "lcdPrintf", para escrever caracteres no LCD, eles eram escritos no console. Em todas as chamadas de "digitalRead" ao invés de ler os sinais lógicos dos botões do protótipo, eram capturadas teclas do teclado. A comunicação serial com "serialPutchar", "serialDataAvail", "serialGetchar" respondiam com códigos prédefinidos. Quando estavamos usando esta biblioteca personalizada, utilizamos GDB online (https://www.onlinegdb.com/online_c_compiler) para testar o código.
+
+Quando os testes estavam ok, nós retiramos as chamadas de nossa biblioteca personalizada e testamos direto no protótipo (quando ambas as placas estavam funcionando normalmente). Desse modo as chamadas originais de "lcdPrintf" voltavam a escrever no display LCD, as chamadas de "serialPutchar", "serialDataAvail", "serialGetchar" voltamva a funcionar via interface UART e "digitalRead" captirava de fato o sinal dos botões do protótipo.
+
+Usando essa estratégia da biblioteca personalizada conseguimos superar os imepdimentos e agilizar o desenvolvimento dos códigos. Claro que algumas pequenas adaptações foram feitas tanto do lado do protótipo quanto do lado da biblioteca personalizada, cujos argumentos podem diferir do original.
 
 ## SSH
 
@@ -701,6 +709,8 @@ http://wiringpi.com/
 http://wiringpi.com/pins/
 
 https://projects.drogon.net/wiringpi-pin-numbering/
+
+http://wiringpi.com/dev-lib/lcd-library/
 
 http://wiringpi.com/reference/serial-library/
 
