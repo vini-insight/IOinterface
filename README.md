@@ -151,7 +151,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 # Processador ARM
 
 <div>
-	<img src="/images/allwinnerH3.jpg" alt="img" style="height: 20%; width: 20%;" align="left"> 
+	<img src="/images/allwinnerH3.jpg" alt="img" style="height: 25%; width: 25%;" align="left"> 
 
     Alguns detalhes e características do processador Allwinner H3:
     - Quad-core Cortex-A7
