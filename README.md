@@ -52,7 +52,11 @@ Utilizamos o Sublime Text (https://www.sublimetext.com/), e o TextEditor (https:
 
 ## Orange Pi
 
-A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www.nano-editor.org/) acessado diretamente via terminal de comando da Orange Pi.
+A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www.nano-editor.org/) acessado diretamente via terminal de comando da Orange Pi. Para compilar e executar usamos os comandos abaixo. O arquivo fonte é o 'p.c' e o executável apenas 'p'.
+
+	gcc p.c -o p -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt // COMPILA SE NÃO ENCONTRAR ERROS
+	chmod +x p // ALTERA PERMISSÕES DO ARQUIVO
+	sudo ./p // EXECUTA COM PERMISSÕES DE ADMINISTRADOR POIS É NECESSÁRIO ACESSAR PINOS GPIO.
 
 ## Módulo nodeMCU
 
@@ -109,6 +113,7 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 	- gcc
 	- gcc t.c && ./t.out
 	- gcc c.c -o c && chmod +x c && ./c
+	- rm p.c && nano p.c
 
 <p> </p>
 
