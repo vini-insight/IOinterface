@@ -47,7 +47,7 @@ IOinterface
 Neste projeto existem vários ambientes de desenvolvimento e execução. Parte na Orange Pi e parte no módulo nodeMCU. Do lado da Orange Pi foi necessário fazer acesso remoto via protoclo SSH, e, do lado da nodeMCU os códigos eram carregados por Wi-Fi usando o módulo ESP8266 integrado a nodeMCU. A edição dos códigos foi feita usando editores de texto nativos nos computadores do laboratório, ou IDEs que foram instaladas, ou cujo acesso está disponível online (via navegador de intenet).
 
 
-# Wiring Pi
+## Wiring Pi
 
 WiringPi é uma biblioteca de acesso GPIO baseada em PIN escrita em C para os dispositivos como Orange Pi. Ele é projetado para uso com linguagem C e para ser familiar para as pessoas que usaram o sistema de fiação do Arduino. O WiringPi é desenvolvido diretamente em um Raspberry Pi executando Raspbian de 32 bits. O WiringPi para fornecer acesso fácil a alguns periféricos populares como displays de LCD baseados nos chips Hitachi HD44780U, interfaces seriais de comunicação e gerenciamento de pinos GPIO (ler e escrever dados nos pinos). Mais informações em http://wiringpi.com/
 
