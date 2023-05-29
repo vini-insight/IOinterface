@@ -672,8 +672,37 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 <p></p>
 <p></p>
 
-# Resultados e Conclusões
+# Resultados
 
+# Requisitos atendidos
+
+<ul>
+<li>interliga até 32 unidades de sensoriamento nodeMCU</li>
+<li>fazer requisições via comunicação serial (UART)</li>
+<li>obter respostas via comunicação serial (UART)</li>
+<li>apenas SBC inicia a comunicação E faz todas as requisições enviando comandos</li>
+<li>nodeMCU interpreta os comandos enviados pelo SBC</li>
+<li>comandos compostos por palavras de 8 bits</li>
+<li>solicitação de status da nodeMCU</li>
+<li>controle (acender ou apagar) LED embutido da nodeMCU</li>
+<li>solicitar medida de sensores</li>
+	<ul>
+		<li>valor do Sensor Analógico com máximo de precisão (10 bits)</li>
+	</ul>	
+<li>fazer monitoramento de sensores</li>
+	<ul>
+		<li>monitorar um sensor</li>
+		<li>monitorar todos os sensores</li>
+	</ul>
+<li>exibir requisições e respostas no display LCD</li>
+<li>mensagens de ERRO:</li>
+	<ul>
+		<li>se não obter qualquer resposta (TIMEOUT)</li>
+		<li>quando sensor analógico retorna valor maior que 1023 (erro de leitura do sensor)</li>
+	</ul>
+</ul>
+
+<!-- 
 ## Requisitos Atendidos
 
 <ul> 
@@ -691,6 +720,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
   <li>Comandos e respostas são exibidas no display LCD 16x2 </li>
 </ul>
 </ul>
+-->
 
 ## Conclusão
 
@@ -755,7 +785,7 @@ https://embarcados.com.br/conversor-a-d/
 
 https://www.electronics-tutorials.ws/combination/analogue-to-digital-converter.html
 
-https://guiarobotica.com/push-button-arduino/#:~:text=O%20Push%20button%20(bot%C3%A3o%20de,circuito%20apenas%20de%20modo%20moment%C3%A2neo.
+https://guiarobotica.com/push-button-arduino/#:~:text=O%20Push%20button%20(bot%C3%A3o%20de,circuito%20apenas%20de%20modo%20moment%C3%A2neo
 
 https://portal.vidadesilicio.com.br/lendo-um-potenciometro-com-o-esp8266-nodemcu/
 
