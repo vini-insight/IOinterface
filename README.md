@@ -604,6 +604,12 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 <p>Por exemplo: Serial.print(206, BIN) imprime "11001110" que é a representação binária de 206. No entanto cada um destes bits é enviado, um de cada vez, ou seja, para cada bit 1, é enviado a representação binária de oito bits que é '00000001', e para cada bit 0 é enviado a sua represntação binária de oito bits que é '00000000'. Isso quer dizer que se o valor tiver X bits, serão feitos X envios de 8 bits que representam cada bit enviado. </p>
 
+<p>Então no caso de valor máximo do ADC que é 1023, sua representação é '1111111111' logo, serão feitos 10 envios de com a representação binária de oito bits para cada bit enviado. o mesmo acontece se o valor for '1111' que é 15 em decimal, serão feitos quator envios com a representação binária de 8 bits para cada bit. Abaixo outros exemplos:</p>
+
+	se o valor for 42 (101010) serão feitos 6 envios de oito bits cada. 
+	se o valor for 13 (01101) serão feitos 5 envios de oito bits cada.
+	se o valor for 55 (0110111) serão feitos 7 envios de oito bits cada.
+
 # Funcionamento do Sistema de Sensoriamento
 
 # Fluxogramas
