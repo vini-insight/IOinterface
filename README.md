@@ -708,7 +708,7 @@ Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe 
 
 # Requisitos Não Atendidos
 
-<li>mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esperada, de que a mensagem foi recebida, não é a resposta esperada. Neste requisito temos um comportamento inconsistente</li>
+A mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esperada, de que a mensagem foi recebida, não é a resposta esperada. Neste requisito temos um comportamento inconsistente. Não tivemos tempo para analisar e tentar sanar este comportamento inconsistente.
 
 <!-- 
 ## Requisitos Atendidos
@@ -730,15 +730,9 @@ Além de adquirir os conhecimentos necessários, o principal obejtivo da equipe 
 </ul>
 -->
 
-## Conclusão
+# Conclusão
 
-<p> Desse modo, dos requisitos descritos pelo problemas, conseguimos implementar quase todos. Cumprindo uma boa porcentagem do do que foi solicitado.</p>
-
-<p> O protótipo não realiza a comunicação completa com as 32 NodeMCU (função de Broadcast), apesar de existir a opção no menu.</p>
-
-<p> Em suma, é uma melhoria possível de ser implementada em versões futuras.</p>
-
-
+<p>Analisando o tópico anterior de Resultados podemos ver que o saldo foi positivo neste projeto. Também aprendemos sobre as arquiteturas do SBC e do nodeMCU, como fazer comunicação serial e como implementar um Sistema Digital a partir da sugestão do problema apresentado, que gerencisse várias unidades de sensoriamento remotas. Este projeto pode ser melhorado por quem estiver disposto a seguir todos os passos descritos até aqui neste relatório. </p>
 
 # Desenvolvedores
 
