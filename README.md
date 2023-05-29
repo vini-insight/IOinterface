@@ -580,7 +580,7 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
 
 <div>
-<!-- 	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" > -->
+	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
 </div>
 
 ## Botões de Controle (push buttons)
@@ -588,7 +588,7 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
 
 <div>
-<!-- 	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" > -->
+	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
 </div>
 
 ## Ler Sensores (analógico ou digital)
@@ -597,7 +597,7 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 
 
 <div>
-<!-- 	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" > -->
+	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
 </div>
 
 ## Monitoramento
@@ -605,7 +605,7 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
 
 <div>
-<!-- 	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" > -->
+	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
 </div>
 
 
@@ -626,6 +626,43 @@ INSERIR CÓDIGOS DE COMANDOS AQUI
 <p></p>
 <p></p>
 <p></p>
+
+
+## Protocolo:
+
+<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente.</p>
+
+<p>Utilizamos o protocolo Universal Asynchronous Receiver/Transmitter (UART) para realizar essa comunicação. Seu funcionamento se dá de forma serial, ou seja, utiliza fios para conectar o transmissor e o receptor. </p>
+
+<p>Tanto os comandos quanto as respostas são compostos por palavras de 8 bits.</p>
+
+# Resultados e Conclusões
+
+## Requisitos Atendidos
+
+<ul> 
+<li> Solução foi desenvolvida em linguagem C </li>
+<li> Contém o Script de compilação do tipo Makefile para criação do executavel </li>
+<li>Para o SBC
+<ul> 
+  <li>Apenas o SBC é capaz de iniciar a comunicação </li>
+</ul>
+<li>Para a NodeMCU
+<ul> 
+  <li>A leitura dos sensores tem a maior precisão possível </li>
+  <li>Os comandos são compostos por palavras de 1 byte (8 bits) </li>
+  <li>As requisições podem ser direcionadas para uma unidade ou todas </li>
+  <li>Comandos e respostas são exibidas no display LCD 16x2 </li>
+</ul>
+</ul>
+
+## Conclusão
+
+<p> Desse modo, dos requisitos descritos pelo problemas, conseguimos implementar quase todos. Cumprindo uma boa porcentagem do do que foi solicitado.</p>
+
+<p> O protótipo não realiza a comunicação completa com as 32 NodeMCU (função de Broadcast), apesar de existir a opção no menu.</p>
+
+<p> Em suma, é uma melhoria possível de ser implementada em versões futuras.</p>
 
 
 
@@ -666,7 +703,7 @@ https://en.wikipedia.org/wiki/Serial_communication
 
 https://edu.ieee.org/br-ufcgras/o-que-e-um-microcontrolador/
 
-https://victorvision.com.br/blog/o-que-e-um-microcontolador/#:~:text=Para%20te%20introduzir%20no%20assunto,o%20poder%20de%20serem%20programados.
+https://victorvision.com.br/blog/o-que-e-um-microcontolador/#:~:text=Para%20te%20introduzir%20no%20assunto,o%20poder%20de%20serem%20programados
 
 https://en.wikipedia.org/wiki/Microcontroller
 
