@@ -44,6 +44,28 @@ IOinterface
 
 # Ambiente de Desenvolvimento
 
+Neste projeto existem vários ambientes de desenvolvimento e execução. Parte na Orange Pi e parte no módulo nodeMCU. Do lado da Orange Pi foi necessário fazer acesso remoto via protoclo SSH, e, do lado da nodeMCU os códigos eram baixados via WIFI usando o módulo ESP8266 integrado a nodeMCU. A edição dos códigos eram feitas usando editores de texto nativos nos computadores do laboratório, ou IDEs que foram instaladas, ou cujo acesso está disponível online (via navegador de intenet).
+
+## Computadores do Laboratório
+
+Também utilizamos o Sublime Text (https://www.sublimetext.com/), e o TextEditor (https://apps.gnome.org/pt-BR/app/org.gnome.TextEditor/) presente nos computadores do laboratório. Mas poderiam ser usados qualquer outro editor de texto ou IDE.
+
+## Orange Pi
+
+A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www.nano-editor.org/) acessado diretamente via terminal de comando da Orange Pi.
+
+## Módulo nodeMCU
+
+	falar sobre IDE arduido
+
+## Outras Ferramentas e Instrumentos
+
+Foi utilizado um Multímetro para verificar a continuidade da alguns contatos e confirmar informações do mapeamento dos pinos da Orange Pi e também do módulo nodeMCU conectados aos demais componentes eletrônicos do protótipo. Também é possível usar um Osciloscópio para capturar algum sinal dentro do protótipo.
+
+## Testes
+
+Para testes foi utilizado o GDB online (https://www.onlinegdb.com/online_c_compiler).
+
 ## SSH
 
 <img src="/images/SSH.png" alt="img" align="center">
@@ -103,6 +125,29 @@ IOinterface
 <img src="/images/esquematico.jpg" alt="img" >
 
 <p>Prototipação feita antes da montagem dos componentes.</p>
+
+
+# Arquitetura ARM
+
+ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acrônimo de Reduced Instruction Set Computer, ou Computador com um conjunto reduzido de instruções. O que mostra que a arquitetura ARM foi inspirado no RISC, onde o objetivo era desenvolver um hardware simples e também um conjunto pequeno de instruções que garanta tamanho reduzido, velocidade e eficiência no consumo de potência.
+
+# Processador ARM
+
+<div>
+	<img src="/images/allwinnerH3.jpg" alt="img" style="height: 20%; width: 20%;" align="left"> 
+
+    Alguns detalhes e características do processador Allwinner H3:
+    - Quad-core Cortex-A7
+    - 1.6 GHz
+    - arquitetura ARM v7
+    - Representação em 32 bits
+    - 16 registradores:
+           - r0 até r12: são de uso geral
+           - r13: Stack Pointer (SP)
+           - r14: Link Register (LR)
+           - r15: Program Counter (PC)
+
+</div>
 
 # Orange Pi PC Plus
 
@@ -259,28 +304,6 @@ IOinterface
 <p>Como dito, o próprio LCD consiste em um IC de interface. O MCU pode ler ou gravar neste IC de interface. Na maioria das vezes estaremos apenas escrevendo para o IC, pois a leitura o tornará mais complexo e tais cenários são muito raros. Informações como posição do cursor, interrupções de conclusão de status etc.</p>
 
 <p> Mais detalhes de como usar e operar o Display LCD 16x2 podem ser consultados no seu datasheet https://github.com/vini-insight/Assembly1/tree/main/Datasheets</p>
-
-<!-- # Arquitetura ARM
-
-ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acrônimo de Reduced Instruction Set Computer, ou Computador com um conjunto reduzido de instruções. O que mostra que a arquitetura ARM foi inspirado no RISC, onde o objetivo era desenvolver um hardware simples e também um conjunto pequeno de instruções que garanta tamanho reduzido, velocidade e eficiência no consumo de potência.
-
-# Processador ARM
-
-<div>
-	<img src="" alt="img" style="height: 20%; width: 20%;" align="left">
-
-    Alguns detalhes e características do processador Allwinner H3:
-    - Quad-core Cortex-A7
-    - 1.6 GHz
-    - arquitetura ARM v7
-    - Representação em 32 bits
-    - 16 registradores:
-           - r0 até r12: são de uso geral
-           - r13: Stack Pointer (SP)
-           - r14: Link Register (LR)
-           - r15: Program Counter (PC)
-
-</div> -->
 
 # Microcontrolador
 
