@@ -500,7 +500,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 # Protocolo:
 
-<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente. Tanto os comandos quanto as respostas são compostos por palavras de 8 bits. Existem códigos para identificar cada unidade de sensoriamento (nodeMCU) e também para cada Sensor, além de códigos para identificar ações específicas, como respostas sobre status de funcionamento da unidade de sensoriamento ou de enviar mensagem para todas as unidades ou fazer monitoramento. </p>
+<p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente. Tanto os comandos quanto as respostas são compostos por palavras de 8 bits. Existem códigos para identificar cada unidade de sensoriamento (nodeMCU) e também para cada Sensor, além de códigos para identificar ações específicas, como respostas sobre status de funcionamento da unidade de sensoriamento ou de enviar mensagem para todas as unidades ou fazer monitoramento. Os códigos variam de '0b00000000' até '0b00111111'. Porém não usamos todos os valores nesta faixa. Cada código se incia com '0b' pois esta é uma representação em binário usando linguagem C.</p>
 
 ## Códigos de para identificar módulos nodeMCU
 
@@ -610,7 +610,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 	se o valor for 13 (01101) serão feitos 5 envios de oito bits cada.
 	se o valor for 55 (0110111) serão feitos 7 envios de oito bits cada.
 
-<p>O SBC por sua vez deve receber cada um destes envios (respostas) e converte-los para binário correspondente integral. De posse deste valor o SBC deve converter para valor final em decimal.</p>
+<p>O SBC por sua vez deve receber cada um destes envios (respostas) e converte-los para o binário correspondente integral. De posse deste valor o SBC deve fazer outra conversão para valor final em decimal.</p>
 
 # Funcionamento do Sistema de Sensoriamento
 
