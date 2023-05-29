@@ -73,15 +73,15 @@ void readKey()
 int digitalRead(char b)
 {
   // sleep(1);
-  if(b == selectButton && (key == 87 || key == 119)) // W
+  if(b == selectButton && (key == 87 || key == 119)) // W or w
   {
     return 0;
   }
-  else if(b == addButton && (key == 68 || key == 100)) // D
+  else if(b == addButton && (key == 68 || key == 100)) // D or d
   {
     return 0;
   }
-  else if(b == subButton && (key == 65 || key == 97)) // A
+  else if(b == subButton && (key == 65 || key == 97)) // A or a
   {
     return 0;
   }
