@@ -58,13 +58,13 @@ A o código foi desenvolvido utilizando de editor de texto GNU Nano (https://www
 	chmod +x p
 	sudo ./p
 
-Na primeira linha o comando faz compilação do código fonte se não for encontrado nenhum erro. Na segunda linha o comando altera as permissões do arquivo no Sistema Operacional. Na terceira linha o comando faz execução do programa usando permissões do super usuário. Estas permissões são necessárias para acessar pinos GPIO.
+Na primeira linha o comando faz compilação do código fonte se não for encontrado nenhum erro. Na segunda linha o comando altera as permissões do arquivo no Sistema Operacional. Na terceira linha o comando faz execução do programa usando permissões do super usuário. Estas permissões são necessárias para acessar pinos GPIO. Os códigos do projeto para Orange Pi usam Linguagem C.
 
 ## Módulo nodeMCU
 
 Os códigos de programa da nodeMCU eram feitos usando o Arduino IDE (https://docs.arduino.cc/software/ide-v1/tutorials/Environment). Antes de tudo é necessário baixar e instalar os pacotes necessários para que a IDE reconheça o módulo. Existem alguns tutorias disponíveis na internet que ensinam como configurar nodeMCU e ESP8266.
 
-No código é necessário inserir o IP e nome da rede que o módulo está conectado. Também é preciso checar se está selecionada a placa correta e se a porta serial (com identificação do IP correto está selecionada). Depois disso, basta compilar e descarregar o código.
+No código é necessário inserir o IP e nome da rede que o módulo está conectado. Também é preciso checar se está selecionada a placa correta e se a porta serial (com identificação do IP correto está selecionada). Depois disso, basta compilar e descarregar o código. Os códigos do projeto para nodeMCU usam Linguagem C++.
 
 ## Outras Ferramentas e Instrumentos
 
