@@ -212,7 +212,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <div>
 	<img src="/images/mapeamentoGPIOpi2.jpg" alt="img" >
-	<p>Esta seção apresenta o mapeamento dos pinos GPIO com as conexões do display (LCD 16x2) e botões (push buttons) utilizados no projeto. O mapeamento é essencial para garantir a correta comunicação entre o Orange PI e os demais componentes, possibilitando funcionamento das interfaces de usuário.</p>
+	<p>Esta seção apresenta o mapeamento dos pinos GPIO com as conexões do display LCD 16x2, DIP Switch (interruptor liga/desliga) e push buttons (botões) utilizados no projeto. O mapeamento é essencial para garantir a correta comunicação entre o Orange PI e os demais componentes, possibilitando funcionamento das interfaces de usuário.</p>
 </div>
 
 # Comando "gpio readall"
