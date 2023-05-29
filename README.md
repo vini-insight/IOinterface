@@ -246,12 +246,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <div>
 	<img src="/images/GPIOtoDIP-SWITCHsandBUTTONS subtitles.jpg" alt="img" >
-	<p>O mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões são configurados como Entrada. Os botões quando pressionados indicam Anterior, Confirma e Próximo nas opções do menu que aparecem no Display LCD 16x2. </p>
-	
-	<p>O mapeamento entre a GPIO e os pinos que se conectam aos botões (push buttons) e aos LEDs (vermelhor e azul) que pode ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões estão configurados como Entrada e os que estão conectados aos LEDs podem ser configurados como pinos de Saída. No entanto, para este projeto optamos por não utilizar os LEDs disponívels nesta interface com a Orange Pi. O único LED que utilizamos está embutido no módulo da nodeMCU e será explicado posteriormente neste texto. Os botões quando pressionados servem para movimentar nas opções no menu que aparecem no Display LCD 16x2</p>
-	
-<!-- 	<p>Quando a contagem é iniciada, o LED vermelho está desligado. Permanece desligado até o fim da contagem. Nesse momento é ligado durante apenas um segundo e depois é desligado. O LED azul é ligado quando a contagem começa e desliga quando a contagem termina.</p> -->
-	
+	<p>O mapeamento entre a GPIO e os pinos que se conectam aos Push Buttons (botões) e ao DIP Switch (interruptor liga/desliga) podem ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões e também ao interuptor liga/desliga estão configurados como Entrada. No entanto, para este projeto optamos por não utilizar os LEDs (vermelhor e azul) disponívels nesta interface com a Orange Pi. o verlmelhor esta conectado com o pino PA8 e o azul com o pino PA9. O único LED que utilizamos está embutido no módulo da nodeMCU e será explicado posteriormente neste texto. Os botões quando pressionados servem para movimentar nas opções no menu que aparecem no Display LCD 16x2</p>
 </div>
 
 # Interface GPIO da Orange Pi com o Display LCD 16x2
