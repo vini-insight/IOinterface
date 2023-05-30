@@ -132,6 +132,15 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 <p>
 	<img src="/images/cHW.jpg" alt="img" align="left" >
 	C não deve ser confundida com C++ (Cplusplus), C# (Csharp), ou, Objective-C que são outras liguagens de programação. A diferença mais importante entre elas é a abordagem de programação que cada uma usa, em outras palavras, o seu paradigma de programação. C++, C# e Objective-C são orientadas a Objetos e seu programas são divididos em conjunto de Classes que instanciam os Objetos. C é uma linguagem orientada a procedimentos e sua ênfase está nas funções. Os programas são divididos em um conjunto de funções. Ao lado um exemplo de código em C.</p>
+	
+# Linguagem C++
+
+<p>
+	<img src="/images/Cplusplus.jpg" alt="img" align="left" >
+	C++ é uma linguagem de programação orientada a objetos que dá uma estrutura clara aos programas e permite que o código seja reutilizado, diminuindo os custos de desenvolvimento. Ela pode ser usada para criar aplicativos de alto desempenho e sistemas embarcados. Foi desenvolvido por Bjarne Stroustrup , como uma extensão da linguagem C. Ela oferece aos programadores um alto nível de controle sobre os recursos e a memória do sistema além de interfaces gráficas do usuário.
+</p>
+
+<p>Os códigos do projeto para Orange Pi usam Linguagem C. Os códigos do projeto para nodeMCU usam Linguagem C++. Ao lado um exemplo de código em C++</p>
 
 # Funcionamento do Sistema de Sensoriamento
 
