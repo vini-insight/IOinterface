@@ -44,7 +44,7 @@ Neste projeto existem vários ambientes de desenvolvimento e execução. Parte n
 
 ## Wiring Pi
 
-WiringPi é uma biblioteca de acesso GPIO baseada em PIN escrita em C para os dispositivos como Orange Pi. Ele é projetado para uso com linguagem C e para ser familiar para as pessoas que usaram o sistema de fiação do Arduino. O WiringPi é desenvolvido diretamente em um Raspberry Pi executando Raspbian de 32 bits. O WiringPi para fornecer acesso fácil a alguns periféricos populares como displays de LCD baseados nos chips Hitachi HD44780U, interfaces seriais de comunicação e gerenciamento de pinos GPIO (ler e escrever dados nos pinos). Mais informações em http://wiringpi.com/
+WiringPi é uma biblioteca escrita em linguagem C para os dispositivos como Orange Pi Ou Raspberry Pi para ser familiar para as pessoas que usaram o sistema de fiação do Arduino. Pode fácilmente ser incluída em projetos que usam linguagem C. Ela gerencia e fornece acesso aos pinos GPIO, ou seja, ler e escrever dados nos pinos, além de fornecer acesso fácil a alguns periféricos populares como displays de LCD baseados nos chips Hitachi HD44780U e também as interfaces seriais de comunicação. Mais informações em http://wiringpi.com/ .
 
 ## Computadores do Laboratório
 
@@ -134,6 +134,8 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 	C não deve ser confundida com C++ (Cplusplus), C# (Csharp), ou, Objective-C que são outras liguagens de programação. A diferença mais importante entre elas é a abordagem de programação que cada uma usa, em outras palavras, o seu paradigma de programação. C++, C# e Objective-C são orientadas a Objetos e seu programas são divididos em conjunto de Classes que instanciam os Objetos. C é uma linguagem orientada a procedimentos e sua ênfase está nas funções. Os programas são divididos em um conjunto de funções. Ao lado um exemplo de código em C.</p>
 
 # Funcionamento do Sistema de Sensoriamento
+
+O usuário pode ligar e desligar o sistema a qualquer momento movimentando a quarta chave de um interruptor liga e desliga. Quando desligado nada é exibido no display de LCD. Quando ligado as opções de um Menu são exibidas. O usuário pode navegar para frente e para trás entre as opções que aparecem na segunda linha do display LCD usando os botões do protótipo.
 
 # Fluxogramas
 
