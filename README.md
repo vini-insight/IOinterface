@@ -3,10 +3,6 @@ IOinterface
  -->
  # Interface de E/S - Problema #2 – 2023.1
 
-# Vídeo Demonstrativo
-
-<p>inserir viídeo aqui.</p>
-
 # Contexto
 
 Nos foi sugerido criar o Sistema Digital baseado arquiterura ARM (SBC Orange Pi) que se comunica de forma serial com Microcontrolador (nodeMCU) para gerenciar diversas unidades de sensoriamento remotas.
@@ -741,6 +737,12 @@ Executamos os mesmos testes feitos para cada sensor individualmente.
 ## enviar mensagem para todos (BROADCAST)
 
 Neste item simulamos via código como se existissem mais de uma nodeMCU concetada, no entanto algumas vezes obtivemos respostas incoerentes. Este foi o único teste que falhou.
+
+# Vídeo Demonstrativo
+
+https://github.com/vini-insight/IOinterface/assets/7541966/53370b7c-20af-48bf-aba9-2e53074c07bf
+
+<!-- <p>inserir viídeo aqui.</p> -->
 
 # Conclusão
 
