@@ -145,12 +145,15 @@ Primeiro o usuário deve escolher entre enviar uma mensagem de BROADCAST ou sele
 
 Depois de escolhida a unidade de sensoriamento, outro Menu é apresentado com várias opções de sensores, de monitoramento, manipular o LED embutido da unidade e de voltar ao menu anterior. É necessário ressaltar que este Menu só é exibido se a unidade de sensoriamento responder que está com status 'OK'. Esta requisição é feita no momento que é confirmada a escolha da unidade. Se a unidade não respónder qual o seu status de funcionamento, as opções do Menu dedicadas aquela unidade não serão exibidas e no lugar uma mensagem de erro (TIMEOUT) será exibida no diplay.
 
-# Requisições e Respostas
+## Requisições e Respostas
 
-Navegando no Menu 2, so for escolhido fazer a leitura do sensor, a resposta e seu valor será exibida no LCD. No caso do sensor Analógico, serão exibidos dois valores: o primeiro o valor medido do Conversor Analógico Digital e o segundo valor é a conversão da medida ADC em Tensão medida em Volts.
+Navegando no Menu 2, so for escolhido fazer a leitura do sensor, a resposta e seu valor será exibida no LCD. O mesmo vale para ligar e desligar o LED embutido na unidade de sensoriamento. No caso do sensor Analógico, serão exibidos dois valores: o primeiro o valor medido do Conversor Analógico Digital (ADC) e o segundo valor é a conversão da medida ADC em Tensão elétrica medida em Volts. Para voltar basta pressionar e soltar o botão OK.
 
+Caso seja escolhida uma das opções de monitoramento de sensores individuais, o LCD ficará exibindo o valor do sensor monitorado até que o botão OK seja pressionado por 1 ou 2 segundos e depois solto, para retornar o menu anterior. Caso seja escolhida o monitoramento de todos os sensores, seus valores serão exibidos no LCD durante 2 segundos, um por um, ma seguinte ordem: Analógico, Digital 1, Digital 2, depois retorna para Analógico, Digital 1, Digital 2. Ficará assim até que o botão OK seja pressionado por 1 ou 2 segundos e depois solto, para retornar o menu anterior.
 
+Os sensores digitais respondem com apenas 2 valores (0 ou 1), mas o Sensor Analógico responde com uma faixa de 1024 valores, começando em 0 (zero) e variando até o máximo 1023. Para visualisar estas alterações basta girar o Potenciômetro para direita ou para a esquerda.
 
+Algumas mensagems de erro podem ser exibidas no LCD como por exemplo se algum sensor não responder, ou se o valor estiver fora da faixa padrão.
 
 # Fluxogramas
 
