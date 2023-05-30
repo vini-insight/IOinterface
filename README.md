@@ -86,7 +86,7 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 
 ## SSH
 
-<img src="/images/SSH.png" alt="img" align="center">
+<img src="/images/SSH.png" alt="img" align="center" style="height: 125%; width: 125%;"> 
 
 <p>SSH é a sigla para Secure Socket Shell. Em tradução livre, significa “Concha de Segurança”, mas pode ser adaptado para o termo “Bloqueio de Segurança”. Sendo um dos protocolos específicos de segurança de troca de arquivos entre cliente e servidor de internet, usando criptografia. O objetivo do SSH é permitir que desenvolvedores ou outros usuários realizem alterações em sites e servidores utilizando uma conexão simples e segura.</p>
 <p>Para para abrir conexões desse tipo utilizado o protocolo SSH, o sistema operacional deve ter um clienteSSH de forma nativa ou pode ser instalado. No Linux bastar abrir o Terminal e digitar comando SSH que consiste em 3 partes distintas:</p>
@@ -96,7 +96,7 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 <p>O comando SSH instrui o sistema que deseja abrir uma Conexão de Shell segura criptografada. O {User} representa a conta à qual você deseja acessar. Por exemplo, você pode querer acessar o usuário raiz, que é basicamente sinônimo, para o administrador do sistema, com direitos completos para modificar qualquer coisa no sistema. O {host} refere-se ao computador ao qual você deseja acessar. Este pode ser um endereço IP (por exemplo, 244.235.23.19) ou, um nome de domínio (por exemplo, www.xyzdomain.com).</p>
 <p>Quando você pressionar enter, você será solicitado a inserir a senha da conta solicitada. Quando você digitou, nada aparecerá na tela, mas sua senha é, de fato, transmitida. Depois de terminar de digitar, pressione enter mais uma vez. Se sua senha estiver correta, você será saudado com uma janela de terminal remota como na imagem abaixo: </p>
 
-<img src="/images/TERMINAL.png" alt="img" align="center">
+<img src="/images/TERMINAL.png" alt="img" align="center" style="height: 125%; width: 125%;">
 
 ## Principais comandos utilizados no terminal
 
@@ -298,7 +298,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <p>O modo de 8 bits é mais rápido e sem falhas do que o modo de 4 bits. Mas a principal desvantagem é que ele precisa de 8 linhas de dados conectadas ao microcontrolador. Isso fará com que fiquemos sem pinos de E/S em nosso MCU, então o modo de 4 bits é amplamente usado. Nenhum pino de controle é usado para definir esses modos. É apenas a maneira de programar essa mudança.</p>
 
-<img src="/images/howTOuseLCD16x2.jpg" alt="img" >
+<img src="/images/howTOuseLCD16x2.jpg" alt="img" style="height: 125%; width: 125%;">
 
 <p>Modo de leitura e gravação do LCD:</p>
 
@@ -324,19 +324,19 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <p>Uma das principais características da placa NodeMCU é ter integrado o módulo ESP8266 para realizar a conexão com a rede Wifi, dando a possibilidade de conectar qualquer dispositivo microcontrolado à rede de internet. Além de uma boa capacidade de processamento, e a conexão com uma rede Wifi, possibilitando conectar diversos dispositivos à Internet atendendo assim uma gama enorme de aplicações, tais como automação residencial, monitoramento remoto, rede de sensores, controle industrial sem fio, entre muitas outras.
 <br></br>
-<img src="/images/nodeMCUesp8266.png" alt="img" align="center" >
+<img src="/images/nodeMCUesp8266.png" alt="img" align="center" style="height: 125%; width: 125%;"> 
 </p>
 
 ## Diagrama de Pinagem do Módulo
 
 <p>Utilizamos os pinos A0 (ADC) conectado ao potenciômetro, D0, D1 (GPIO) conectados aos botões.
 <br></br>
-<img src="/images/nodeMCUesp8266pinout.png" alt="img" align="center" >
+<img src="/images/nodeMCUesp8266pinout.png" alt="img" align="center" style="height: 125%; width: 125%;">
 </p>
 
 # Interfaceamento de Pinos do módulo nodeMCU com Potenciômetro e botões.
 
-<img src="/images/NODEsubtitles.jpg" alt="img" align="center" >
+<img src="/images/NODEsubtitles.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
 
 <p>Essa é a visão detalhada das conexões do Potenciômetro e botões com a nodeMCU.</p>
 
@@ -366,7 +366,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 
 <p>Um Conversor Analógico Digital transforma um sinal analógico, contínuo no tempo, num sinal amostrado, discreto no tempo, quantizado dentro de um número finito de valores inteiros, determinado pela resolução característica do conversor em bits (8, 10, 12, 16, entre outros). Por exemplo, num conversor de 8 bits, o sinal de entrada é transformado em amostras com os valores entre 0 e 255. Na figura abaixo temos um sinal analógico (onda senoide) se transformando em um sinal digital (onda quadrada).</p>
 
-<img src="/images/ADCgraph.jpg" alt="img" align="center">
+<img src="/images/ADCgraph.jpg" alt="img" align="center" style="height: 125%; width: 125%;">
 
 <p>O módulo ESP8266 NodeMCU possui um ADC e também um pino (A0 porta de entrada analógica) destinado a lidar com a leitura de um sinal Analógico, ou seja, um pino cuja função é receber níveis de tensão e em seguida traduzir os mesmos em uma linguagem adequada para que possamos manipulá-los. Este processo ocorre da seguinte maneira: o NodeMCU que estamos utilizando suporta sinais de tensão entre 0 e 3,3V em suas entradas, portanto, caso nós coloquemos um sinal de tensão de 0 volts na porta de entrada analógica A0, o nosso módulo irá associar esta informação ao número 0 (zero). Em contrapartida, caso o sinal em questão tenha magnitude de 3,3V, o NodeMCU irá referenciar este valor ao número 1023. Se a tensão estiver em qualquer valor intermediário, tera um valor proporcional dentro das 1014 divisões que é a pricisão máxima de leitura com 10 bits.</p>
 
