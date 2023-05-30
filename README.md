@@ -715,7 +715,7 @@ A mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esp
 
 # Conclusão
 
-<p>Analisando o tópico anterior de Resultados podemos ver que o saldo foi positivo neste projeto. Aprendemos sobre as arquiteturas do SBC e do nodeMCU, como fazer comunicação serial e como implementar um Sistema Digital a partir da sugestão apresentada (gerenciar várias unidades de sensoriamento remotas). Este projeto pode ser incrementado e melhorado por quem estiver disposto a seguir todos os passos descritos até aqui neste relatório. </p>
+<p>Analisando o tópico anterior de Resultados podemos ver que o saldo foi positivo neste projeto. Aprendemos sobre a arquitetura ARM do SBC (Orange Pi) e tambpem sobre a arquitetura do microcontrolador nodeMCU, como fazer comunicação serial e como implementar um Sistema Digital a partir da sugestão apresentada (gerenciar várias unidades de sensoriamento remotas). Este projeto pode ser incrementado e melhorado por quem estiver disposto a seguir todos os passos descritos até aqui neste relatório. </p>
 
 # Desenvolvedores
 
