@@ -722,6 +722,26 @@ A mensagem de BROADCAST é enviada para todas as unidades, porém a resposta esp
 </ul>
 -->
 
+# Testes
+
+Abaixo serão descritos alguns testes que fizemos no protótipo desenvolvido para garantir que teremos respostas coerentes. Como se trata de um sistema remoto e de comunicação serial. Alguns testes demoram pelo menos 10 segundos para ser exibido na tela o resultado. Esse é o tempo que as chamadas das funções seriais da biblioteca Wiring Pi aguardam uma resposta na interface serial. Quando não recebe nada ela finaliza a execução e retorna um código de erro.
+
+## status da nodeMCU
+
+Se nodeMCU estiver conectada ela responde com um código de 'status OK' e podemos acessar o Menu 2. Se não obter resposta exibe mensagem de erro “TIMEOUT” e não permite fazer leitura de nenhum sensor e nem controlar LED embutido. No código está configurado apenas para a nodeMCU de número 1 responder. Tentamos conectar em outras e sempre recebemos mensagem de TIMIOUT e não conseguimos acessar o Menu 2.
+
+## requisitar medida de Sensor
+
+Se o sensor estiver conectado ele retorna o valor da medida. Se não obter resposta exibe mensagem de erro “TIMEOUT”. Quando sensor analógico retorna valor maior que 1023 exibimos a mensagem "erro de leitura do sensor".
+
+## Monitoramento
+
+Executamos os mesmos testes feitos para cada sensor individualmente.
+
+## enviar mensagem para todos (BROADCAST)
+
+Neste item simulamos via código como se existissem mais de uma nodeMCU concetada, no entanto algumas vezes obtivemos respostas incoerentes. Este foi o único teste que falhou.
+
 # Conclusão
 
 <p>Analisando o tópico anterior de Resultados podemos ver que o saldo foi positivo neste projeto. Aprendemos sobre a arquitetura ARM do SBC (Orange Pi) e tambpem sobre a arquitetura do microcontrolador nodeMCU, como fazer comunicação serial e como implementar um Sistema Digital a partir da sugestão apresentada (gerenciar várias unidades de sensoriamento remotas). Este projeto pode ser incrementado e melhorado por quem estiver disposto a seguir todos os passos descritos até aqui neste relatório. </p>
