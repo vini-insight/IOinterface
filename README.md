@@ -282,7 +282,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 # Mapeamento dos pinos GPIO
 
 <div>
-	<img src="/images/mapeamentoGPIOpi2.jpg" alt="img" >
+	<img src="/images/mapeamentoGPIOpi2DL.jpg" alt="img" >
 	<p>Esta seção apresenta o mapeamento dos pinos GPIO com as conexões do display LCD 16x2, DIP Switch (interruptor liga/desliga), push buttons (botões) utilizados no projeto e também da interface Serial para os pino Tx e Rx do protocolo UART. Acoplados ao protótipo também temos dois LEDs, um de cor vermelho conectado ao pino PA8 e outro na cor azul conectado ao pino PA9. No entanto, para nossa implementação deste projeto não vamos utiliza-los. O mapeamento é essencial para garantir a correta comunicação entre o Orange PI e os demais componentes, possibilitando funcionamento das interfaces de usuário. A partir do mapeamento podemos saber qual a identificação do pino e defini-la no código fonte do projeto.</p>
 </div>
 
@@ -311,7 +311,7 @@ ARM significa Advanced RISC Machines, ou Máquinas RISC Avançadas. RISC é acr�
 # Interface GPIO da Orange Pi com o Botões e DIP Switch
 
 <div>
-	<img src="/images/GPIOtoDIP-SWITCHsandBUTTONS subtitles.jpg" alt="img" >
+	<img src="/images/GPIOtoDIP-SWITCHsandBUTTONSsubtitlesDL.jpg" alt="img" >
 	<p>O mapeamento entre a GPIO e os pinos que se conectam aos Push Buttons (botões) e ao DIP Switch (interruptor liga/desliga) podem ser visto em detalhes na imagem acima. Os pinos GPIO conectados aos botões e também ao interuptor liga/desliga estão configurados como Entrada. No entanto, para este projeto optamos por não utilizar os LEDs (vermelhor e azul) disponívels nesta interface com a Orange Pi. o verlmelhor esta conectado com o pino PA8 e o azul com o pino PA9. O único LED que utilizamos está embutido no módulo da nodeMCU e será explicado posteriormente neste texto. Os botões quando pressionados servem para movimentar nas opções no menu que aparecem no Display LCD 16x2</p>
 </div>
 
