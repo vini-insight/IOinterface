@@ -135,7 +135,22 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 
 # Funcionamento do Sistema de Sensoriamento
 
-O usuário pode ligar e desligar o sistema a qualquer momento movimentando a quarta chave de um interruptor liga e desliga. Quando desligado nada é exibido no display de LCD. Quando ligado as opções de um Menu são exibidas. O usuário pode navegar para frente e para trás entre as opções que aparecem na segunda linha do display LCD usando os botões do protótipo.
+O usuário pode ligar e desligar o sistema a qualquer momento movimentando a quarta chave de um interruptor liga e desliga. Quando desligado nada é exibido no display de LCD. Quando ligado as opções de um Menu são exibidas. O usuário pode navegar para frente e para trás entre as opções que aparecem na segunda linha do display LCD usando os botões do protótipo. Tembém existe um botão para a confirmar escolhas, que é o mesmo para retornar ao menu depois de exibidas as respostas no display LCD. Para sair de qualquer mensagem ou resposta no LCD, basta pressionar (nos casos de leitura individual) ou manter pressionado (nos casos de monitoramento) o botão de OK.
+
+## Menu 1
+
+Primeiro o usuário deve escolher entre enviar uma mensagem de BROADCAST ou selecionar uma unidade de sensoriamento remota. Caso escolher BROADCAST, uma mensagem será enviada ao mesmo tempo a todas as unidades de sensoriamento e cada uma deverá responder com seu código de identificação, caso ela esteja acessível. No display LCD será exibido a quantidade de unidades que responderam. Caso escolha selecionar uma unidade de sensoriamento, o usuário entrará em outro Menu onde ele deve escolher qual das 32 unidades desponívels ele quer acessar.
+
+## Menu 2
+
+Depois de escolhida a unidade de sensoriamento, outro Menu é apresentado com várias opções de sensores, de monitoramento, manipular o LED embutido da unidade e de voltar ao menu anterior. É necessário ressaltar que este Menu só é exibido se a unidade de sensoriamento responder que está com status 'OK'. Esta requisição é feita no momento que é confirmada a escolha da unidade. Se a unidade não respónder qual o seu status de funcionamento, as opções do Menu dedicadas aquela unidade não serão exibidas e no lugar uma mensagem de erro (TIMEOUT) será exibida no diplay.
+
+# Requisições e Respostas
+
+Navegando no Menu 2, so for escolhido fazer a leitura do sensor, a resposta e seu valor será exibida no LCD. No caso do sensor Analógico, serão exibidos dois valores: o primeiro o valor medido do Conversor Analógico Digital e o segundo valor é a conversão da medida ADC em Tensão medida em Volts.
+
+
+
 
 # Fluxogramas
 
@@ -185,6 +200,7 @@ O usuário pode ligar e desligar o sistema a qualquer momento movimentando a qua
 
 <div>
 	<img src="/images/visãoGeralTimer.jpg" alt="img" >
+	<p> Está montagem está 100% funcional. Basta ligar na tomada e aguardar as placas inicializarem e se conectarem a rede para podermos acessar de forma remota e usar.</p>
 </div>
 
 # Arquitetura ARM
