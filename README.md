@@ -7,21 +7,18 @@ IOinterface
 
 <p>inserir viídeo aqui.</p>
 
-# Visão Geral do Protótipo
+# Contexto
 
-<div>
-	<img src="/images/visãoGeralTimer.jpg" alt="img" >
-</div>
-
-# Descrição do Projeto e Requisitos
-
-<p> O objetivo é desenvolver um software capaz de ler de sensores analógicos e digitais em um microcontrolador utilizando comunicação serial.</p>
-
-<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma <a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">NodeMCU</a> para a confecção das unidades de sensoriamento.</p>
+Nos foi sugerido criar o Sistema Digital baseado arquiterura ARM (SBC Orange Pi) que se comunica de forma serial com Microcontrolador (nodeMCU) para gerenciar diversas unidades de sensoriamento remotas.
 
 <p> O gerenciamento do sistema será comandado por um <a href="https://dl.linux-sunxi.org/H3/Allwinner_H3_Datasheet_V1.0.pdf">Single Board Computer SBC</a> e os valores das leituras serão mostrados no  <a href="https://www.sparkfun.com/datasheets/LCD/HD44780.pdf">display LCD 16x2</a></p>
 
-## Requisitos
+<p> O protótipo de sistema de sensoriamento genérico utiliza uma plataforma baseada em uma <a href="https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf">NodeMCU</a> para a confecção das unidades de sensoriamento.</p>
+
+<p> Se faz necessário criar um software capaz de enviar comandos via interface serial para ler de sensores analógicos e digitais em um microcontrolador que deve responder também via interface serial com os valores mensurados .</p>
+
+<!-- 
+# Requisitos
 
 <ul> 
 <li> Solução deve ser desenvolvida em linguagem C </li>
@@ -39,7 +36,8 @@ IOinterface
   <li>Comandos e respostas devem ser exibidas no display LCD 16x2 </li>
 </ul>
 </ul>
-
+ -->
+ 
 # Ambiente de Desenvolvimento
 
 Neste projeto existem vários ambientes de desenvolvimento e execução. Parte na Orange Pi e parte no módulo nodeMCU. Do lado da Orange Pi foi necessário fazer acesso remoto via protoclo SSH, e, do lado da nodeMCU os códigos eram carregados por Wi-Fi usando o módulo ESP8266 integrado a nodeMCU. A edição dos códigos foi feita usando editores de texto nativos nos computadores do laboratório, ou IDEs que foram instaladas, ou cujo acesso está disponível online (via navegador de intenet).
@@ -135,11 +133,57 @@ Usando essa estratégia da biblioteca personalizada conseguimos superar os imepd
 	<img src="/images/cHW.jpg" alt="img" align="left" >
 	C não deve ser confundida com C++ (Cplusplus), C# (Csharp), ou, Objective-C que são outras liguagens de programação. A diferença mais importante entre elas é a abordagem de programação que cada uma usa, em outras palavras, o seu paradigma de programação. C++, C# e Objective-C são orientadas a Objetos e seu programas são divididos em conjunto de Classes que instanciam os Objetos. C é uma linguagem orientada a procedimentos e sua ênfase está nas funções. Os programas são divididos em um conjunto de funções. Ao lado um exemplo de código em C.</p>
 
+# Funcionamento do Sistema de Sensoriamento
+
+# Fluxogramas
+
+<!-- ![Screenshot]() -->
+
+<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. O primeiro sobre ligar e desligar. O segundo sobre os controles. O terceiro sobre a leitura de sensores. O quarto a respeito do monitoramento de unidades de sensoriamento. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
+
+## Chave liga e desliga (DIP switch)
+
+<p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
+
+<div>
+	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
+</div>
+
+## Botões de Controle (push buttons)
+
+<p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
+
+<div>
+	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
+</div>
+
+## Ler Sensores (analógico ou digital)
+
+<p>Abaixo os detalhes de como são feitas as leituras dos sensores. Temos um Potênciômetro que fazer o papel do sensor analógico e dois push buttons que faz o papel dos sensores digitais.</p>
+
+<div>
+	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
+</div>
+
+## Monitoramento
+
+<p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
+
+<div>
+	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
+</div>
+
 # Esquemático do protótipo
 
 <img src="/images/esquematico.jpg" alt="img" >
 
 <p>Prototipação feita antes da montagem dos componentes.</p>
+
+# Visão Geral do Protótipo
+
+<div>
+	<img src="/images/visãoGeralTimer.jpg" alt="img" >
+</div>
 
 # Arquitetura ARM
 
@@ -478,7 +522,7 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 
 <p>Existe um fio conectando o pino PA13 da Orange Pi com o pino GPIO3 da nodeMCU, e, outro fio conectando o pino PA14 da Orange Pi com o pino GPIO1 da nodeMCU. Este esquema faz a comunicação serial via inteface UART onde todos as requisições e comandos são enviados pela Orange Pi. A nodeMCU recebe os comandos e responde as requisições.</p>
 
-# Protocolo:
+# Protocolo de Comunicação feito para o Sensoriameto Remoto
 
 <p>O protocolo de comunicação controla e possibilita que a conexão para comunicação ou transferencia de dados entre o SBC e a NodeMCU seja realizada de forma eficiente. Tanto os comandos quanto as respostas são compostos por palavras de 8 bits. Existem códigos para identificar cada unidade de sensoriamento (nodeMCU) e também para cada Sensor, além de códigos para identificar ações específicas, como respostas sobre status de funcionamento da unidade de sensoriamento ou de enviar mensagem para todas as unidades ou fazer monitoramento. Os códigos variam de '0b00000000' até '0b00111111'. Porém não usamos todos os valores nesta faixa. Cada código se incia com '0b' pois esta é uma representação em binário usando linguagem C.</p>
 
@@ -589,46 +633,6 @@ Na transmissão Serial existe apenas um único canal de comunicação no barrame
 	se o valor for 55 (0110111) serão feitos 7 envios de oito bits cada.
 
 <p>O SBC por sua vez deve receber cada um destes envios (respostas) e converte-los para o binário correspondente integral. De posse deste valor o SBC deve fazer outra conversão para valor final em decimal.</p>
-
-# Funcionamento do Sistema de Sensoriamento
-
-# Fluxogramas
-
-<!-- ![Screenshot]() -->
-
-<p>Abaixo seguem alguns fluxogramas que detalham o funcionamento do protótipo. O primeiro sobre ligar e desligar. O segundo sobre os controles. O terceiro sobre a leitura de sensores. O quarto a respeito do monitoramento de unidades de sensoriamento. https://app.diagrams.net/ (software utilizado para criar o fluxograma)</p>
-
-## Chave liga e desliga (DIP switch)
-
-<p>Os dois cliclos abaixo podem acontecer em qualquer moment durante a execução. Isso quer dizer que o protótipo pode ser desligado e ligado em qualquer momento. Temos um DIP switch de quatro chaves. Usamos a quarta para ligar e desligar o protótipo</p>
-
-<div>
-	<img src="/images/Flowchart-chave-DIP-ligaEdesliga.jpg" alt="img" >
-</div>
-
-## Botões de Controle (push buttons)
-
-<p>Para utilizar o protótipo, o usuário precisa apertar os botões disponíveis de acordo com a função desejada que é exibida no display de LCD. </p>
-
-<div>
-	<img src="/images/Flowchart-funcionamento-botões.jpg" alt="img" >
-</div>
-
-## Ler Sensores (analógico ou digital)
-
-<p>Abaixo os detalhes de como são feitas as leituras dos sensores. Temos um Potênciômetro que fazer o papel do sensor analógico e dois push buttons que faz o papel dos sensores digitais.</p>
-
-<div>
-	<img src="/images/Flowchart-ler-sensores.jpg" alt="img" >
-</div>
-
-## Monitoramento
-
-<p>O Monitoramento é feito da mesa forma que a leitura de qualquer sensor. A diferença é que na leitura o valor só é lido e exibido apenas uma vez. Para monitorar, a leitura é feita várias vezes e a exibição também. Podemos monitorar apenas um sensor ou todos os sensores. No caso de um único sensor os valores são exibidos na tela até que o usuárie pressine o botão ok. No caso de todos os sensores os valores são exibidos um de cada vez até que se pressione ok.</p>
-
-<div>
-	<img src="/images/Flowchart-monitorar-sensores.jpg" alt="img" >
-</div>
 
 # Resultados
 
